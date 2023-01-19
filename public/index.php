@@ -87,5 +87,11 @@
 </div>
 </div>
 
+<?php
+/*
+$datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/collaborators"), true);
+print_r ($datos);
+*/
+?>
 </body>
 </html>

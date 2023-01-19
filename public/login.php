@@ -37,7 +37,7 @@
             
             <div id="contenedorcentrado">
                 <div id="login">
-                    <form id="loginform" method="GET" action="./pages/collaborator/home.html">
+                    <form id="loginform" method="GET" action="./pages/collaborator/validate.login.php">
                         <img src="./img/logo.png"/>
                         <label for="usuario">Usuario</label>
                         <input id="usuario" type="text" name="usuario" placeholder="Usuario" required>
@@ -45,7 +45,7 @@
                         <label for="password">Contraseña</label>
                         <input id="password" type="password" placeholder="Contraseña" name="password" required>
                         
-                        <button type="submit" title="Ingresar" name="Ingresar">Iniciar Sesión</button>
+                        <button type="submit" title="Ingresar" name="ingresar">Iniciar Sesión</button>
                     </form>
                     
                 </div>

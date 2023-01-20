@@ -1,3 +1,15 @@
+<?php
+require_once "./pages/poo/clases.php";
+
+function exception_error_handler($errno, $errstr, $errfile, $errline)
+{
+    throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
+}
+
+set_error_handler("exception_error_handler");
+
+?>
+
 <!-- Define que el documento esta bajo el estandar de HTML 5 -->
 <!doctype html>
 
@@ -32,12 +44,49 @@
     </head>
     
     <body>
+
+    <?php
+
+
+
+$login = new login;
+
+if(isset($_GET['ingresar'])==1)
+{
+    $usuario = $_GET['usuario'];
+    $password = $_GET['password'];
+
+   /* echo ($usuario);
+    echo ("\n");
+    echo($password);
+    */
+   // $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/collaboratorNumberFind/$usuario/$password"), true);
+   // print_r ($datos);
+
+   try
+   { 
+    $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/collaboratorNumberFind/$usuario/$password"), true);
+   // echo ("acceso concedido");
+   $id = $datos["_id"];
+   ?>
+   <script> window.location="./pages/collaborator/home.php?_id=<?php echo$id?>"; </script>
+   
+     
+      <?php
+    }
+   catch(Exception $e){
+    $login -> alertFailed();
+   // echo ("acceso denegado");
+   }
+}
+
+?>     
     
         <div id="contenedor">
             
             <div id="contenedorcentrado">
                 <div id="login">
-                    <form id="loginform" method="GET" action="./pages/collaborator/validate.login.php">
+                    <form id="loginform" method="GET" action="./login.php">
                         <img src="./img/logo.png"/>
                         <label for="usuario">Usuario</label>
                         <input id="usuario" type="text" name="usuario" placeholder="Usuario" required>
@@ -62,6 +111,8 @@
                 </div>
             </div>
         </div>
+
+   
         
     </body>
 </html>

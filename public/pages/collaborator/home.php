@@ -1,3 +1,30 @@
+<?php
+
+function exception_error_handler($errno, $errstr, $errfile, $errline)
+{
+    throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
+}
+
+set_error_handler("exception_error_handler");
+
+
+
+
+if(empty($_GET['_id']))
+
+{
+  echo ("URL don´t exits");
+}
+else{
+  $id = $_GET['_id'];
+
+ try{
+
+ 
+
+$datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/collaboratorFind/$id"), true);
+//print_r ($datos);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +42,8 @@
 </head>
 <body>
     
+
+
     <ul class="nav nav-pills" style="padding: 10px;">
         
         <li class="nav-item">
@@ -56,20 +85,22 @@
     <div class="card mb-3" style="max-width: 540px;">
         <div class="row g-0">
           <div class="col-md-4">
+            <center>
             <a href="./profile.html">
-            <img src="../../img/profile.jpg" class="img-fluid rounded-start" alt="...">
+            <img src="<?php echo $datos["photo"]?>" class="img-fluid rounded-start" alt="...">
           </a>
+ </center>
           </div>
           <div class="col-md-8">
             <div class="card-body">
-              <h5 class="card-title">Nombre</h5>
+              <h5 class="card-title"><?php echo $datos["name"]?><?php echo(" ")?><?php echo $datos["lastname"]?></h5>
             <ul>
-              <li>Numero de Empleado</li>
-              <li>Proyecto</li>
-              <li>Fecha de Ingreso</li>
-              <li>Fecha de Nacimiento</li>
+              <li>Numero de empleado: <?php echo $datos["numero_empleado"]?></li>
+              <li>Proyecto: <?php echo $datos["project"]?></li>
+              <li>Fecha de ingreso: <?php echo $datos["date_of_register"]?></li>
+              <li>Fecha de nacimiento: <?php echo $datos["dateofbirthday"]?></li>
             </ul>
-              <p class="card-text"><small class="text-muted">Área</small></p>
+              <p class="card-text"><small class="text-muted">Área: <?php echo $datos["area"]?></small></p>
             </div>
           </div>
         </div>
@@ -77,3 +108,11 @@
     </div>
 </body>
 </html>
+<?php
+}
+
+   catch(Exception $e){
+    echo ("error");
+   } 
+}
+   ?>

@@ -1,11 +1,16 @@
 <?php
 
+require_once "../poo/clases.php";
+
 function exception_error_handler($errno, $errstr, $errfile, $errline)
 {
     throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
 }
 
 set_error_handler("exception_error_handler");
+
+
+$alert = new alertLogin;
 
 if(isset($_GET['ingresar'])==1)
 {
@@ -25,6 +30,7 @@ if(isset($_GET['ingresar'])==1)
     echo ("acceso concedido");
     }
    catch(Exception $e){
+    $alert -> failed();
     echo ("acceso denegado");
    }
 }

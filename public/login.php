@@ -67,12 +67,28 @@ if(isset($_GET['ingresar'])==1)
    { 
     $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/collaboratorNumberFind/$usuario/$password"), true);
    // echo ("acceso concedido");
-   $id = $datos["_id"];
-   ?>
-   <script> window.location="./pages/collaborator/home.php?_id=<?php echo$id?>"; </script>
+ 
+    $id = $datos["_id"];
+    $user_type = $datos["user_type"];
+
+    if($user_type == "collaborator")
+    {
+    ?>
+    <script> window.location="./pages/collaborator/home.php?_id=<?php echo$id?>"; </script>
+    
+      
+       <?php
+    }
+    elseif ($user_type == "administrator") {
+        ?>
+        <script> window.location="./pages/admin/home.php"; </script>
+        <?php
+    }
+  
    
-     
-      <?php
+   
+   
+ 
     }
    catch(Exception $e){
     $login -> alertFailed();

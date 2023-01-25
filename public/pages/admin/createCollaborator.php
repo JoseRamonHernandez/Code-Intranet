@@ -110,7 +110,7 @@ if(isset($_GET['guardar'])==1)
 <nav style="padding: 10px">
 <ul class="nav justify-content-end">
   <li class="nav-item">
-    <a href="./home.php">
+    <a href="./showCollaborators.html">
 <button type="button" class="btn btn-outline-dark" >Regresar</button>
 </a>
   </li>

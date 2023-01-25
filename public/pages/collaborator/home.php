@@ -87,7 +87,7 @@ $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co
           <div class="col-md-4">
             <center>
             <a href="./profile.html">
-            <img src="<?php echo $datos["photo"]?>" class="img-fluid rounded-start" alt="...">
+            <img src="<?php echo $datos["photo"]?>" class="img-fluid" alt="Responsive image">
           </a>
  </center>
           </div>

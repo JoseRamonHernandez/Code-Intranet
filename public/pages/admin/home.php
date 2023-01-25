@@ -17,7 +17,7 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Acciones</a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="./createCollaborator.php">Registrar nuevo Colaborador</a></li>
+            <li><a class="dropdown-item" href="./showCollaborators.html">Funciones para Colaborador</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="./createAdmin.php">Registrar nuevo Administrador</a></li>
             <li><hr class="dropdown-divider"></li>

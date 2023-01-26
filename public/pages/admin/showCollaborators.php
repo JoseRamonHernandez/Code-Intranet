@@ -33,18 +33,20 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Áreas</a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="./showCollaborators/costuras.php">COSTURAS</a></li>
+              <li><a class="dropdown-item" href="./showCollaborators.php?area=costuras">COSTURAS</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="./showCollaborators/ensamblado.php">ENSAMBLADO</a></li>
+              <li><a class="dropdown-item" href="./showCollaborators.php?area=ensamblado">ENSAMBLADO</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="./showCollaborators/espuma.php">ESPUMA</a></li>
+              <li><a class="dropdown-item" href="./showCollaborators.php?area=espuma">ESPUMA</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="./showCollaborators/sistemas.php">SISTEMAS </a></li>
+              <li><a class="dropdown-item" href="./showCollaborators.php?area=sistemas">SISTEMAS </a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="./showCollaborators/recursos humnos.php">RECURSOS HUMANOS </a></li>
+              <li><a class="dropdown-item" href="./showCollaborators.php?area=recursos_humanos">RECURSOS HUMANOS </a></li>
             </ul>
           </li>
           
+        
+
         </ul>
         <form class="form-inline my-4 my-lg-2">
           <input class="form-control mr-sm-2" type="text" placeholder="Buscar por numero de empleado" aria-label="Search">
@@ -52,11 +54,33 @@
         </form>
       </div>
     </nav>
-      <ul style="padding: 10%;">
-        <li>
-          <h4>Aquí se mostrarán a todos los usuarios registrados por área o a través de la busqueda por numero de empleado.</h4>
-        </li>
-      </ul>
+
+    <?php
+        if(empty($_GET['area']))
+
+        {
+          echo ('<ul style="padding: 10%;">
+          <li>
+            <h4>Aquí se mostrarán a todos los usuarios registrados por área o a través de la busqueda por numero de empleado.</h4>
+          </li>
+        </ul>');
+        }
+        else
+        {
+          $area = $_GET['area'];
+          echo $area;
+          $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/collaboratorArea/$area"), true);
+          /*print_r ($datos);*/
+          for($x=0; $x<count($datos); $x++)
+          {   
+            echo ("<br>");
+            echo ("Nombre: ".$datos[$x]['name']);
+          }
+          
+        }
+        ?>
+    
+      
       
   </body>
 </html>

@@ -147,7 +147,7 @@ if(isset($_GET['guardar'])==1)
       <label for="inputState">Área</label>
       <select id="inputState" name="area" class="form-control" required>
         <option selected  required>Choose...</option>
-        <option value="recursos humanos">Recursos Humanos</option>
+        <option value="recursos_humanos">Recursos Humanos</option>
         <option value="sistemas">Sistemas</option>
       </select>
     </div>

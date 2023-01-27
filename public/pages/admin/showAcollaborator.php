@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
-    <title>Show Collaborators</title>
+    <title>Show Collaborator</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
@@ -15,8 +15,7 @@
     
   </head>
   <body>
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand">Colaboradores</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -53,76 +52,41 @@
       </div>
     </nav>
 
-    <?php
-        if(empty($_GET['area']))
 
-        {
-          ?>
-          <br>
-          <center>
-          <div class="container">
-          <ul style="">
-          <li>
-            <h4>Aquí se mostrarán a todos los usuarios registrados por área o a través de la busqueda por numero de empleado.</h4>
-          </li>
-        </ul>
-        </div>
-        </center>
-        <br>
-          <?php
-        }
-        elseif(!empty($_GET['area']))
-        {
-          $area = $_GET['area'];
-        //  echo $area;
-          $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/collaboratorArea/$area"), true);
-          /*print_r ($datos);*/
-         echo ('<h2>Se muestran todos los Colaboradores del area '.$area.'</h2>'); 
-         ?>
-         <div class="container">
-         <table class="table">
-<thead>
-  <tr>
-    <th scope="col">Numero de Empleado</th>
-    <th scope="col">Nombre</th>
-    <th scope="col">Apellido</th>
-    <th scope="col">Proyecto</th>
-    <th scope="col">Correo</th>
-    <th scope="col">Numero de teléfono</th>
-    <th scope="col">Numero de teléfono para Emeregencias</th>
-  </tr>
-</thead>
-<tbody>
 <?php
-          for($x=0; $x<count($datos); $x++)
-          {   
-            
-echo('
 
-  <tr>
-    <th scope="row">'.$datos[$x]['numero_empleado'].'</th>
-    <td>'.$datos[$x]['name'].'</td>
-    <td>'.$datos[$x]['lastname'].'</td>
-    <td>'.$datos[$x]['project'].'</td>
-    <td>'.$datos[$x]['email'].'</td>
-    <td>'.$datos[$x]['phone_number'].'</td>
-    <td>'.$datos[$x]['emergency_phone_number'].'</td>
-    <td><a href="showAcollaborator.php?numberCollaborator='.$datos[$x]['numero_empleado'].'"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
-    <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
-    <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
-  </svg></a></td>
-  </tr>');
-          }
 
-          
+if(!empty($_GET['numberCollaborator']))
+        {
+          $numberCollaborator = $_GET['numberCollaborator'];
+          $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/collaborator/$numberCollaborator"), true);
+          echo('
+<center>
+          <div class="card" style="width: 18rem;">
+          <img src="'.$datos['photo'].'" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">'.$datos['name'].' '.$datos['lastname'].'</h5>
+            <p class="card-text">Numero de teléfono: '.$datos['phone_number'].'</p>
+            <p class="card-text">Numero de teléfono de Emergencias: '.$datos['emergency_phone_number'].'</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Área: '.$datos['area'].'</li>
+            <li class="list-group-item">Proyecto: '.$datos['project'].'</li>
+            <li class="list-group-item">Fecha de Ingreso: '.$datos['date_of_register'].'</li>
+            <li class="list-group-item">Fecha de Cumpleaños: '.$datos['dateofbirthday'].'</li>
+            <li class="list-group-item">Correo Electrónico: '.$datos['email'].'</li>
+            <li class="list-group-item">Numero de Empleado: '.$datos['numero_empleado'].'</li>
+          </ul>
+          <div class="card-body">
+            <a href="#" class="card-link">EDITAR</a>
+            <a href="#" class="card-link">ELIMINAR</a>
+          </div>
+        </div>
+        </center>');
         }
-        ?>
-    
 
-</tbody>
-</table>
-      </div>
-      
-      
-  </body>
+
+?>
+<br>
+</body>
 </html>

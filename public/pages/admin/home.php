@@ -19,7 +19,7 @@
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="./showCollaborators.php">Funciones para Colaborador</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="./createAdmin.php">Registrar nuevo Administrador</a></li>
+            <li><a class="dropdown-item" href="./showAdministrators.php">Funciones para Administrador</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Avisos</a></li>
             <li><hr class="dropdown-divider"></li>

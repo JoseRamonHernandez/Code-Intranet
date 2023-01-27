@@ -1,3 +1,14 @@
+<?php
+
+function exception_error_handler($errno, $errstr, $errfile, $errline)
+{
+    throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
+}
+
+set_error_handler("exception_error_handler");
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -58,7 +69,9 @@
 
 if(!empty($_GET['numberCollaborator']))
         {
+
           $numberCollaborator = $_GET['numberCollaborator'];
+          try{
           $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/collaborator/$numberCollaborator"), true);
           echo('
 <center>
@@ -83,7 +96,12 @@ if(!empty($_GET['numberCollaborator']))
           </div>
         </div>
         </center>');
-        }
+        } catch(Exception $e){
+            echo("<h2>Sin Resultados</h2>");
+    }
+}else{
+        echo ("Error");
+    }
 
 
 ?>

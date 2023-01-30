@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +11,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 
     <title>Intranet-Admin</title>
+
+    <link href="./style.css" rel="stylesheet" type="text/css" />
+
 </head>
 <body>
 <div class="">
@@ -30,7 +35,7 @@
             <a class="nav-link" href="">Cursos</a>
           </li>
         <li class="nav-item">
-          <a class="nav-link" href="">Vacantes</a>
+          <a class="nav-link" href="./whatsApp_link.html">Vacantes</a>
         </li></ul>
         <form class="form-inline" action="../../login.php">
           
@@ -41,12 +46,34 @@
       
 </nav>
 </div>
+<div class="container">
 
+</div>
 <?php
 /*
 $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/collaborators"), true);
 print_r ($datos);
 */
 ?>
+<br>
+<div id="carrusel-contenido">
+            <div id="carrusel-caja">
+              <center>
+                <div class="carrusel-elemento">
+                    <img class="imagenes" src="../../img/logo_clerprem.png" >
+                </div>
+                <div class="carrusel-elemento">   
+                    <img class="imagenes" src="../../img/clerprem_mexico.jpg" >
+                </div>
+                <div class="carrusel-elemento">   
+                    <img class="imagenes" src="../../img/clerprem_mexico_2.jpg" >                        
+                </div>
+                <div class="carrusel-elemento">   
+                    <img class="imagenes" src="../../img/clerprem_mexico_3.jpg" >                        
+                </div>
+</center>
+            </div>
+        </div>
+        <h1> Clerprem México </h1>
 </body>
 </html>

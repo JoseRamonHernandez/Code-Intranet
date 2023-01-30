@@ -81,7 +81,7 @@ if(isset($_GET['ingresar'])==1)
     }
     elseif ($user_type == "administrator") {
         ?>
-        <script> window.location="./pages/admin/home.php"; </script>
+        <script> window.location="./pages/admin/home.php?_id=<?php echo$id?>"; </script>
         <?php
     }
   

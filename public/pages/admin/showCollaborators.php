@@ -1,3 +1,6 @@
+<?php
+//$id = $_GET['user'];
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>

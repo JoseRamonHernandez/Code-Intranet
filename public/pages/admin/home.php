@@ -16,6 +16,8 @@
 
 </head>
 <body>
+
+<!--
 <div class="">
 <nav class="navbar sticky-top navbar-light" style="background-color: #e3f2fd;">
 <ul class="nav nav-pills" style="padding: 10px;">
@@ -35,7 +37,7 @@
             <a class="nav-link" href="">Cursos</a>
           </li>
         <li class="nav-item">
-          <a class="nav-link" href="./whatsApp_link.html">Vacantes</a>
+          <a class="nav-link" href="./whatsApp_link.html">Example-WhatsApp</a>
         </li></ul>
         <form class="form-inline" action="../../login.php">
           
@@ -49,6 +51,47 @@
 <div class="container">
 
 </div>
+
+-->
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" ></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Acciones
+          </a>
+          <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="./showCollaborators.php">Funciones para Colaborador</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="./showAdministrators.php">Funciones para Administrador</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Avisos</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Eventos </a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="">Cursos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./whatsApp_link.html">Example-WhatsApp</a>
+        </li>
+       
+      </ul>
+      <form class="d-flex" role="search" method="GET" action="../../login.php">
+        <button class="btn btn-outline-danger" type="submit">Cerrar Sesión</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+
+
 <?php
 /*
 $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/collaborators"), true);

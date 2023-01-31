@@ -27,42 +27,41 @@ set_error_handler("exception_error_handler");
     
   </head>
   <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand">Colaboradores</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="./home.php">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./createCollaborator.php">Registrar</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Áreas</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="./showCollaborators.php?area=costuras">COSTURAS</a></li>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" >Colaboradores</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="./home.php">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./createCollaborator.php">Resgistrar</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Área
+          </a>
+          <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="./showCollaborators.php?area=costuras">COSTURAS</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="./showCollaborators.php?area=ensamblado">ENSAMBLADO</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="./showCollaborators.php?area=espuma">ESPUMA</a></li>
               <li><hr class="dropdown-divider"></li>
-             
-            </ul>
-          </li>
-          
-        
-
-        </ul>
-        <form class="form-inline my-4 my-lg-2" method="GET" action="showAcollaborator.php">
-          <input class="form-control mr-sm-2" type="text" name="numberCollaborator"placeholder="Buscar por numero de empleado" aria-label="Search" required>
-          <button class="btn btn-outline-success my-2 my-sm-0" name="buscar" type="submit">Search</button>
-        </form>
-      </div>
-    </nav>
+          </ul>
+        </li>
+      </ul>
+      <form class="d-flex" role="search" method="GET" action="showAcollaborator.php">
+        <input class="form-control me-2" type="text" name="numberCollaborator"placeholder="Buscar por numero de empleado" aria-label="Search" required>
+        <button class="btn btn-outline-success" name="buscar" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
 
 
 <?php
@@ -92,7 +91,7 @@ if(!empty($_GET['numberCollaborator']))
             <li class="list-group-item">Numero de Empleado: '.$datos['numero_empleado'].'</li>
           </ul>
           <div class="card-body">
-            <a href="#" class="card-link">EDITAR</a>
+            <a href="./editCollaborator.php?number='.$datos['numero_empleado'].'" class="card-link">EDITAR</a>
             <a href="#" class="card-link">ELIMINAR</a>
           </div>
         </div>

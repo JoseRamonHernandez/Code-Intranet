@@ -29,11 +29,17 @@
     flex-direction:row;">
 <h2>INTRANET</h2>
 </div>
+<div class="container" style="padding-top: 10px; display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction:row;">
+<h3 style="color:blue">LESS IS MORE</h3>
+</div>
 <br>
 <div clas="" style="margin:0;">
 <div class="intranet" style="padding: 3%;">
 <h3>Lo que harás.</h3>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae laborum ducimus labore necessitatibus maxime deserunt minima facere soluta nobis hic vel, doloribus excepturi sunt! Eligendi fugiat quo quibusdam iusto error?</p>
+<p>Esta aplicación web, es un sistema en el cual se tendrá el control total del personal, manejando su información compartida como correo electrónico, numero de teléfono, etc... y en el cuál podrán realizar cursos, visualizar CLER´S, Nóminas, Vacantes, Contratos y mucho más.</p>
 </div>
 </div>
 
@@ -76,14 +82,14 @@
 <div style="margin:0;">
 <div class="mision" style="padding: 5%; ">
 <h3>Misión.</h3>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae laborum ducimus labore necessitatibus maxime deserunt minima facere soluta nobis hic vel, doloribus excepturi sunt! Eligendi fugiat quo quibusdam iusto error?</p>
+<p>Diseñamos y fabricamos sistemas y componentes de asientos de primera clase para cumplir con los exigentes requisitos de las industrias automotriz y ferroviaria.</p>
 </div>
 </div>
 
 <div style="margin:0;">
 <div class="vision" style="padding: 5%; margin:0;">
 <h3>Visión.</h3>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae laborum ducimus labore necessitatibus maxime deserunt minima facere soluta nobis hic vel, doloribus excepturi sunt! Eligendi fugiat quo quibusdam iusto error?</p>
+<p>Nuestro objetivo es mantener nuestra posición como proveedor preferido de productos de clase premium agregando valor para nuestros clientes, permitiéndoles sobresalir en el mercado global.</p>
 </div>
 </div>
 
@@ -94,6 +100,28 @@ print_r ($datos);
 */
 ?>
 
-
+<!-- As a heading -->
+<nav class="navbar navbar-dark bg-dark">
+<div class="container" style="padding-top: 10px; display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction:row;">
+  <p style="color:white;" class="text-center; font-italic;">Clerprem México</p>
+</div>
+<div class="container" style="padding-top: 10px; display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction:row;">
+  <p style="color:white;" class="text-center; font-italic;">Ubicación: Benito Juárez, San Sebastián, 90526 Huamantla, Tlax.</p>
+</div>
+<div class="container" style="padding-top: 10px; display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction:row;">
+    <a href="#" style=" text-decoration: none;">
+  <p style="color:white;" class="text-center; font-italic;">Politicas y privacidad</p>
+  </a>
+</div>
+</nav>
 </body>
 </html>

@@ -210,6 +210,7 @@ Swal.fire({
         <div id="contenedor">
             
             <div id="contenedorcentrado">
+              
                 <div id="login">
                     <form id="loginform" method="GET" action="./login.php">
                         <img src="./img/logo.png"/>

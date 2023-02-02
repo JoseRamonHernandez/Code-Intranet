@@ -46,15 +46,23 @@ $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co
     
 
 
-    <ul class="nav nav-pills" style="padding: 10px;">
-        
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">INTRANET</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Acciones</a>
+
+
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" >INTRANET</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Acciones
+          </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Documentos/RIT/Contrato Colectivo</a></li>
+          <li><a class="dropdown-item" href="./showCollaborators.php?area=costuras">COSTURAS</a></li>
+          <li><a class="dropdown-item" href="#">Documentos/RIT/Contrato Colectivo</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Vacantes</a></li>
             <li><hr class="dropdown-divider"></li>
@@ -68,16 +76,21 @@ $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co
           </ul>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="./habilidades.html">Desarrollo de habilidades</a>
-          </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Próximos Eventos</a>
+          <a class="nav-link active" aria-current="page" href="./habilidades.html">Desarrollo de habilidades</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../../login.php">Cerrar sesión</a>
+          <a class="nav-link" href="./createCollaborator.php">Próximos eventos</a>
         </li>
         
       </ul>
+      <form class="d-flex" role="search" method="GET" action="../../login.php">
+        <button class="btn btn-outline-info" name="close" type="submit">Cerrar Sesión</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+
 
       <center>
         <img src="../../img/logo.png" style="padding: 10px;"/>

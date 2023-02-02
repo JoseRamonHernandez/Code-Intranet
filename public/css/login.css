@@ -200,6 +200,7 @@ hr {
         width: 90%;
 
         background-color: #ffffff;
+        
 
         /*opacity: 0.50;
         filter: alpha(opacity=50);*/
@@ -226,6 +227,15 @@ hr {
     
     #login label {
         text-align: left;
+    }
+    
+    .titulo{
+        font-size: 200%;
+        color:black;
+    }
+
+    .pie-form a{
+        color: #000000;
     }
 }
 /* ajustar a pantallas con ancho menor o igual a 775px; */

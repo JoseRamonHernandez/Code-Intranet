@@ -95,11 +95,63 @@ if(isset($_GET['guardar'])==1)
   
  //Ejecutamos la petición
  $result = curl_exec($ch);
- $login -> formSucces();
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="sweetalert2.min.js"></script>
+<link rel="stylesheet" href="sweetalert2.min.css">
+
+</head>
+<body>
+    
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>Swal.fire({
+        position: 'top-end',
+  icon: 'success',
+  title: 'Registro guardado con éxito!',
+  showConfirmButton: false,
+  timer: 1500
+      })     
+      </script>
+</body>
+</html>
+<?php
 
   } 
   catch(Exception $e){
-   $login -> formFailed();
+   ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="sweetalert2.min.js"></script>
+<link rel="stylesheet" href="sweetalert2.min.css">
+
+</head>
+<body>
+    
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>Swal.fire({
+        icon: 'error',
+        title: 'Lo sentimos!',
+        text: 'Ocurrio un error, intentalo nuevamente',
+    })     
+      </script>
+</body>
+</html>
+   <?php
   }
 
 }

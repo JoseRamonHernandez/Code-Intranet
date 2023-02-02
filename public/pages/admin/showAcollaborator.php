@@ -91,7 +91,7 @@ if(!empty($_GET['numberCollaborator']))
             <li class="list-group-item">Numero de Empleado: '.$datos['numero_empleado'].'</li>
           </ul>
           <div class="card-body">
-            <a href="./editCollaborator.php?number='.$datos['numero_empleado'].'" class="card-link">EDITAR</a>
+            <a href="./editCollaborator.php?id='.$datos['_id'].'" class="card-link">EDITAR</a>
             <a href="#" class="card-link">ELIMINAR</a>
           </div>
         </div>

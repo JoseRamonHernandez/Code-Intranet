@@ -39,21 +39,19 @@ set_error_handler("exception_error_handler");
 <?php
 
 
-if(empty($_GET['number']))
-        {
-            echo ("<h1>Error 404</h1><br><br><h3> document not found</h3>");
-        }
-        else
-        {
-            $numberCollaborator = $_GET['number'];
 
+            $id = $_GET['id'];
+   // echo $id;
+    echo ("<br>");
             try{
-                $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/collaborator/$numberCollaborator"), true);
+                $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/collaboratorFind/$id"), true);
+               //$numero_empleado = $datos['numero_emplado'];
+               
                 echo('
                 
 <!--This is code to Form-->
 <div class="container" style="padding:3%; background: #FBFAFA">
-<form method="GET" action="" class="form" >
+<form method="GET" action="./editCollaboratorRegister.php" class="form" >
     <h3>Formulario para la actualización del Colaborador: '.$datos['name'].'-'.$datos['lastname'].'</h3>
     <br>
     
@@ -72,7 +70,7 @@ if(empty($_GET['number']))
 <div class="row">
     <div class="col">
     <a>Numero de empleado:</a>
-      <input type="text" name="empleado" class="form-control"value="'.$datos['numero_empleado'].'" disabled>
+      <input type="text" name="empleado" class="form-control"value="'.$datos['numero_empleado'].'" readonly>
     </div>
     <div class="col">
     <a>Fecha de Nacimiento: '.$datos['dateofbirthday'].'</a>
@@ -129,17 +127,18 @@ if(empty($_GET['number']))
 <br>
 
 <button type="submit" name="guardar" class="btn btn-outline-success">Guardar</button>');
-                
-                } catch(Exception $e){
-                   echo ("Error en la consulta a la API");
-                   }      
+            
+} catch(Exception $e){
+  ?>
+  <script> window.location="../err.html"; </script>
+  <?php
+} 
 
-
-        }
         
+       /* 
         if(isset($_GET['guardar'])==1)
         {
-            $empleado = $_GET['empleado'];
+          //  $empleado = $_GET['empleado'];
             $nombre = $_GET['nombre'];
             $apellido = $_GET['apellido'];
             $date_birthday = $_GET['date_birthday'];
@@ -154,9 +153,9 @@ if(empty($_GET['number']))
             $user_type = "collaborator";
           
             
+          echo $nombre;
           
-          
-            try
+          /*  try
             { 
            //url de la petición
            $url = "ttps://REST-API.joseramonhernan.repl.co/collaboratorUpdate/$emplado";
@@ -208,9 +207,9 @@ if(empty($_GET['number']))
             } 
             catch(Exception $e){
              $login -> formFailed();
-            }
+            }*/
 
-          }
+          
           
 
 

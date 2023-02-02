@@ -70,18 +70,101 @@ if(isset($_GET['ingresar'])==1)
  
     $id = $datos["_id"];
     $user_type = $datos["user_type"];
+    $name = $datos["name"];
 
     if($user_type == "collaborator")
     {
     ?>
-    <script> window.location="./pages/collaborator/home.php?_id=<?php echo$id?>"; </script>
+     <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="sweetalert2.min.js"></script>
+<link rel="stylesheet" href="sweetalert2.min.css">
+
+</head>
+<body>
+    
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>let timerInterval
+Swal.fire({
+  title: 'Acceso Correcto!',
+  html: 'Bienvenido: <?php echo$name;?>.',
+  timer: 2000,
+  timerProgressBar: true,
+  didOpen: () => {
+    Swal.showLoading()
+    const b = Swal.getHtmlContainer().querySelector('b')
+    timerInterval = setInterval(() => {
+      b.textContent = Swal.getTimerLeft()
+    }, 100)
+  },
+  willClose: () => {
+    clearInterval(timerInterval)
+    window.location="./pages/collaborator/home.php?_id=<?php echo$id?>"
+  }
+}).then((result) => {
+  /* Read more about handling dismissals below */
+  if (result.dismiss === Swal.DismissReason.timer) {
+    console.log('I was closed by the timer')
+  }
+})   
+      </script>
+</body>
+</html>
     
       
        <?php
     }
     elseif ($user_type == "administrator") {
         ?>
-        <script> window.location="./pages/admin/home.php?_id=<?php echo$id?>"; </script>
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="sweetalert2.min.js"></script>
+<link rel="stylesheet" href="sweetalert2.min.css">
+
+</head>
+<body>
+    
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>let timerInterval
+Swal.fire({
+  title: 'Acceso Correcto!',
+  html: 'Ingresando al módulo ADMINISTRADOR.',
+  timer: 2000,
+  timerProgressBar: true,
+  didOpen: () => {
+    Swal.showLoading()
+    const b = Swal.getHtmlContainer().querySelector('b')
+    timerInterval = setInterval(() => {
+      b.textContent = Swal.getTimerLeft()
+    }, 100)
+  },
+  willClose: () => {
+    clearInterval(timerInterval)
+    window.location="./pages/admin/home.php?_id=<?php echo$id?>"
+  }
+}).then((result) => {
+  /* Read more about handling dismissals below */
+  if (result.dismiss === Swal.DismissReason.timer) {
+    console.log('I was closed by the timer')
+  }
+})   
+      </script>
+</body>
+</html>
         <?php
     }
   
@@ -91,7 +174,33 @@ if(isset($_GET['ingresar'])==1)
  
     }
    catch(Exception $e){
-    $login -> alertFailed();
+   ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="sweetalert2.min.js"></script>
+<link rel="stylesheet" href="sweetalert2.min.css">
+
+</head>
+<body>
+    
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>Swal.fire({
+        icon: 'error',
+        title: 'Contraseña Incorrecta',
+        text: 'Verifica tus credenciales e intentalo de nuevo',
+        
+      })     
+      </script>
+</body>
+</html>
+   <?php
    // echo ("acceso denegado");
    }
 }

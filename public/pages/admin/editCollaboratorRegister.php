@@ -1,21 +1,6 @@
 <?php
 
-$empleado = $_GET['empleado'];
-$nombre = $_GET['nombre'];
-$apellido = $_GET['apellido'];
-$date_birthday = $_GET['date_birthday'];
-$email = $_GET['email'];
-$password = "clerprem001";
-$area = $_GET['area'];
-$project = $_GET['project'];
-$date_register = $_GET['date_register'];
-$number_phone = $_GET['number_phone'];
-$emergency_phone = $_GET['emergency_phone'];
-$photo = $_GET['photo'];
-$user_type = "collaborator";
 
-echo ("numero emplado: ".$nombre);
-/*
 require_once "../poo/clases.php";
 
 function exception_error_handler($errno, $errstr, $errfile, $errline)
@@ -28,6 +13,7 @@ set_error_handler("exception_error_handler");
 
 if(isset($_GET['guardar'])==1)
 {
+    
     $empleado = $_GET['empleado'];
     $nombre = $_GET['nombre'];
     $apellido = $_GET['apellido'];
@@ -48,7 +34,10 @@ if(isset($_GET['guardar'])==1)
     try
     { 
    //url de la petición
-   $url = "ttps://REST-API.joseramonhernan.repl.co/collaboratorUpdate/$emplado";
+   $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/collaborator/$empleado"), true);
+   $id = $datos['_id'];
+  // echo $id;          
+   $url = "https://REST-API.joseramonhernan.repl.co/collaboratorUpdate/$id";
    
    //inicializamos el objeto CUrl
    $ch = curl_init($url);
@@ -92,14 +81,84 @@ if(isset($_GET['guardar'])==1)
     
    //Ejecutamos la petición
    $result = curl_exec($ch);
-   $login -> formSucces();
+   ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="sweetalert2.min.js"></script>
+<link rel="stylesheet" href="sweetalert2.min.css">
+
+</head>
+<body>
+    
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>Swal.fire({
+        icon: 'success',
+        title: 'Todo correcto!',
+        text: 'La actualización se realizó con éxtio',
+        showDenyButton: false,
+        showCancelButton: false,
+        confirmButtonText: 'OK',
+        
+      }).then((result) => {
+  /* Read more about isConfirmed, isDenied below */
+  if (result.isConfirmed) {
+   
+    window.location="./showCollaborators.php" 
+  } 
+      })     
+      </script>
+</body>
+</html>
+   <?php
   
     } 
     catch(Exception $e){
-     $login -> formFailed();
+    ?>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="sweetalert2.min.js"></script>
+<link rel="stylesheet" href="sweetalert2.min.css">
+
+</head>
+<body>
+    
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>Swal.fire({
+        icon: 'error',
+        title: 'Lo sentimos!',
+        text: 'Ocurrió un error, intentalo nuevamente',
+        showDenyButton: false,
+        showCancelButton: false,
+        confirmButtonText: 'OK',
+        
+      }).then((result) => {
+  /* Read more about isConfirmed, isDenied below */
+  if (result.isConfirmed) {
+   
+    window.location="./showCollaborators.php" 
+  } 
+      })     
+      </script>
+</body>
+</html>
+    <?php
     }
   
 
 }
-*/
+
 ?>

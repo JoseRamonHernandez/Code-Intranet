@@ -92,7 +92,7 @@ if(!empty($_GET['numberCollaborator']))
           </ul>
           <div class="card-body">
             <a href="./editCollaborator.php?id='.$datos['_id'].'" class="card-link">EDITAR</a>
-            <a href="#" class="card-link">ELIMINAR</a>
+            <a href="./deleteCollaboratorAnswer.php?id='.$datos['_id'].'"class="card-link">ELIMINAR</a>
           </div>
         </div>
         </center>');
@@ -100,7 +100,11 @@ if(!empty($_GET['numberCollaborator']))
             echo("<h2>Sin Resultados</h2>");
     }
 }else{
-        echo ("Error");
+        ?>
+<script>
+  window.location="../err.html"
+</script>
+        <?php
     }
 
 

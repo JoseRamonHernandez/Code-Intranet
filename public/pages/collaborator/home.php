@@ -13,7 +13,9 @@ set_error_handler("exception_error_handler");
 if(empty($_GET['_id']))
 
 {
-  echo ("URL don´t exits");
+  ?>
+  <script> window.location="../err.html"; </script>
+  <?php
 }
 else{
   $id = $_GET['_id'];
@@ -112,7 +114,9 @@ $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co
 }
 
    catch(Exception $e){
-    echo ("error");
+    ?>
+  <script> window.location="../err.html"; </script>
+  <?php
    } 
 }
    ?>

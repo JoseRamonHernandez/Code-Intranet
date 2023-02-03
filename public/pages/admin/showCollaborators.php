@@ -1,6 +1,14 @@
 <?php
-//$id = $_GET['user'];
+
+function exception_error_handler($errno, $errstr, $errfile, $errline)
+{
+    throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
+}
+
+set_error_handler("exception_error_handler");
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -77,7 +85,8 @@
         {
           $area = $_GET['area'];
         //  echo $area;
-          $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/collaboratorArea/$area"), true);
+        try {
+        $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/collaboratorArea/$area"), true);
           /*print_r ($datos);*/
          echo ('<h2>Se muestran todos los Colaboradores del area '.$area.'</h2>'); 
          ?>
@@ -116,6 +125,13 @@ echo('
   </tr>');
           }
 
+        }catch(Exception $e){
+          ?>
+          <script>
+          window.location="../err.html"
+        </script>
+        <?php
+      }
           
         }
         ?>

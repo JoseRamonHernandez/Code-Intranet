@@ -42,7 +42,7 @@ set_error_handler("exception_error_handler");
           <a class="nav-link active" aria-current="page" href="./home.php">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="./createAdmin.php">Resgistrar</a>
+          <a class="nav-link" href="./createAdmin.php">Registrar</a>
         </li>
       </ul>
       <form class="d-flex" role="search" method="GET" action="showAdministrators.php">
@@ -65,21 +65,24 @@ set_error_handler("exception_error_handler");
             {
             echo("<h2>El usuario no se encuentra registrado</h2>");
             }else{
-                echo ('<div class="container">
+              ?>  
+              <div class="container">
                 <div class="row row-cols-1 row-cols-md-3 g-4">
             <div class="col">
               <div class="card h-100">
-                <img src="'.$datos['photo'].'" class="card-img-top" alt="...">
+                <img src="<?php echo($datos['photo']);?>" class="card h-100" alt="...">
                 <div class="card-body">
-                  <h5 class="card-title">'.$datos['name'].'-'.$datos['lastname'].'</h5>
-                  <h6 class="card-text">'.$datos['numero_empleado'].'</h6>
-                  <p class="card-text">'.$datos['area'].'</p>
-                    <p class="card-text">'.$datos['email'].'</p>
-                 
+                  <h5 class="card-title"><?php echo($datos['name']);?> <?php echo($datos['lastname']);?></h5>
+                  <h6 class="card-text"><?php echo($datos['numero_empleado']);?></h6>
+                  <p class="card-text"><?php echo($datos['area']);?></p>
+                    <p class="card-text"><?php echo($datos['email']);?></p>
+                    
                 </div>
                 <div class="card-footer"></div>
                 <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-  <button type="button" class="btn btn-danger">Eliminar</button>
+                
+  <button type="sumbit" class="btn btn-danger">Eliminar</button>
+
   <button type="button" class="btn btn-warning">Editar</button>
 </div>
 <div class="card-footer"></div>
@@ -87,7 +90,7 @@ set_error_handler("exception_error_handler");
             </div>
             </div>
             </div>
-          ');
+          <?php
             }
         }
         catch(Exception $e){
@@ -103,27 +106,33 @@ set_error_handler("exception_error_handler");
          for($x=0; $x<count($datos); $x++)
          {  
             
-            echo ('
+            ?>
             <div class="col">
               <div class="card h-100">
-                <img src="'.$datos[$x]['photo'].'" class="card-img-top" alt="...">
+                <img src="<?php echo($datos[$x]['photo']);?>" class="card-img-top" alt="...">
                 <div class="card-body">
-                  <h5 class="card-title">'.$datos[$x]['name'].'-'.$datos[$x]['lastname'].'</h5>
-                  <h6 class="card-text">'.$datos[$x]['numero_empleado'].'</h6>
-                  <p class="card-text">'.$datos[$x]['area'].'</p>
-                    <p class="card-text">'.$datos[$x]['email'].'</p>
-                 
+                  <h5 class="card-title"><?php echo($datos[$x]['name']);?> <?php echo($datos[$x]['lastname']);?></h5>
+                  <h6 class="card-text"><?php echo($datos[$x]['numero_empleado']);?></h6>
+                  <p class="card-text"><?php echo($datos[$x]['area']);?></p>
+                    <p class="card-text"><?php echo($datos[$x]['email']);?></p>
+                 <?php
+                  $id = $datos[$x]['_id'];
+                 ?>
                 </div>
                 <div class="card-footer"></div>
                 <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                  <a href="./deleteAdministratorAnswer.php?id=<?php echo$id;?>" class="btn btn-danger">
   <button type="button" class="btn btn-danger">Eliminar</button>
+  </a>
+  <a href="./deleteAdministratorAnswer.php?id=<?php echo$id;?>" class="btn btn-warning">
   <button type="button" class="btn btn-warning">Editar</button>
+  </a>
 </div>
 <div class="card-footer"></div>
               </div>
             </div>
             
-          ');
+          <?php
         
          }
         

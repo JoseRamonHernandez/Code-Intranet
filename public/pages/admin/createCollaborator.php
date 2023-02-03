@@ -44,6 +44,7 @@ if(isset($_GET['guardar'])==1)
   $emergency_phone = $_GET['emergency_phone'];
   $photo = $_GET['photo'];
   $user_type = "collaborator";
+  $status = 'activo';
 
   
 
@@ -70,7 +71,8 @@ if(isset($_GET['guardar'])==1)
     'phone_number' => $number_phone,
     'emergency_phone_number' => $emergency_phone,
     'photo' => $photo,
-    'user_type' => $user_type
+    'user_type' => $user_type,
+    'status' => $status
  );
   
  //creamos el json a partir de nuestro arreglo

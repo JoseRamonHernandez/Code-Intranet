@@ -25,8 +25,8 @@ if(isset($_GET['guardar'])==1)
     $date_register = $_GET['date_register'];
     $number_phone = $_GET['number_phone'];
     $emergency_phone = $_GET['emergency_phone'];
-    $photo = $_GET['photo'];
     $user_type = "collaborator";
+    $status = $_GET['status'];
   
     
   
@@ -55,8 +55,8 @@ if(isset($_GET['guardar'])==1)
       'date_of_register' => $date_register,
       'phone_number' => $number_phone,
       'emergency_phone_number' => $emergency_phone,
-      'photo' => $photo,
-      'user_type' => $user_type
+      'user_type' => $user_type,
+      'status' => $status
    );
     
    //creamos el json a partir de nuestro arreglo

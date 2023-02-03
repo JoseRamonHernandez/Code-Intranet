@@ -117,13 +117,17 @@ set_error_handler("exception_error_handler");
     </div>
   </div>
   <br>
-  <div class="row">
-  <div class="col">
-    <a>Fotografía: '.$datos['photo'].'</a>
-      <input type="file" name="photo" class="form-control" placeholder="">
-    </div>
-</div>
  
+  <div class="row">
+  <div class="form-group col-md-4">
+      <label for="inputState">Status: '.$datos['status'].'</label>
+      <select id="inputState" name="status" class="form-control" required>
+        <option selected  required>Choose...</option>
+        <option value="activo">Activo</option>
+        <option value="baja">Baja</option>
+      </select>
+    </div>
+    </div>
 <br>
 
 <button type="submit" name="guardar" class="btn btn-outline-success">Guardar</button>');

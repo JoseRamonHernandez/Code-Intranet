@@ -76,14 +76,18 @@ set_error_handler("exception_error_handler");
                   <h6 class="card-text"><?php echo($datos['numero_empleado']);?></h6>
                   <p class="card-text"><?php echo($datos['area']);?></p>
                     <p class="card-text"><?php echo($datos['email']);?></p>
-                    
+                    <?php
+                    $id = $datos['_id'];
+                    ?>
                 </div>
                 <div class="card-footer"></div>
                 <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                
+                <a href="./deleteAdministratorAnswer.php?id=<?php echo$id;?>" class="btn btn-danger">          
   <button type="sumbit" class="btn btn-danger">Eliminar</button>
-
+            </a>
+            <a href="./updateAdministrator.php?id=<?php echo$id;?>" class="btn btn-warning">
   <button type="button" class="btn btn-warning">Editar</button>
+  </a>
 </div>
 <div class="card-footer"></div>
               </div>
@@ -124,7 +128,7 @@ set_error_handler("exception_error_handler");
                   <a href="./deleteAdministratorAnswer.php?id=<?php echo$id;?>" class="btn btn-danger">
   <button type="button" class="btn btn-danger">Eliminar</button>
   </a>
-  <a href="./deleteAdministratorAnswer.php?id=<?php echo$id;?>" class="btn btn-warning">
+  <a href="./updateAdministrator.php?id=<?php echo$id;?>" class="btn btn-warning">
   <button type="button" class="btn btn-warning">Editar</button>
   </a>
 </div>

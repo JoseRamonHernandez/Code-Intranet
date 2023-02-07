@@ -26,6 +26,9 @@ else{
 
 $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/collaboratorFind/$id"), true);
 //print_r ($datos);
+$password = $datos['password'];
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,6 +42,9 @@ $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co
     
      <!-- Link hacia el archivo de estilos css 
      <link rel="stylesheet" href="../collaborator/style/nav.css"> -->
+
+     <script src="sweetalert2.min.js"></script>
+<link rel="stylesheet" href="sweetalert2.min.css">
 
     <title>Home</title>
 </head>
@@ -121,8 +127,43 @@ $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co
         </div>
       </div>
     </div>
+   
+<?php
+    if($password == 'clerprem001')
+{
+  ?>
+   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+    
+  (async() => {
+    const {value: contraseña} = await  Swal.fire({
+        icon: 'info',
+        title: 'Al inciar sesión por primera vez, debes cambiar tu contraseña',
+        confirmButtonText: 'Guardar',
+        footer: '<span style="color: red">Recuerda no compartir tu nueva contraseña con nadie.</span>',
+        backdrop: true,
+        allowOutsideClick: false,
+        allosEscapeKey: false,
+        allosEnterKey: false,
+        stopKeydownPropagation: false,
+        input: 'text',
+        placeholder: 'Ingresa nueva contraseña',
+        
+      });     
+
+      if(contraseña){
+        window.location='./newPassword.php?a='+contraseña+'&b=<?php echo$id; ?>'
+      }
+  })()
+
+    
+      </script>
+  <?php
+}else
+?>
 </body>
 </html>
+
 <?php
 }
 

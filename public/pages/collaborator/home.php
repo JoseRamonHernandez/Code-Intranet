@@ -148,6 +148,7 @@ $password = $datos['password'];
         stopKeydownPropagation: false,
         input: 'text',
         placeholder: 'Ingresa nueva contraseña',
+        required: true,
         
       });     
 

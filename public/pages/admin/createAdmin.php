@@ -2,6 +2,8 @@
 <?php
 require_once "../poo/clases.php";
 
+
+
 function exception_error_handler($errno, $errstr, $errfile, $errline)
 {
     throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
@@ -27,10 +29,23 @@ set_error_handler("exception_error_handler");
 
 <?php
 
+
+
 $login = new login;
 
 if(isset($_GET['guardar'])==1)
 {
+
+
+  //require '../../../../vendor/autoload.php';
+
+  // Use the Configuration class 
+  //use Cloudinary\Configuration\Configuration;
+  
+  // Configure an instance of your Cloudinary cloud
+ // Configuration::instance('cloudinary://my_key:my_secret@my_cloud_name?secure=true');
+  
+
   $empleado = $_GET['empleado'];
   $nombre = $_GET['nombre'];
   $apellido = $_GET['apellido'];
@@ -39,10 +54,22 @@ if(isset($_GET['guardar'])==1)
   $area = $_GET['area'];
   $photo = $_GET['photo'];
   $user_type = "administrator";
+  $filename = "Replit_RestApi_Clerprem";
 
-  
+ // Use the UploadApi class for uploading assets
+//use Cloudinary \ Api \ Upload \UploadApi;
 
-
+// Upload the image
+/*$upload = new UploadApi();
+echo '<pre>';
+echo json_encode(
+    $upload->upload('https://res.cloudinary.com/demo/image/upload/flower.jpg', [
+        'public_id' => 'flower_sample',
+        'use_filename' => TRUE,
+        'overwrite' => TRUE]),
+    JSON_PRETTY_PRINT
+);
+echo '</pre>'; */
   try
   { 
  //url de la petición
@@ -164,7 +191,7 @@ if(isset($_GET['guardar'])==1)
 
 <!--This is code to Form-->
 <div class="container" style="padding:3%; background: #FBFAFA">
-<form method="GET" action="./createAdmin.php" >
+<form method="GET" action="./createAdmin.php" enctype="multipart/form-data">
     <h3>Formulario para el registro de nuevos Administradores:</h3>
     <br>
   <div class="row">
@@ -211,7 +238,7 @@ if(isset($_GET['guardar'])==1)
   <div class="row">
   <div class="col">
     <a>Fotografía:</a>
-      <input type="file" name="photo" class="form-control" placeholder="">
+      <input type="file" name="photo" class="form-control" placeholder="" required>
     </div>
 </div>
 <br>

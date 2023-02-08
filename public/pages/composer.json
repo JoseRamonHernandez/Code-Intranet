@@ -1,0 +1,5 @@
+{
+    " requerir " : {
+      " cloudinary/cloudinary_php " : " ^2 "
+   }
+ }

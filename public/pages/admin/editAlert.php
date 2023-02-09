@@ -1,4 +1,5 @@
 <?php
+
 function exception_error_handler($errno, $errstr, $errfile, $errline)
 {
     throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
@@ -8,6 +9,13 @@ set_error_handler("exception_error_handler");
 
 ?>
 
+<?php
+
+if(!empty($_GET['id']))
+{
+    $id = $_GET['id'];
+    
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -18,7 +26,7 @@ set_error_handler("exception_error_handler");
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 
-    <title>Avisos</title>
+    <title>Avisos - Update</title>
 </head>
 <body >
 
@@ -29,32 +37,36 @@ set_error_handler("exception_error_handler");
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="position-sticky" id="navbarSupportedContent">
-      <form class="d-flex" role="search" method="GET" action="./home.php">
-        <button class="btn btn-outline-primary" type="submit">Home</button>
+      <form class="d-flex" role="search" method="GET" action="./alert.php">
+        <button class="btn btn-outline-primary" type="submit">Regresar</button>
       </form>
     </div>
   </div>
 </nav>
 
 <?php
-if(isset($_GET['save'])==1)
-{
- $title = $_GET['title'];
- $text = $_GET['text'];
- $status = $_GET['status'];
 
- try
+if(isset($_GET['update'])==1)
+{
+    $newId = $_GET['id'];
+    $newTitle = $_GET['title'];
+    $newText = $_GET['text'];
+    $newStatus = $_GET['status'];
+
+//    echo('id: '.$newId.', title: '.$newTitle.', text: '.$newText.', status: '.$newStatus);
+
+try
  { 
 //url de la petición
-$url = 'https://REST-API.joseramonhernan.repl.co/createAlert';
+$url = "https://REST-API.joseramonhernan.repl.co/updateAlert/$newId";
 //inicializamos el objeto CUrl
 $ch = curl_init($url);
   
 //el json simulamos una petición de un login
 $jsonData = array(
-   'title' => $title,
-   'text' => $text,
-   'status' => $status
+   'title' => $newTitle,
+   'text' => $newText,
+   'status' => $newStatus
 );
  
 //creamos el json a partir de nuestro arreglo
@@ -99,11 +111,11 @@ if($result)
  
      <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
      <script>Swal.fire({
-         position: 'top-end',
+         
    icon: 'success',
-   title: 'Aviso guardado con éxito!',
+   title: 'Aviso actualizado con éxito!',
    showConfirmButton: false,
-   timer: 1500,
+   timer: 2000,
   timerProgressBar: true,
   didOpen: () => {
     Swal.showLoading()
@@ -190,94 +202,111 @@ if($result)
     </html>
        <?php
   }
+
 }
+
+try{
+$datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/findAlert/$id"), true);
+$title = $datos['title'];
+$text = $datos['text'];
+$status = $datos['status'];
+
+
+
 ?>
 
+
 <div class="container" style="padding: 10px;">
-<form class="form" method="GET" action="#">
-    <h2 class="text-center">Formulario para Registrar Avisos</h2>
+<form  method="GET" action="#">
+    <br>
+    <h2 class="text-center">Formulario para Actualizar Avisos</h2>
+    <br>
+    <div class="form-group row">
+    <div class="col-sm-5">
+      <input type="hidden" name="id" class="form-control form-control-lg" id="colFormLabelLg" value="<?php echo $id;?>" readonly>
+    </div>
+  </div>
+  <br>
   <div class="form-group row">
     <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Título:</label>
     <div class="col-sm-5">
-      <input type="text" name="title" class="form-control form-control-lg" id="colFormLabelLg" placeholder="Título de la NOTIFICACIÓN" required>
+      <input type="text" name="title" class="form-control form-control-lg" id="colFormLabelLg" value="<?php echo $title;?>" required>
     </div>
   </div>
+  <br>
   <div class="form-group row">
     <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Texto:</label>
-    <div class="col-sm-5">
-    <textarea class="form-control" name="text" id="exampleFormControlTextarea1" rows="3" required></textarea>
+    <div class="col-sm-10">
+    <input type="text" name="text" class="form-control form-control-lg" id="colFormLabelLg" value="<?php echo $text;?>" required>
     </div>
   </div>
-  <fieldset class="form-group">
-    <div class="row">
-      <legend class="col-form-label col-sm-2 pt-0">Status:</legend>
-      <div class="col-sm-10">
-        <div class="form-check">
-          <input class="form-check-input" name="status" type="radio" name="gridRadios" id="gridRadios1" value="true" checked required>
-          <label class="form-check-label" for="gridRadios1">
-            Activado
-          </label>
+  <br>
+  <?php
+    if($status == "true"){
+        echo ('
+        <fieldset class="form-group">
+        <div class="row">
+          <legend class="col-form-label col-sm-2 pt-0">Status: ACTIVADO</legend>
+          <div class="col-sm-10">
+            <div class="form-check">
+              <input class="form-check-input" name="status" type="radio" name="gridRadios" id="gridRadios1" value="true" required>
+              <label class="form-check-label" for="gridRadios1">
+                Activado
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" name="status" type="radio" name="gridRadios" id="gridRadios2" value="false" checked required>
+              <label class="form-check-label" for="gridRadios2">
+                Desactivado
+              </label>
+            </div>
+          </div>
         </div>
-        <div class="form-check">
-          <input class="form-check-input" name="status" type="radio" name="gridRadios" id="gridRadios2" value="false" required>
-          <label class="form-check-label" for="gridRadios2">
-            Desactivado
-          </label>
+      </fieldset>
+        ');
+    }elseif($status == "false")
+    {
+        echo ('
+        <fieldset class="form-group">
+        <div class="row">
+          <legend class="col-form-label col-sm-2 pt-0">Status: DESACTIVADO</legend>
+          <div class="col-sm-10">
+            <div class="form-check">
+              <input class="form-check-input" name="status" type="radio" name="gridRadios" id="gridRadios1" value="true" checked required>
+              <label class="form-check-label" for="gridRadios1">
+                Activado
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" name="status" type="radio" name="gridRadios" id="gridRadios2" value="false" required>
+              <label class="form-check-label" for="gridRadios2">
+                Desactivado
+              </label>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </fieldset>
-  <button type="submit" name="save" class="btn btn-success  my-1">Save</button>
+      </fieldset>
+        ');
+    }
+  ?>
+ 
+  <br>
+  <button type="submit" name="update" class="btn btn-warning  my-1">Update</button>
 </form>
 </div>
-<hr>
-<div class="container" style="padding:10px;">
 <?php
-try{
-        
-    $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/alerts"), true);
-   // echo ("acceso concedido");
- 
-    for($x=0; $x<count($datos); $x++)
-    {  
-        $id = $datos[$x]['_id'];
-       $number = $x+1;
-       if($datos[$x]['status'] == "true")
-       {
-        $status = "Activado";
-       }elseif($datos[$x]['status'] == "false"){
-        $status = "Desactivado";
-       }
-       ?>
-       <div class="card">
-  <div class="card-header">
-    Aviso# <?php echo $number;?>
-  </div>
-  <div class="card-body">
-    <h5 class="card-title">Título: <?php echo $datos[$x]['title'];?></h5>
-    <p class="card-text">Texto: <?php echo $datos[$x]['text'];?></p>
-    <h6 class="card-subtitle mb-2 text-muted">Status: <?php echo $status;?></h6>
-   
-    <a href="./editAlert.php?id=<?php echo$id;?>" class="btn btn-warning ">Editar</a>
-    
-    <a href="./deleteAlert.php?id=<?php echo$id;?>" class="btn btn-danger ">Eliminar</a>
-   
-  </div>
-</div>
-       <div class="container" style="padding:10px;">
-        <hr>
-        </div>
-     <?php
-   
-    }
-   
-
-
 }catch(Exception $e){
     echo("<h2>Sin Resultados</h2>");
    }
 ?>
-</div>
 </body>
 </html>
 
+<?php
+}else
+{
+    echo("editAlert.php no recibe ningun parametro.");
+}
+
+
+?>

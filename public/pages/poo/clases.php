@@ -87,6 +87,56 @@ class login{
     }
     */
 
+    public function alerts($title, $text)
+    {
+        $this -> title = $title;
+        $this -> text = $text;
+
+       /* echo('
+        titulo: '.$title.',
+         texto: '.$text.'
+        ');*/
+
+        ?>
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="sweetalert2.min.js"></script>
+<link rel="stylesheet" href="sweetalert2.min.css">
+
+</head>
+<body>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+    (async() => {
+       
+    await  Swal.fire({
+        icon: 'info',
+        title: 'titulo',
+        text: 'texto',
+        showCloseButton: true,
+        backdrop: true,
+        allowOutsideClick: false,
+        allosEscapeKey: false,
+        allosEnterKey: false,
+        stopKeydownPropagation: false,
+        showCancelButton: false,
+        showConfirmButton: false,
+          });
+                
+})()
+        </script>
+
+</body>
+</html>
+        <?php
+    }
+
 };
 
 class miHerencia extends login{

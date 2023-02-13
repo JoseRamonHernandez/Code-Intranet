@@ -73,10 +73,11 @@ if(!empty($_GET['numberCollaborator']))
           $numberCollaborator = $_GET['numberCollaborator'];
           try{
           $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/collaborator/$numberCollaborator"), true);
+         
           echo('
 <center>
           <div class="card" style="width: 18rem;">
-          <img src="'.$datos['photo'].'" class="card-img-top" alt="...">
+          <img src="" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title">'.$datos['name'].' '.$datos['lastname'].'</h5>
             <p class="card-text">Numero de teléfono: '.$datos['phone_number'].'</p>

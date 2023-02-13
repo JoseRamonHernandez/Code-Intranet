@@ -45,6 +45,7 @@ $password = $datos['password'];
 
      <script src="sweetalert2.min.js"></script>
 <link rel="stylesheet" href="sweetalert2.min.css">
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <title>Home</title>
 </head>
@@ -97,7 +98,6 @@ $password = $datos['password'];
 </nav>
 
 
-
       <center>
         <img src="../../img/logo.png" style="padding: 10px;"/>
     </center>
@@ -108,7 +108,7 @@ $password = $datos['password'];
           <div class="col-md-4">
             <center>
             <a href="./profile.html">
-            <img src="<?php echo $datos["photo"]?>" class="img-fluid" alt="Responsive image">
+          <!--  <img src="<?php //echo $datos["photo"]?>" class="img-fluid" alt="Responsive image">-->
           </a>
  </center>
           </div>
@@ -137,8 +137,9 @@ $password = $datos['password'];
     
   (async() => {
     const {value: contraseña} = await  Swal.fire({
-        icon: 'info',
+        icon: 'warning',
         title: 'Al inciar sesión por primera vez, debes cambiar tu contraseña',
+        confirmButton: 'btn btn-success',
         confirmButtonText: 'Guardar',
         footer: '<span style="color: red">Recuerda no compartir tu nueva contraseña con nadie.</span>',
         backdrop: true,
@@ -166,6 +167,57 @@ $password = $datos['password'];
 </html>
 
 <?php
+try{
+  
+ 
+  $alerts = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/alerts"), true);
+ // echo ("acceso concedido");
+
+  for($x=0; $x<count($alerts); $x++)
+  {  
+    $a=1;
+     if($alerts[$x]['status'] == "true" && $datos['password']!="clerprem001")
+     {
+     //$number = $x+1;
+     
+     #$login -> alerts($datos[$x]['title'], $datos[$x]['text']);
+   
+      ?>
+    <script>
+Swal.fire({
+      icon: 'info',
+      title:'Tienes avisos nuevos por ver.',
+      text: 'Puedes ir directo a los avisos dando click en el siguiente botón o puedes cerrar esta notificación.',
+      position: 'bottom-end',
+      width: '20rem',
+      showCloseButton: true,
+      backdrop: true,
+      allowOutsideClick: false,
+      allosEscapeKey: false,
+      allosEnterKey: false,
+      stopKeydownPropagation: false,
+      showCancelButton: false,
+      confirmButtonColor: '#3085d6',
+      confirmButtonText: 'Ver avisos'
+}).then((result) => {
+if (result.isConfirmed) {
+  window.location="./alerts.php?id=<?php echo($datos['_id']);?>"
+}
+})
+         
+      </script>
+      
+   <?php
+     
+}
+ 
+  }
+
+
+
+}catch(Exception $e){
+ echo ("I don´t now what happend");
+ }
 }
 
    catch(Exception $e){
@@ -174,4 +226,9 @@ $password = $datos['password'];
   <?php
    } 
 }
+
+
+
+
+
    ?>

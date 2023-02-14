@@ -176,9 +176,10 @@ if(isset($_GET['guardar'])==1)
 
 <!--This is code to Form-->
 <div class="container" style="padding:3%; background: #FBFAFA">
-<form method="GET" action="./createCollaborator.php" >
+<form method="POST" action="../../uploadCollaborator.php" enctype="multipart/form-data" >
     <h3>Formulario para el registro de nuevos Colaboradores:</h3>
     <br>
+    <input type="hidden" name="MAX_FILE_SIZE" value="250000" /> 
   <div class="row">
     <div class="col">
         <a>Nombre:</a>
@@ -245,7 +246,7 @@ if(isset($_GET['guardar'])==1)
   <div class="row">
   <div class="col">
     <a>Fotografía:</a>
-      <input type="file" name="photo" class="form-control" placeholder="">
+    <input name="archivo-a-subir" type="file"/>
     </div>
 </div>
 <br>

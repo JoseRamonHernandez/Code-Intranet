@@ -77,7 +77,7 @@ if(!empty($_GET['numberCollaborator']))
           echo('
 <center>
           <div class="card" style="width: 18rem;">
-          <img src="" class="card-img-top" alt="...">
+          <img src='.$datos['photo'].' class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title">'.$datos['name'].' '.$datos['lastname'].'</h5>
             <p class="card-text">Numero de teléfono: '.$datos['phone_number'].'</p>

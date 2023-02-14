@@ -108,7 +108,7 @@ $password = $datos['password'];
           <div class="col-md-4">
             <center>
             <a href="./profile.html">
-          <!--  <img src="<?php //echo $datos["photo"]?>" class="img-fluid" alt="Responsive image">-->
+            <img src="<?php echo $datos["photo"]?>" class="img-fluid" alt="Responsive image">
           </a>
  </center>
           </div>
@@ -178,6 +178,7 @@ try{
     $a=1;
      if($alerts[$x]['status'] == "true" && $datos['password']!="clerprem001")
      {
+      //echo("gr");
      //$number = $x+1;
      
      #$login -> alerts($datos[$x]['title'], $datos[$x]['text']);

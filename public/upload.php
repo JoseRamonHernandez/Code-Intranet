@@ -146,6 +146,7 @@ try
          position: 'center',
    icon: 'success',
    title: 'Registro guardado con éxito!',
+   footer: '<span style="color: blue">Si no se encuentra el usuario registrado, puede ser por algún inconveniente a la hora de almacenarlo. Capturelo nuevamente.</span>',
    showConfirmButton: true,
    confirmButtonText: 'Close'
 }).then((result) => {

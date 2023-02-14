@@ -14,7 +14,7 @@ set_error_handler("exception_error_handler");
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="HTML5">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -30,46 +30,76 @@ set_error_handler("exception_error_handler");
 <?php
 
 
-
+/*
 $login = new login;
 
-if(isset($_GET['guardar'])==1)
+if(isset($_POST['guardar'])==1)
 {
 
-
-  //require '../../../../vendor/autoload.php';
-
-  // Use the Configuration class 
-  //use Cloudinary\Configuration\Configuration;
-  
-  // Configure an instance of your Cloudinary cloud
- // Configuration::instance('cloudinary://my_key:my_secret@my_cloud_name?secure=true');
-  
-
-  $empleado = $_GET['empleado'];
-  $nombre = $_GET['nombre'];
+  $empleado = $_POST['empleado'];
+  $nombre = $_POST['nombre'];
   $apellido = $_GET['apellido'];
-  $email = $_GET['email'];
+  $email = $_POST['email'];
   $password = "admin001";
-  $area = $_GET['area'];
-  $photo = $_GET['photo'];
-  $user_type = "administrator";
-  $filename = "Replit_RestApi_Clerprem";
+  $area = $_POST['area'];
 
- // Use the UploadApi class for uploading assets
-//use Cloudinary \ Api \ Upload \UploadApi;
+  $user_type = "administrator";
+ 
+if(!empty($_FILES['archivo-a-subir']['name']))
+{
+  
+  $target_path = "../subidas/"; 
+$target_path = $target_path . basename( $_FILES['archivo-a-subir']['name']); 
+if(move_uploaded_file($_FILES['archivo-a-subir']['tmp_name'], $target_path)) 
+{ 
+//echo "\nEl archivo ". basename( $_FILES['archivo-a-subir']['name'])." ha sido subido exitosamente!"; 
+$img = $_FILES['archivo-a-subir']['name'];
+} 
+else
+{ 
+//echo "\nHubo un error al subir tu archivo! Por favor intenta de nuevo."; 
+$img = "logo_clerprem.png";
+}
+}else{
+  $img = "logo_clerprem.png";
+}
+require __DIR__ . '../../../../vendor/autoload.php';
+// Use the Configuration class 
+//use Cloudinary\Configuration\Configuration;
+
+// Configure an instance of your Cloudinary cloud
+Configuration::instance('cloudinary://231262176462779:cJBGwWjzZyhnA_vgWBJKo5b5gSA@dpeovabge?secure=true');
+
+// Use the UploadApi class for uploading assets
+//use Cloudinary\Api\Upload\UploadApi;
 
 // Upload the image
-/*$upload = new UploadApi();
-echo '<pre>';
-echo json_encode(
-    $upload->upload('https://res.cloudinary.com/demo/image/upload/flower.jpg', [
-        'public_id' => 'flower_sample',
+
+$upload = new UploadApi();
+
+ json_encode(
+    $upload->upload('../subidas/'.$img, [
+        'public_id' => $img,
         'use_filename' => TRUE,
         'overwrite' => TRUE]),
-    JSON_PRETTY_PRINT
+    
 );
-echo '</pre>'; */
+
+// Use the AdminApi class for managing assets
+//use Cloudinary\Api\Admin\AdminApi;
+
+// Get the asset details
+$admin = new AdminApi();
+
+$info = json_encode($admin->asset($img), JSON_PRETTY_PRINT); //Almacena la información de la imagen en la variable
+
+//echo $info; //Imprime la información
+//echo ("<hr><br>");
+$obj =(json_decode($info));// Convierte la cadena $info a un objeto JSON
+//echo ("<hr><br>");
+//echo ("<hr><br>");
+$photo = $obj->{'secure_url'};// Imprime el campo solicitado
+
   try
   { 
  //url de la petición
@@ -86,7 +116,7 @@ echo '</pre>'; */
     'email' => $email,
     'password' => $password,
     'area' => $area,
-    'photo' => $photo,
+    'photo' => ([$img, $photo]),
     'user_type' => $user_type
  );
   
@@ -172,7 +202,7 @@ echo '</pre>'; */
   }
 
 }
-
+*/
 ?>
 
 <!--This is code to nav-->
@@ -191,9 +221,10 @@ echo '</pre>'; */
 
 <!--This is code to Form-->
 <div class="container" style="padding:3%; background: #FBFAFA">
-<form method="GET" action="./createAdmin.php" enctype="multipart/form-data">
+<form method="POST" action="../../upload.php" enctype="multipart/form-data">
     <h3>Formulario para el registro de nuevos Administradores:</h3>
     <br>
+    <input type="hidden" name="MAX_FILE_SIZE" value="250000" /> 
   <div class="row">
     <div class="col">
         <a>Nombre:</a>
@@ -238,7 +269,7 @@ echo '</pre>'; */
   <div class="row">
   <div class="col">
     <a>Fotografía:</a>
-      <input type="file" name="photo" class="form-control" placeholder="" required>
+    <input name="archivo-a-subir" type="file"/>
     </div>
 </div>
 <br>

@@ -6,16 +6,8 @@ function exception_error_handler($errno, $errstr, $errfile, $errline)
 }
 
 set_error_handler("exception_error_handler");
-
 ?>
 
-<?php
-
-if(!empty($_GET['id']))
-{
-    $id = $_GET['id'];
-    
-?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -26,7 +18,7 @@ if(!empty($_GET['id']))
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 
-    <title>Avisos - Update</title>
+    <title>Eventos - Update</title>
 </head>
 <body >
 
@@ -37,36 +29,40 @@ if(!empty($_GET['id']))
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="position-sticky" id="navbarSupportedContent">
-      <form class="d-flex" role="search" method="GET" action="./alert.php">
-        <button class="btn btn-outline-primary" type="submit">Regresar</button>
+      <form class="d-flex" role="search" method="GET" action="./events.php">
+        <button class="btn btn-outline-secondary" type="submit"><- Eventos</button>
       </form>
     </div>
   </div>
 </nav>
 
-<?php
 
+<?php
 if(isset($_GET['update'])==1)
 {
-    $newId = $_GET['id'];
-    $newTitle = $_GET['title'];
-    $newText = $_GET['text'];
-    $newStatus = $_GET['status'];
-
-//    echo('id: '.$newId.', title: '.$newTitle.', text: '.$newText.', status: '.$newStatus);
-
-try
+    $newID = $_GET['id'];
+    $title = $_GET['title'];
+    $subtitle = $_GET['subtitle'];
+    $text = $_GET['text'];
+    $place = $_GET['place'];
+    $date = $_GET['date'];
+    $time = $_GET['time'];
+   # echo("Haz dado click en update");
+   try
  { 
 //url de la petición
-$url = "https://REST-API.joseramonhernan.repl.co/updateAlert/$newId";
+$url = "https://REST-API.joseramonhernan.repl.co/updateEvent/$newID";
 //inicializamos el objeto CUrl
 $ch = curl_init($url);
   
 //el json simulamos una petición de un login
 $jsonData = array(
-   'title' => $newTitle,
-   'text' => $newText,
-   'status' => $newStatus
+    'title' => $title,
+    'subtitle' => $subtitle,
+    'text' => $text,
+    'time' => $time,
+    'date' => $date,
+    'place' => $place
 );
  
 //creamos el json a partir de nuestro arreglo
@@ -113,7 +109,7 @@ if($result)
      <script>Swal.fire({
          
    icon: 'success',
-   title: 'Aviso actualizado con éxito!',
+   title: 'Evento actualizado con éxito!',
    showConfirmButton: false,
    timer: 2000,
   timerProgressBar: true,
@@ -126,7 +122,7 @@ if($result)
   },
   willClose: () => {
     clearInterval(timerInterval)
-    window.location="./alert.php"
+    window.location="./events.php"
   }
 }).then((result) => {
   /* Read more about handling dismissals below */
@@ -205,108 +201,95 @@ if($result)
 
 }
 
-try{
-$datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/findAlert/$id"), true);
-$title = $datos['title'];
-$text = $datos['text'];
-$status = $datos['status'];
-
-
-
 ?>
 
 
-<div class="container" style="padding: 10px;">
-<form  method="GET" action="#">
-    <br>
-    <h2 class="text-center">Formulario para Actualizar Avisos</h2>
-    <br>
-    <div class="form-group row">
-    <div class="col-sm-5">
-      <input type="hidden" name="id" class="form-control form-control-lg" id="colFormLabelLg" value="<?php echo $id;?>" readonly>
+<?php
+if(!empty($_GET['id']))
+{
+$id = $_GET['id'];
+
+try{
+    $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/findEvent/$id"), true);
+//echo $id;
+$newId= $datos['_id'];
+$title = $datos['title'];
+$subtitle = $datos['subtitle'];
+$text = $datos['text'];
+$place = $datos['place'];
+$date = $datos['date'];
+$time = $datos['time'];
+
+//echo $title. $subtitle. $text. $place. $date. $time;
+?>
+<br>
+<h2 class="text-center">Formulario para actualizar Eventos</h2>
+
+
+<form class="container" style="padding:3%;" method="GET" action="">
+
+<div class="form-group row">
+    
+    <div class="col-sm-7">
+      <input type="hidden" class="form-control" id="inputEmail3" name="id" value="<?php echo$newId;?>" required readonly>
     </div>
   </div>
-  <br>
   <div class="form-group row">
-    <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Título:</label>
-    <div class="col-sm-5">
-      <input type="text" name="title" class="form-control form-control-lg" id="colFormLabelLg" value="<?php echo $title;?>" required>
+    <label for="inputEmail3" class="col-sm-1 col-form-label">Título:</label>
+    <div class="col-sm-7">
+      <input type="text" class="form-control" id="inputEmail3" name="title" value="<?php echo$title;?>" required>
     </div>
   </div>
-  <br>
+<br>
   <div class="form-group row">
-    <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Texto:</label>
+    <label for="inputEmail3" class="col-sm-1 col-form-label">Subtítulo:</label>
+    <div class="col-sm-7">
+      <input type="text" class="form-control" id="inputEmail3" name="subtitle" value="<?php echo$subtitle;?>" required>
+    </div>
+  </div>
+<br>
+  <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-1 col-form-label">Texto:</label>
     <div class="col-sm-10">
-    <input type="text" name="text" class="form-control form-control-lg" id="colFormLabelLg" value="<?php echo $text;?>" required>
+      <input type="text" class="form-control" id="inputEmail3" name="text" value="<?php echo$text;?>" required>
     </div>
   </div>
   <br>
-  <?php
-    if($status == "true"){
-        echo ('
-        <fieldset class="form-group">
-        <div class="row">
-          <legend class="col-form-label col-sm-2 pt-0">Status: ACTIVADO</legend>
-          <div class="col-sm-10">
-            <div class="form-check">
-              <input class="form-check-input" name="status" type="radio" name="gridRadios" id="gridRadios1" value="true" required>
-              <label class="form-check-label" for="gridRadios1">
-                Activado
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" name="status" type="radio" name="gridRadios" id="gridRadios2" value="false" checked required>
-              <label class="form-check-label" for="gridRadios2">
-                Desactivado
-              </label>
-            </div>
-          </div>
-        </div>
-      </fieldset>
-        ');
-    }elseif($status == "false")
-    {
-        echo ('
-        <fieldset class="form-group">
-        <div class="row">
-          <legend class="col-form-label col-sm-2 pt-0">Status: DESACTIVADO</legend>
-          <div class="col-sm-10">
-            <div class="form-check">
-              <input class="form-check-input" name="status" type="radio" name="gridRadios" id="gridRadios1" value="true" checked required>
-              <label class="form-check-label" for="gridRadios1">
-                Activado
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" name="status" type="radio" name="gridRadios" id="gridRadios2" value="false" required>
-              <label class="form-check-label" for="gridRadios2">
-                Desactivado
-              </label>
-            </div>
-          </div>
-        </div>
-      </fieldset>
-        ');
-    }
-  ?>
- 
+  <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-1 col-form-label">Lugar:</label>
+    <div class="col-sm-7">
+      <input type="text" class="form-control" id="inputEmail3" name="place" value="<?php echo$place;?>" required>
+    </div>
+  </div>
+
+<br>
+ <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-1 col-form-label">Fecha:</label>
+    <div class="col-sm-3">
+      <input type="date" class="form-control" id="inputEmail3" name="date" value="<?php echo$date;?>" required>
+    </div>
+    <label for="inputEmail3" class="col-sm-1 col-form-label">Hora:</label>
+    <div class="col-sm-3">
+      <input type="time" class="form-control" id="inputEmail3" name="time" value="<?php echo$time;?>" required>
+    </div>
+  </div>
+
   <br>
-  <button type="submit" name="update" class="btn btn-warning  my-1">Update</button>
+  <div class="form-group row">
+    <div class="col-sm-10">
+      <button type="submit" class="btn btn-warning" name="update">Update</button>
+    </div>
+  </div>
+
+
+
 </form>
-</div>
+
 <?php
 }catch(Exception $e){
     echo("<h2>Sin Resultados</h2>");
    }
-?>
-</body>
-</html>
-
-<?php
-}else
-{
-    echo("editAlert.php no recibe ningun parametro.");
+}else{
+    echo("<h2>No se encuentran registros</h2>");
 }
-
-
 ?>

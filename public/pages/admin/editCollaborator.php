@@ -73,8 +73,8 @@ set_error_handler("exception_error_handler");
       <input type="text" name="empleado" class="form-control"value="'.$datos['numero_empleado'].'" readonly>
     </div>
     <div class="col">
-    <a>Fecha de Nacimiento: '.$datos['dateofbirthday'].'</a>
-      <input type="date" name="date_birthday" class="form-control" placeholder="" required>
+    <a>Fecha de Nacimiento: </a>
+      <input type="date" name="date_birthday" class="form-control" value="'.$datos['dateofbirthday'].'" required>
     </div>
   </div>
 <br>
@@ -100,8 +100,8 @@ set_error_handler("exception_error_handler");
       <input type="text" name="project" class="form-control" value="'.$datos['project'].'" required>
     </div>
     <div class="col">
-    <a>Fecha de Ingreso: '.$datos['date_of_register'].'</a>
-      <input type="date" name="date_register" class="form-control" placeholder="" required>
+    <a>Fecha de Ingreso: </a>
+      <input type="date" name="date_register" class="form-control" value="'.$datos['date_of_register'].'" required>
     </div>
   </div>
 <br>

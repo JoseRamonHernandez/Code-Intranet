@@ -294,7 +294,7 @@ try{
         <li class="list-group-item">Hora: <?php echo $datos[$x]['time'];?></li>
 </ul>
 <div class="container" style="">
-<a href="#" type="button" class="btn btn-outline-warning btn-lg btn-block">Actualizar</a>
+<a href="./updateEvents.php?id=<?php echo$id;?>" type="button" class="btn btn-outline-warning btn-lg btn-block">Actualizar</a>
 
 <a href="#" type="button" class="btn btn-outline-danger btn-lg btn-block">Eliminar</a>
 </div>

@@ -296,7 +296,7 @@ try{
 <div class="container" style="">
 <a href="./updateEvents.php?id=<?php echo$id;?>" type="button" class="btn btn-outline-warning btn-lg btn-block">Actualizar</a>
 
-<a href="#" type="button" class="btn btn-outline-danger btn-lg btn-block">Eliminar</a>
+<a href="./deleteEvents.php?id=<?php echo$id;?>" type="button" class="btn btn-outline-danger btn-lg btn-block">Eliminar</a>
 </div>
       </div>
     </div>

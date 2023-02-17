@@ -16,7 +16,7 @@ require_once "../poo/clases.php";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Avisos</title>
 
     <script src="sweetalert2.min.js"></script>
 <link rel="stylesheet" href="sweetalert2.min.css">
@@ -107,9 +107,7 @@ window.location="./home.php?_id=<?php echo$id;?>"
    */
 
       } catch(Exception $e){
-        ?>
-      <script> window.location="../err.html"; </script>
-      <?php
+        echo("<h3>Sin registros.</h3>");
        } 
       }
 ?>

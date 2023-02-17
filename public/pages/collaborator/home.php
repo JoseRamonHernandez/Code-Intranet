@@ -85,7 +85,7 @@ $password = $datos['password'];
           <a class="nav-link active" aria-current="page" href="./habilidades.html">Desarrollo de habilidades</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="./createCollaborator.php">Próximos eventos</a>
+          <a class="nav-link" href="./events.php?id=<?php echo($datos['_id']);?>">Próximos eventos</a>
         </li>
         
       </ul>

@@ -68,12 +68,11 @@ $password = $datos['password'];
             Acciones
           </a>
           <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="./showCollaborators.php?area=costuras">COSTURAS</a></li>
           <li><a class="dropdown-item" href="#">Documentos/RIT/Contrato Colectivo</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Vacantes</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Avisos</a></li>
+            <li><a class="dropdown-item" href="alerts.php?id=<?php echo($datos['_id']);?>">Avisos</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Recibos de Nómina</a></li>
             <li><hr class="dropdown-divider"></li>

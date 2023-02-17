@@ -10,6 +10,10 @@
 
     <title>Intranet</title>
 </head>
+
+
+
+
 <body>
       <nav class="navbar bg-body-tertiar">
   <div class="container-fluid">
@@ -23,6 +27,28 @@
     </form>
   </div>
 </nav>
+<?php
+if(isset($_GET['politicas'])==1)
+{
+  ?>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>Swal.fire({
+        icon: 'info',
+        title: 'POLÍTICA Y PRIVACIDAD',
+        text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam amet illo autem, nostrum adipisci, at provident atque ea minima culpa vero quaerat. Nam animi blanditiis facere itaque quisquam nobis temporibus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam amet illo autem, nostrum adipisci, at provident atque ea minima culpa vero quaerat. Nam animi blanditiis facere itaque quisquam nobis temporibus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam amet illo autem, nostrum adipisci, at provident atque ea minima culpa vero quaerat. Nam animi blanditiis facere itaque quisquam nobis temporibus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam amet illo autem, nostrum adipisci, at provident atque ea minima culpa vero quaerat. Nam animi blanditiis facere itaque quisquam nobis temporibus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam amet illo autem, nostrum adipisci, at provident atque ea minima culpa vero quaerat. Nam animi blanditiis facere itaque quisquam nobis temporibus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam amet illo autem, nostrum adipisci, at provident atque ea minima culpa vero quaerat. Nam animi blanditiis facere itaque quisquam nobis temporibus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam amet illo autem, nostrum adipisci, at provident atque ea minima culpa vero quaerat. Nam animi blanditiis facere itaque quisquam nobis temporibus.',
+        width: '60em',
+        showDenyButton: false,
+        showCancelButton: false,
+        confirmButtonText: 'OK',
+        confirmButtonColor: '#0E77DF'
+        
+      
+      })     
+      </script>
+  <?php
+}
+
+?>
 <div class="container" style="padding-top: 10px; display: flex;
     align-items: center;
     justify-content: center;
@@ -118,10 +144,72 @@ print_r ($datos);
     align-items: center;
     justify-content: center;
     flex-direction:row;">
-    <a href="#" style=" text-decoration: none;">
-  <p style="color:white;" class="text-center; font-italic;">Politicas y privacidad</p>
-  </a>
+    <form method="GET" action="">
+    <button class="navbar navbar-dark bg-dark" type="submit" name="politicas" style="background-color: black; color: white; border:0;">
+  <p style="color:white;" class="text-center; font-italic;">Política y privacidad</p>
+  </button>
+  </form>
 </div>
 </nav>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<?php
+if(isset($_GET['politicas'])==1)
+{
+
+}else{
+        try{   
+          $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/events"), true);
+          $x=0;
+          $count=count($datos);
+?>
+
+
+    <script>
+ (async() => {
+<?php
+
+    do{
+      
+?>
+      
+   await Swal.fire({
+        icon: 'warning',
+        title: '<?php echo $datos[$x]['title'];?>, <?php echo $datos[$x]['subtitle'];?>',
+        text: '<?php echo $datos[$x]['text'];?>, dicho evento tendrá presencia en <?php echo $datos[$x]['place'];?> a las <?php echo $datos[$x]['time'];?>hrs con la fecha <?php echo $datos[$x]['date'];?>',
+        showDenyButton: false,
+        showCloseButton: false,
+      backdrop: true,
+      allowOutsideClick: false,
+      allosEscapeKey: false,
+      allosEnterKey: false,
+      stopKeydownPropagation: false,
+      showCancelButton: false,
+        confirmButtonText: 'OK',
+      }).then((result) => {
+if (result.isConfirmed) {
+ 
+<?php
+$x++;
+?>
+}else{}
+      });
+      
+      <?php
+      
+    }while($x < $count)
+
+    ?>
+    
+    })()
+      </script>
+      <?php
+}catch(Exception $e){
+  ?>
+<script> window.location="../err.html"; </script>
+<?php
+ } 
+}
+      ?>
+    
 </body>
 </html>

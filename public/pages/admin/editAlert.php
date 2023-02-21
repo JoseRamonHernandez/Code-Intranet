@@ -48,10 +48,21 @@ if(!empty($_GET['id']))
 
 if(isset($_GET['update'])==1)
 {
+  
+
     $newId = $_GET['id'];
     $newTitle = $_GET['title'];
     $newLevel = $_GET['level'];
     $newStatus = $_GET['status'];
+
+    if($_GET['level'] == "Urgente")
+  {
+    $newLevel = "warning";
+  }elseif ($_GET['level'] == "Comentario") {
+    $newLevel = "info";
+  }elseif ($_GET['level'] == "Informativo") {
+    $newLevel = "info2";
+  }
 
 //    echo('id: '.$newId.', title: '.$newTitle.', text: '.$newText.', status: '.$newStatus);
 

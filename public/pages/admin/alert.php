@@ -311,37 +311,7 @@ try{
         $status = "Desactivado";
        }
        ?>
-       <!--
-       <div class="card">
-  <div class="card-header">
-    Aviso# <?php #echo $number;?>
-  </div>
-  <div class="card-body">
-    <h5 class="card-title">Título: <?php #echo $datos[$x]['title'];?></h5>
-    <p class="card-text">Texto: <?php #echo $datos[$x]['level'];?></p>
-    <h6 class="card-subtitle mb-2 text-muted">Status: <?php #echo $status;?></h6>
    
-    <a href="./editAlert.php?id=<?php #echo$id;?>" class="btn btn-warning ">Editar</a>
-    
-    <a href="./deleteAlert.php?id=<?php #echo$id;?>" class="btn btn-danger ">Eliminar</a>
-   
-  </div>
-</div>
-       <div class="container" style="padding:10px;">
-        <hr>
-        </div>
-     
-
-      
-  <div class="card">
-    <img class="card-img-top" src="./subidasAlerts/<?php #echo $datos[$x]['photo']; ?>" alt="Card image cap">
-    <div class="card-body">
-      <h3 class="card-title">Titulo: <h5 class="card-title"><?php #echo $datos[$x]['title']; ?></h5></h3>
-      <p class="card-text">Grado de Urgencia: <?php# echo $datos[$x]['level']; ?></p>
-      <p class="card-text">Grado de Urgencia: <?php #echo $datos[$x]['status']; ?></p>
-      <p class="card-text"><small class="text-muted">Last updated: <?php #echo $datos[$x]['updatedAt']; ?></small></p>
-    </div>
-  </div> -->
   <div class="card" style="width: 18rem;">
   <img class="card-img-top" src="./subidasAlerts/<?php echo $datos[$x]['photo']; ?>" alt="Card image cap">
   <div class="card-body">

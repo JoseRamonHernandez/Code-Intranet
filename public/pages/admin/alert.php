@@ -37,11 +37,34 @@ set_error_handler("exception_error_handler");
 </nav>
 
 <?php
-if(isset($_GET['save'])==1)
+if(isset($_POST['save'])==1)
 {
- $title = $_GET['title'];
- $text = $_GET['text'];
- $status = $_GET['status'];
+
+  if(!empty($_FILES['archivo-a-subir']['name']))
+  {
+    
+    $target_path = "subidasAlerts/"; 
+  $target_path = $target_path . basename( $_FILES['archivo-a-subir']['name']); 
+  if(move_uploaded_file($_FILES['archivo-a-subir']['tmp_name'], $target_path)) 
+  { 
+  //echo "\nEl archivo ". basename( $_FILES['archivo-a-subir']['name'])." ha sido subido exitosamente!"; 
+  $img = $_FILES['archivo-a-subir']['name'];
+  } 
+  else
+  { 
+  //echo "\nHubo un error al subir tu archivo! Por favor intenta de nuevo."; 
+  $img = "logo_clerprem.png";
+  }
+  }else{
+    $img = "logo_clerprem.png";
+  }
+  
+
+
+
+ $title = $_POST['title'];
+ $level = $_POST['level'];
+ $status = $_POST['status'];
 
  try
  { 
@@ -53,7 +76,8 @@ $ch = curl_init($url);
 //el json simulamos una petición de un login
 $jsonData = array(
    'title' => $title,
-   'text' => $text,
+   'level' => $level,
+   'photo' => $img,
    'status' => $status
 );
  
@@ -193,24 +217,36 @@ if($result)
 }
 ?>
 
-<div class="container" style="padding: 10px;">
-<form class="form" method="GET" action="#">
+<div class="container" style="padding: 20px;">
+<form class="form" method="POST" action="alert.php" enctype="multipart/form-data">
     <h2 class="text-center">Formulario para Registrar Avisos</h2>
+    <br>
+
   <div class="form-group row">
     <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Título:</label>
     <div class="col-sm-5">
-      <input type="text" name="title" class="form-control form-control-lg" id="colFormLabelLg" placeholder="Título de la NOTIFICACIÓN" required>
+      <input type="text" name="title" class="form-control form-control-lg" id="colFormLabelLg" placeholder="Título del Aviso" required>
     </div>
   </div>
+  <br>
+  
   <div class="form-group row">
-    <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Texto:</label>
-    <div class="col-sm-5">
-    <textarea class="form-control" name="text" id="exampleFormControlTextarea1" rows="3" required></textarea>
+      <label  for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Nivel:</label>
+      <div class="col-sm-5">
+      <select class="form-control form-control-lg" name="level" id="inlineFormCustomSelect" require>
+      
+        <option selected>Choose...</option>
+        <option value="warning">Urgente</option>
+        <option value="info">Comentario</option>
+        <option value="info">other</option>
+      </select>
     </div>
-  </div>
+    </div>
+    <br>
+
   <fieldset class="form-group">
     <div class="row">
-      <legend class="col-form-label col-sm-2 pt-0">Status:</legend>
+      <legend for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Status:</legend>
       <div class="col-sm-10">
         <div class="form-check">
           <input class="form-check-input" name="status" type="radio" name="gridRadios" id="gridRadios1" value="true" checked required>
@@ -227,6 +263,16 @@ if($result)
       </div>
     </div>
   </fieldset>
+  <br>
+
+  <div class="form-group row">
+    <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Elige la imagen correspondiente</label>
+    <div class="col-sm-5">
+    <input type="file" name="archivo-a-subir" class="form-control form-control-lg" id="exampleFormControlFile1" require>
+  </div>
+</div>
+<br>
+
   <button type="submit" name="save" class="btn btn-success  my-1">Save</button>
 </form>
 </div>
@@ -255,7 +301,7 @@ try{
   </div>
   <div class="card-body">
     <h5 class="card-title">Título: <?php echo $datos[$x]['title'];?></h5>
-    <p class="card-text">Texto: <?php echo $datos[$x]['text'];?></p>
+    <p class="card-text">Texto: <?php echo $datos[$x]['level'];?></p>
     <h6 class="card-subtitle mb-2 text-muted">Status: <?php echo $status;?></h6>
    
     <a href="./editAlert.php?id=<?php echo$id;?>" class="btn btn-warning ">Editar</a>

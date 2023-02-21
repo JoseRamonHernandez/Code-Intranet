@@ -50,7 +50,7 @@ if(isset($_GET['update'])==1)
 {
     $newId = $_GET['id'];
     $newTitle = $_GET['title'];
-    $newText = $_GET['text'];
+    $newLevel = $_GET['level'];
     $newStatus = $_GET['status'];
 
 //    echo('id: '.$newId.', title: '.$newTitle.', text: '.$newText.', status: '.$newStatus);
@@ -65,7 +65,7 @@ $ch = curl_init($url);
 //el json simulamos una petición de un login
 $jsonData = array(
    'title' => $newTitle,
-   'text' => $newText,
+   'level' => $newLevel,
    'status' => $newStatus
 );
  
@@ -208,10 +208,17 @@ if($result)
 try{
 $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/findAlert/$id"), true);
 $title = $datos['title'];
-$text = $datos['text'];
 $status = $datos['status'];
 
-
+if($datos['level'] == "warning")
+       {
+        $level = "Urgente";
+       }elseif($datos['level'] == "info")
+       {
+        $level = "Comentario";
+       }elseif ($datos['level'] == "info2") {
+        $level = "Informativo";
+       }
 
 ?>
 
@@ -220,13 +227,16 @@ $status = $datos['status'];
 <form  method="GET" action="#">
     <br>
     <h2 class="text-center">Formulario para Actualizar Avisos</h2>
+    <p class="text-center" style="color:blue;">(Si lo que se quiere es cambiar la imagen, deberás eliminar el aviso y volver a registrarlo). </p>
     <br>
+
     <div class="form-group row">
     <div class="col-sm-5">
       <input type="hidden" name="id" class="form-control form-control-lg" id="colFormLabelLg" value="<?php echo $id;?>" readonly>
     </div>
   </div>
   <br>
+
   <div class="form-group row">
     <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Título:</label>
     <div class="col-sm-5">
@@ -234,13 +244,21 @@ $status = $datos['status'];
     </div>
   </div>
   <br>
+
   <div class="form-group row">
-    <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Texto:</label>
-    <div class="col-sm-10">
-    <input type="text" name="text" class="form-control form-control-lg" id="colFormLabelLg" value="<?php echo $text;?>" required>
+      <label  for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Nivel:</label>
+      <div class="col-sm-5">
+      <select class="form-control form-control-lg" name="level" id="inlineFormCustomSelect" require>
+      
+        <option selected><?php echo $level;?></option>
+        <option value="warning">Urgente</option>
+        <option value="info">Comentario</option>
+        <option value="info2">Informativo</option>
+      </select>
     </div>
-  </div>
-  <br>
+    </div>
+    <br>
+
   <?php
     if($status == "true"){
         echo ('

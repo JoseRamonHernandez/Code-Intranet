@@ -14,7 +14,7 @@ if(!empty($_GET['id']))
         $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/findAlert/$id"), true);
           $title = $datos['title'];
         //  echo $name;
-          $text = $datos['text'];
+         
         ?>
     
 
@@ -35,9 +35,9 @@ if(!empty($_GET['id']))
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>Swal.fire({
-        icon: 'warning',
-        title: 'Seguro que quieres eliminar el aviso: <?php echo $title;?>',
-        text: '<?php echo$text;?>',
+        icon: 'question',
+        title: 'Seguro que quieres eliminar el aviso: ',
+        text: '<?php echo $title;?>',
         showDenyButton: true,
         showCancelButton: false,
         confirmButtonText: 'Si, Eliminar',

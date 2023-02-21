@@ -238,7 +238,7 @@ if($result)
         <option selected>Choose...</option>
         <option value="warning">Urgente</option>
         <option value="info">Comentario</option>
-        <option value="info">other</option>
+        <option value="info2">Informativo</option>
       </select>
     </div>
     </div>
@@ -268,7 +268,7 @@ if($result)
   <div class="form-group row">
     <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Elige la imagen correspondiente</label>
     <div class="col-sm-5">
-    <input type="file" name="archivo-a-subir" class="form-control form-control-lg" id="exampleFormControlFile1" require>
+    <input type="file" name="archivo-a-subir" class="form-control form-control-lg"   id="exampleFormControlFile1" require>
   </div>
 </div>
 <br>
@@ -278,16 +278,32 @@ if($result)
 </div>
 <hr>
 <div class="container" style="padding:10px;">
+<div class="card-group">
 <?php
 try{
         
     $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/alerts"), true);
    // echo ("acceso concedido");
- 
+ ?>
+<div class="card-deck">
+ <?php
     for($x=0; $x<count($datos); $x++)
     {  
         $id = $datos[$x]['_id'];
        $number = $x+1;
+
+       if($datos[$x]['level'] == "warning")
+       {
+        $level = "Urgente";
+       }elseif($datos[$x]['level'] == "info")
+       {
+        $level = "Comentario";
+       }elseif ($datos[$x]['level'] == "info2") {
+        $level = "Informativo";
+       }
+    
+
+
        if($datos[$x]['status'] == "true")
        {
         $status = "Activado";
@@ -295,28 +311,63 @@ try{
         $status = "Desactivado";
        }
        ?>
+       <!--
        <div class="card">
   <div class="card-header">
-    Aviso# <?php echo $number;?>
+    Aviso# <?php #echo $number;?>
   </div>
   <div class="card-body">
-    <h5 class="card-title">Título: <?php echo $datos[$x]['title'];?></h5>
-    <p class="card-text">Texto: <?php echo $datos[$x]['level'];?></p>
-    <h6 class="card-subtitle mb-2 text-muted">Status: <?php echo $status;?></h6>
+    <h5 class="card-title">Título: <?php #echo $datos[$x]['title'];?></h5>
+    <p class="card-text">Texto: <?php #echo $datos[$x]['level'];?></p>
+    <h6 class="card-subtitle mb-2 text-muted">Status: <?php #echo $status;?></h6>
    
-    <a href="./editAlert.php?id=<?php echo$id;?>" class="btn btn-warning ">Editar</a>
+    <a href="./editAlert.php?id=<?php #echo$id;?>" class="btn btn-warning ">Editar</a>
     
-    <a href="./deleteAlert.php?id=<?php echo$id;?>" class="btn btn-danger ">Eliminar</a>
+    <a href="./deleteAlert.php?id=<?php #echo$id;?>" class="btn btn-danger ">Eliminar</a>
    
   </div>
 </div>
        <div class="container" style="padding:10px;">
         <hr>
         </div>
+     
+
+      
+  <div class="card">
+    <img class="card-img-top" src="./subidasAlerts/<?php #echo $datos[$x]['photo']; ?>" alt="Card image cap">
+    <div class="card-body">
+      <h3 class="card-title">Titulo: <h5 class="card-title"><?php #echo $datos[$x]['title']; ?></h5></h3>
+      <p class="card-text">Grado de Urgencia: <?php# echo $datos[$x]['level']; ?></p>
+      <p class="card-text">Grado de Urgencia: <?php #echo $datos[$x]['status']; ?></p>
+      <p class="card-text"><small class="text-muted">Last updated: <?php #echo $datos[$x]['updatedAt']; ?></small></p>
+    </div>
+  </div> -->
+  <div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="./subidasAlerts/<?php echo $datos[$x]['photo']; ?>" alt="Card image cap">
+  <div class="card-body">
+    <h3 class="card-title">Titulo: <?php echo $datos[$x]['title']; ?></h3>
+   
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Este es un aviso de tipo: <?php echo $level; ?></li>
+    <li class="list-group-item">El status de este aviso se encuentra: <?php echo $status; ?></li>
+    <li class="list-group-item">Creado: <?php echo $datos[$x]['createdAt']; ?></li>
+    <li class="list-group-item">Ultima actualización: <?php echo $datos[$x]['updatedAt']; ?></li>
+  </ul>
+  <div class="card-body">
+    <a href="./editAlert.php?id=<?php echo$id;?>" class="btn btn-warning ">Editar</a>
+    
+    <a href="./deleteAlert.php?id=<?php echo$id;?>" class="btn btn-danger ">Eliminar</a>
+  </div>
+</div>
+<br>
+
      <?php
    
     }
-   
+   ?>
+   </div>
+   <?php
 
 
 }catch(Exception $e){
@@ -324,6 +375,8 @@ try{
    }
 ?>
 </div>
+  </div>
+
 </body>
 </html>
 

@@ -38,6 +38,7 @@ else{
      try{   
     $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/findAlertByStatus/true"), true);
    // echo ("acceso concedido");
+   
    $login = new login;
    $count=count($datos);
    //echo("cantidad del arreglo: ".$count."<br>");
@@ -46,13 +47,22 @@ else{
   <script>(async() => {
   <?php
     do{
-      
+
+      $level = $datos[$x]['level'];
+      if($datos[$x]['level'] == "info2")
+      {
+        $level = "success";
+      }
 ?>
 
 await Swal.fire({
-      icon: 'info',
+      icon: '<?php echo$level;?>',
       title: '<?php echo $datos[$x]['title'];?>',
-      text: '<?php echo $datos[$x]['text'];?>',
+      imageUrl: '../admin/subidasAlerts/<?php echo$datos[$x]['photo'];?>',
+      imageWidth: 900,
+      imageHeight: 500,
+      imageAlt: 'Custom image',
+      width: '100%',
       position: 'center',
       showCloseButton: false,
       backdrop: true,
@@ -107,7 +117,25 @@ window.location="./home.php?_id=<?php echo$id;?>"
    */
 
       } catch(Exception $e){
-        echo("<h3>Sin registros.</h3>");
+        ?>
+ <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>Swal.fire({
+        icon: 'error',
+        title: 'No hay avisos!',
+        text: 'Por el momento no hay registros de avisos y/o no se encuentran activados.',
+        showDenyButton: false,
+        showCancelButton: false,
+        confirmButtonText: 'OK',
+        
+      }).then((result) => {
+  /* Read more about isConfirmed, isDenied below */
+  if (result.isConfirmed) {
+   
+    window.location="./home.php?_id=<?php echo$id;?>" 
+  } 
+      })     
+      </script>
+        <?php
        } 
       }
 ?>

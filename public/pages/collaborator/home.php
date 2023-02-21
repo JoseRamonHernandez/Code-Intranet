@@ -175,7 +175,7 @@ try{
   for($x=0; $x<count($alerts); $x++)
   {  
     $a=1;
-     if($alerts[$x]['status'] == "true" && $datos['password']!="clerprem001")
+     if($alerts[$x]['status'] == "true" && $datos['password']!="clerprem001" && $_GET['param'] == 1)
      {
       //echo("gr");
      //$number = $x+1;
@@ -216,7 +216,7 @@ if (result.isConfirmed) {
 
 
 }catch(Exception $e){
- echo ("I don´t now what happend");
+# echo ("I don´t now what happend");
  }
 }
 

@@ -106,7 +106,7 @@ Swal.fire({
   },
   willClose: () => {
     clearInterval(timerInterval)
-    window.location="./pages/collaborator/home.php?_id=<?php echo$id?>"
+    window.location="./pages/collaborator/home.php?_id=<?php echo$id;?>&param=1"
   }
 }).then((result) => {
   /* Read more about handling dismissals below */

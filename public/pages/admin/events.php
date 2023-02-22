@@ -37,14 +37,31 @@ set_error_handler("exception_error_handler");
 </nav>
 
 <?php
-if(isset($_GET['save'])==1)
+if(isset($_POST['save'])==1)
 {
-    $title = $_GET['title'];
-    $subtitle = $_GET['subtitle'];
-    $text = $_GET['text'];
-    $place = $_GET['place'];
-    $date = $_GET['date'];
-    $time = $_GET['time'];
+
+
+  
+  if(!empty($_FILES['archivo-a-subir']['name']))
+  {
+    
+    $target_path = "subidasEvents/"; 
+  $target_path = $target_path . basename( $_FILES['archivo-a-subir']['name']); 
+  if(move_uploaded_file($_FILES['archivo-a-subir']['tmp_name'], $target_path)) 
+  { 
+  //echo "\nEl archivo ". basename( $_FILES['archivo-a-subir']['name'])." ha sido subido exitosamente!"; 
+  $img = $_FILES['archivo-a-subir']['name'];
+  } 
+  else
+  { 
+  //echo "\nHubo un error al subir tu archivo! Por favor intenta de nuevo."; 
+  $img = "logo_clerprem.png";
+  }
+  }else{
+    $img = "logo_clerprem.png";
+  }
+
+    $title = $_POST['title'];
 
     try
     { 
@@ -56,11 +73,7 @@ if(isset($_GET['save'])==1)
    //el json simulamos una petición de un login
    $jsonData = array(
       'title' => $title,
-      'subtitle' => $subtitle,
-      'text' => $text,
-      'time' => $time,
-      'date' => $date,
-      'place' => $place
+      'photo' => $img
    );
     
    //creamos el json a partir de nuestro arreglo
@@ -205,7 +218,7 @@ if(isset($_GET['save'])==1)
 <h2 class="text-center">Formulario para el registro de Eventos</h2>
 
 
-<form class="container" style="padding:3%;" method="GET" action="">
+<form class="container" style="padding:3%;" method="POST" action="events.php" enctype="multipart/form-data">
 
   <div class="form-group row">
     <label for="inputEmail3" class="col-sm-1 col-form-label">Título:</label>
@@ -214,38 +227,14 @@ if(isset($_GET['save'])==1)
     </div>
   </div>
 <br>
-  <div class="form-group row">
-    <label for="inputEmail3" class="col-sm-1 col-form-label">Subtítulo:</label>
-    <div class="col-sm-7">
-      <input type="text" class="form-control" id="inputEmail3" name="subtitle" placeholder="Ingresa un subtítulo para el Evento." required>
+  
+<div class="form-group row">
+    <label for="inputEmail3" class="col-sm-3 col-form-label">Elige la imagen correspondiente</label>
     </div>
-  </div>
-<br>
-  <div class="form-group row">
-    <label for="inputEmail3" class="col-sm-1 col-form-label">Texto:</label>
     <div class="col-sm-7">
-      <textarea type="text" class="form-control" id="inputEmail3" name="text" placeholder="Ingresa el texto del Evento." required></textarea>
-    </div>
-  </div>
-  <br>
-  <div class="form-group row">
-    <label for="inputEmail3" class="col-sm-1 col-form-label">Lugar:</label>
-    <div class="col-sm-7">
-      <input type="text" class="form-control" id="inputEmail3" name="place" placeholder="Ingresa el lugar en donde se llevará a cabo el Evento." required>
-    </div>
+    <input type="file" name="archivo-a-subir" class="form-control form-control-lg"   id="inputEmai10" require>
   </div>
 
-<br>
- <div class="form-group row">
-    <label for="inputEmail3" class="col-sm-1 col-form-label">Fecha:</label>
-    <div class="col-sm-3">
-      <input type="date" class="form-control" id="inputEmail3" name="date" required>
-    </div>
-    <label for="inputEmail3" class="col-sm-1 col-form-label">Hora:</label>
-    <div class="col-sm-3">
-      <input type="time" class="form-control" id="inputEmail3" name="time" required>
-    </div>
-  </div>
 
   <br>
   <div class="form-group row">
@@ -281,26 +270,22 @@ try{
         $id = $datos[$x]['_id'];
        $number = $x+1;
        ?>
-       <div class="col-sm-6" style="padding-top:2%">
-    <div class="card border-dark">
+       <div class="card mb-2" style="max-width: 750px; border: 0;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="./subidasEvents/<?php echo$datos[$x]['photo'];?>" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
       <div class="card-body">
-        <h5 class="card-title"><?php echo $datos[$x]['title'];?></h5>
-        <h6 class="card-subtitle mb-2 text-muted"><?php echo $datos[$x]['subtitle'];?></h6>
-        <br>
-        <p class="card-text"><?php echo $datos[$x]['text'];?></p>
-        <ul class="list-group list-group-flush">
-        <li class="list-group-item">Lugar: <?php echo $datos[$x]['place'];?></li>
-        <li class="list-group-item">Fecha: <?php echo $datos[$x]['date'];?></li>
-        <li class="list-group-item">Hora: <?php echo $datos[$x]['time'];?></li>
-</ul>
-<div class="container" style="">
-<a href="./updateEvents.php?id=<?php echo$id;?>" type="button" class="btn btn-outline-warning btn-lg btn-block">Actualizar</a>
+        <h5 class="card-title">Titulo: <?php echo$datos[$x]['title'];?></h5>
+        <a href="./updateEvents.php?id=<?php echo$id;?>" type="button" class="btn btn-outline-warning btn-lg btn-block" style="font-size: 15px;">Actualizar</a>
+        <a href="./deleteEvents.php?id=<?php echo$id;?>" type="button" class="btn btn-outline-danger btn-lg btn-block" style="font-size: 15px;">Eliminar</a>
 
-<a href="./deleteEvents.php?id=<?php echo$id;?>" type="button" class="btn btn-outline-danger btn-lg btn-block">Eliminar</a>
-</div>
       </div>
     </div>
   </div>
+</div>
+
      <?php
    
     }

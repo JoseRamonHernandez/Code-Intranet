@@ -13,9 +13,9 @@ if(!empty($_GET['id']))
     try{
         $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/findEvent/$id"), true);
           $title = $datos['title'];
-          $subtitle = $datos['subtitle'];
+          $photo = $datos['photo'];
         //  echo $name;
-          $text = $datos['text'];
+         
         ?>
     
 
@@ -36,9 +36,11 @@ if(!empty($_GET['id']))
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>Swal.fire({
-        icon: 'warning',
         title: 'Seguro que quieres eliminar el evento: <?php echo $title;?>',
-        text: '<?php echo$text;?>',
+        imageUrl: './subidasEvents/<?php echo$photo;?>',
+        imageWidth: 400,
+        imageHeight: 200,
+        imageAlt: 'Custom image',
         showDenyButton: false,
         showCancelButton: true,
         confirmButtonText: 'Si, Eliminar',
@@ -67,7 +69,9 @@ if(!empty($_GET['id']))
 }
 }else{
 
+ 
     ?>
+
     <script>window.location="./err.html"</script>
     <?php
 }

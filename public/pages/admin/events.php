@@ -278,7 +278,7 @@ try{
     <div class="col-md-8">
       <div class="card-body">
         <h5 class="card-title">Titulo: <?php echo$datos[$x]['title'];?></h5>
-        <a href="./updateEvents.php?id=<?php echo$id;?>" type="button" class="btn btn-outline-warning btn-lg btn-block" style="font-size: 15px;">Actualizar</a>
+        <a href="#" type="button" class="btn btn-outline-warning btn-lg btn-block" style="font-size: 15px;" >Actualizar</a>
         <a href="./deleteEvents.php?id=<?php echo$id;?>" type="button" class="btn btn-outline-danger btn-lg btn-block" style="font-size: 15px;">Eliminar</a>
 
       </div>

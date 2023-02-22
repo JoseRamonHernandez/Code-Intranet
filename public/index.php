@@ -194,10 +194,14 @@ if(isset($_GET['politicas'])==1)
 ?>
       
    await Swal.fire({
-        icon: 'warning',
-        title: '<?php echo $datos[$x]['title'];?>, <?php echo $datos[$x]['subtitle'];?>',
-        text: '<?php echo $datos[$x]['text'];?>, dicho evento tendrá presencia en <?php echo $datos[$x]['place'];?> a las <?php echo $datos[$x]['time'];?>hrs con la fecha <?php echo $datos[$x]['date'];?>',
-        showDenyButton: false,
+    title: '<?php echo $datos[$x]['title'];?>',
+      imageUrl: './pages/admin/subidasEvents/<?php echo$datos[$x]['photo'];?>',
+      imageWidth: 900,
+      imageHeight: 500,
+      imageAlt: 'Custom image',
+      width: '100%',
+      position: 'center',   
+    showDenyButton: false,
         showCloseButton: false,
       backdrop: true,
       allowOutsideClick: false,
@@ -206,6 +210,7 @@ if(isset($_GET['politicas'])==1)
       stopKeydownPropagation: false,
       showCancelButton: false,
         confirmButtonText: 'OK',
+        confirmButtonColor: '#0B509D',
       }).then((result) => {
 if (result.isConfirmed) {
  

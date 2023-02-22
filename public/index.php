@@ -105,20 +105,41 @@ if(isset($_GET['politicas'])==1)
 </div>
 
 
-<div style="margin:0;">
-<div class="mision" style="padding: 5%; ">
-<h3>Misión.</h3>
-<p>Diseñamos y fabricamos sistemas y componentes de asientos de primera clase para cumplir con los exigentes requisitos de las industrias automotriz y ferroviaria.</p>
-</div>
-</div>
 
-<div style="margin:0;">
-<div class="vision" style="padding: 5%; margin:0;">
-<h3>Visión.</h3>
-<p>Nuestro objetivo es mantener nuestra posición como proveedor preferido de productos de clase premium agregando valor para nuestros clientes, permitiéndoles sobresalir en el mercado global.</p>
-</div>
-</div>
 
+
+<div class="container" style="padding: ">
+<div class="row row-cols-1 row-cols-md-3 g-4" style="justify-content: space-between;">
+
+
+  <div class="col">
+    <div class="card h-100 border-dark">
+      <div class="card-body">
+      <div class="card-header bg-transparent border-dark">Misión</div>
+        <h5 class="card-title">Diseñamos y fabricamos sistemas y componentes de asientos de primera clase para cumplir con los exigentes requisitos de las industrias automotriz y ferroviaria.</h5>
+       </div>
+      <div class="card-footer">
+      <div class="card-footer bg-transparent border-dark"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+  <div class="card h-100 border-dark">
+      <div class="card-body">
+      <div class="card-header bg-transparent border-dark">Visión</div>
+        <h5 class="card-title">Nuestro objetivo es mantener nuestra posición como proveedor preferido de productos de clase premium agregando valor para nuestros clientes, permitiéndoles sobresalir en el mercado global.</h5>
+         </div>
+      <div class="card-footer">
+      <div class="card-footer bg-transparent border-dark"></div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+</div>
+<br>
 <?php
 /*
 $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/collaborators"), true);

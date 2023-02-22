@@ -100,16 +100,18 @@ $password = $datos['password'];
       <center>
         <img src="../../img/logo.png" style="padding: 10px;"/>
     </center>
+<br>
 
-    <div class="container" style="padding: 15px;">
-    <div class="card mb-3" style="max-width: 540px;">
+<center>
+    <div class="container" style="padding: 15px; justify-content: ;">
+    <div class="card mb-3" style="max-width: 750px;">
         <div class="row g-0">
           <div class="col-md-4">
-            <center>
+        
             <a href="./profile.html">
             <img src="<?php echo $datos["photo"]?>" class="img-fluid" alt="Responsive image">
           </a>
- </center>
+
           </div>
           <div class="col-md-8">
             <div class="card-body">
@@ -126,7 +128,7 @@ $password = $datos['password'];
         </div>
       </div>
     </div>
-   
+    </center>
 <?php
     if($password == 'clerprem001')
 {

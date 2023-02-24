@@ -93,7 +93,7 @@ else{
       <div class="card-body">
         <h5 class="card-title"><?php echo $datos[$x]['title'];?></h5>
         <p class="card-text"><?php echo $datos[$x]['description'];?></p>
-        <a href="applicators.php?id=<?php echo$id;?>idCollaborator=<?php echo $id_user;?>&idVacancie=<?php echo$datos[$x]['_id'];?>" class="btn btn-primary">Aplicar</a>
+        <a href="applicators.php?id=<?php echo$id;?>&idCollaborator=<?php echo $id_user;?>&idVacancie=<?php echo$datos[$x]['_id'];?>&name_vacancie=<?php echo$datos[$x]['title'];?>" class="btn btn-primary">Aplicar</a>
       </div>
       <div class="card-footer">
       <small class="text-muted">Fecha de Publicación: <?php echo $datos[$x]['date_register'];?></small>

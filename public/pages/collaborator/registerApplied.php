@@ -11,29 +11,60 @@ set_error_handler("exception_error_handler");
 
 <?php
 
-if(empty($_GET['id']) || empty($_GET['idCollaborator']) || empty($_GET['idVacancie']) || empty($_GET['name_vacancie']))
+if(empty($_GET['id']) || empty($_GET['idVacancie']))
 {
     echo("No hay parametros");
 }else{
     $id = $_GET['id'];
-    $idCollaborator = $_GET['idCollaborator'];
     $idVacancie = $_GET['idVacancie'];
-    $name_vacancie = $_GET['name_vacancie'];
-    $fecha_actual = date('Y-m-d');
 
 
-    //Se registra en el colaborador la vacante seleccionada
+    //Se registra en lavacante el colaborador aplicado
     try{
+
+        $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/findVacancie/$idVacancie"), true);
+        $user = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/collaboratorFind/$id"), true);
+
+        $title = $datos['title'];
+        $deadline = $datos['deadline'];
+
+        $number_user = $user['numero_empleado'];
+        $name_user = $user['name'];
+        $area_collaborator = $user['area'];
+        $date_applied = date('Y-m-d');
+
+        
+
+        if (date("N", strtotime($deadline)) == 5) {
+    $nueva_fecha = date('Y-m-d', strtotime($deadline . ' +3 day'));
+    $friday = ('Favor de pasar el dia Lunes '.$nueva_fecha.' con Recursos Humanos para continuar con el proceso en el horario de 13:30 hrs.');
+  } elseif (date("N", strtotime($deadline)) == 6) {
+    $nueva_fecha = date('Y-m-d', strtotime($deadline . ' +2 day'));
+    $friday = ("Favor de pasar el dia Lunes ".$nueva_fecha." con Recursos Humanos para continuar con el proceso en el horario de 13:30 hrs.");
+  
+  }elseif (date("N", strtotime($deadline)) == 7) {
+    $nueva_fecha = date('Y-m-d', strtotime($deadline . ' +1 day'));
+    $friday = ("Favor de pasar el dia Lunes ".$nueva_fecha." con Recursos Humanos para continuar con el proceso en el horario de 13:30 hrs.");
+  
+  }else {
+    
+    $nueva_fecha = date('Y-m-d', strtotime($deadline . ' +1 day'));
+    $friday = ("Favor de pasar el dia ".$nueva_fecha." con Recursos Humanos para continuar con el proceso en el horario de 13:30 hrs.");
+  }
+
+
        //url de la petición
- $url = "https://REST-API.joseramonhernan.repl.co/vacaniesApplied/$idCollaborator";
+ $url = "https://REST-API.joseramonhernan.repl.co/registerApplicators/$idVacancie";
  
  //inicializamos el objeto CUrl
  $ch = curl_init($url);
   
  //el json simulamos una petición de un login
  $jsonData = array(
-    'name_vacancie' => $name_vacancie,
-    'application_date' => $fecha_actual
+    'number_collaborator' => $number_user,
+    'name_collaborator' => $name_user,
+    'area_collaborator' => $area_collaborator,
+    'date_applied' => $date_applied
  );
   
  //creamos el json a partir de nuestro arreglo
@@ -80,28 +111,19 @@ if(empty($_GET['id']) || empty($_GET['idCollaborator']) || empty($_GET['idVacanc
      <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
      <script>Swal.fire({
          position: 'center',
-         icon: 'info',
-   title: 'Almacenando registro...',
-   showConfirmButton: false,
-   timer: 2000,
-  timerProgressBar: true,
-  didOpen: () => {
-    Swal.showLoading()
-    const b = Swal.getHtmlContainer().querySelector('b')
-    timerInterval = setInterval(() => {
-      b.textContent = Swal.getTimerLeft()
-    }, 100)
-  },
-  willClose: () => {
-    clearInterval(timerInterval)
-    window.location="./registerApplied.php?id=<?php echo$id;?>&idVacancie=<?php echo$idVacancie;?>"
-  }
+         icon: 'success',
+   title: 'Felicidades haz aplicado para la vacante de <?php echo$title;?>',
+   text: '<?php echo$friday;?>',
+   showConfirmButton: true,
+   confirmButtonText: "Entendido",
+   confirmButtonColor: "#1F4566",
 }).then((result) => {
-  /* Read more about handling dismissals below */
-  if (result.dismiss === Swal.DismissReason.timer) {
-    console.log('I was closed by the timer')
-  }
-       });
+  /* Read more about isConfirmed, isDenied below */
+  if (result.isConfirmed) {
+   
+    window.location="./showVacancies.php?id=<?php echo$id;?>" 
+  } 
+      });
             
        </script>
  </body>

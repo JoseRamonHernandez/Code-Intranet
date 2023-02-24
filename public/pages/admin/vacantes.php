@@ -69,12 +69,11 @@ try{
 <div class="col-sm-4" style="padding-top:3%;">
     <div class="card">
         <a href="./applicators.php?idVacancie=<?php echo$datos[$x]['_id'];?>">
-    <img class="card-img-top" src="./subidasVacancies/logo_clerprem.png" alt="Card image cap">
+    <img class="card-img-top" src="./subidasVacancies/<?php echo$datos[$x]['photo'];?>" alt="Card image cap">
     </a>
       <div class="card-body">
         <h5 class="card-title"><?php echo $datos[$x]['title'];?></h5>
         <p class="card-text"><?php echo $datos[$x]['description'];?></p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
       </div>
       <div class="card-footer">
       <small class="text-muted">Fecha de Publicación: <?php echo $datos[$x]['date_register'];?></small>
@@ -82,6 +81,12 @@ try{
     <div class="card-footer">
       <small class="text-muted">Fecha de Cierre: <?php echo $datos[$x]['deadline'];?></small>
     </div>
+    <div class="card-footer" style="justify-content: space-between;">
+        
+    <a href="editVacancie.php?idVacancie=<?php echo$datos[$x]['_id'];?>" class="btn btn-warning">Editar</a>
+    <a href="deleteVacancie.php?idVacancie=<?php echo$datos[$x]['_id'];?>" class="btn btn-danger">Eliminar</a>
+<br>    
+</div>
     </div>
   </div>
   

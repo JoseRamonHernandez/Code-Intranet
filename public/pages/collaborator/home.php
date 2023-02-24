@@ -70,7 +70,7 @@ $password = $datos['password'];
           <ul class="dropdown-menu">
           <li><a class="dropdown-item" href="#">Documentos/RIT/Contrato Colectivo</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Vacantes</a></li>
+            <li><a class="dropdown-item" href="./showVacancies.php?id=<?php echo($datos['_id']);?>">Vacantes</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="alerts.php?id=<?php echo($datos['_id']);?>">Avisos</a></li>
             <li><hr class="dropdown-divider"></li>

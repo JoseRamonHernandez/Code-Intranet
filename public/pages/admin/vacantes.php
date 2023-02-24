@@ -35,7 +35,7 @@ set_error_handler("exception_error_handler");
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="./home.php">Registrar nueva Vacante</a>
+          <a class="nav-link active" aria-current="page" href="createVacancie.html">Registrar nueva Vacante</a>
         </li>
        
       </ul>

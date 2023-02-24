@@ -73,6 +73,8 @@
             <li><a class="dropdown-item" href="./alert.php">Avisos</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="./events.php">Eventos </a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="./vacantes.php">Vacantes </a></li>
           </ul>
         </li>
         <li class="nav-item">

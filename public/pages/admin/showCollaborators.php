@@ -93,7 +93,7 @@ set_error_handler("exception_error_handler");
 
          
          ?>
-         <div class="container">
+         <div class="table-responsive">
          <table class="table">
 <thead>
   <tr>

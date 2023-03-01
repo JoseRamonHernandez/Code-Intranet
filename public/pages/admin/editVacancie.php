@@ -48,8 +48,7 @@ if(!empty($_GET['idVacancie']))
         $puesto = $_GET['puesto'];
         $description = $_GET['description'];
         $deadline = $_GET['deadline'];
-        $area = $_GET['area'];
-        $date_register = date('Y-m-d');
+        $date_register = $_GET['date_register'];
        
             //url de la petición
 $url = "https://REST-API.joseramonhernan.repl.co/updateVacancies/$newId";
@@ -62,8 +61,7 @@ $jsonData = array(
    'puesto' => $puesto,
    'description' => $description,
    'date_register' => $date_register,
-   'deadline' => $deadline,
-   'area' => $area
+   'deadline' => $deadline
 );
  
 //creamos el json a partir de nuestro arreglo
@@ -207,17 +205,9 @@ if($result)
                     <label for="inputEmail4">Fecha de Cierre</label>
                     <input type="date" name="deadline" class="form-control text-center" id="inputEmail4" value="<?php echo$datos['deadline'];?>" required >
                 </div>
+
+                <input type="hidden" name="date_register" value="<?php echo$datos['date_register'];?>">
           
-            <div class="col-md-4">
-              <label for="inputState">Área: <?php echo $datos['area'];?></label>
-              <select id="inputState" name="area" class="form-control" required>
-                <option selected  required>Choose...</option>
-                <option value="costuras">Costuras</option>
-                <option value="ensamblado">Ensamblado</option>
-                <option value="espuma">Espuma</option>
-                <option value="almacen">Almacen</option>
-              </select>
-            </div>
            <h5 class="" style="color:blue;">Si se desea cambiar la imagen, se tendrá que eliminar el registro por completo.</h5>
           </div>
          <br>

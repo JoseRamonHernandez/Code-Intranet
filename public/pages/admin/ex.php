@@ -24,4 +24,13 @@ if (date("N", strtotime($fecha_actual)) == 5) {
 }
 
 
+
+if (date("N", strtotime($deadline)) == 5) {
+    $nueva_fecha = date('Y-m-d', strtotime($deadline . ' +3 day'));
+    $friday = ("Favor de pasar el dia Lunes ".$nueva_fecha." con Recursos Humanos para continuar con el proceso");
+  } else {
+    
+    $nueva_fecha = date('Y-m-d', strtotime($deadline . ' +1 day'));
+    $friday = ("Favor de pasar el dia ".$nueva_fecha." con Recursos Humanos para continuar con el proceso");
+  }
 ?>

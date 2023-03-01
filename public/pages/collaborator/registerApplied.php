@@ -156,7 +156,7 @@ if(empty($_GET['id']) || empty($_GET['idVacancie']))
    showConfirmButton: true,
    confirmButtonText: 'Close'
 }).then((result) => {
-window.location="vacantes.php"
+window.location="./showVancaies.php?id=<?php echo$id;?>"
 });
             
        </script>

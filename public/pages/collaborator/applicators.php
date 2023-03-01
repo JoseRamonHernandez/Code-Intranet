@@ -15,11 +15,77 @@ if(empty($_GET['id']) || empty($_GET['idCollaborator']) || empty($_GET['idVacanc
 {
     echo("No hay parametros");
 }else{
-    $id = $_GET['id'];
+  
+
+  $id = $_GET['id'];
     $idCollaborator = $_GET['idCollaborator'];
     $idVacancie = $_GET['idVacancie'];
     $name_vacancie = $_GET['name_vacancie'];
     $fecha_actual = date('Y-m-d');
+
+  $aplicadores = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/findVacancies/$idVacancie"), true);
+  $colaborador = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/collaboratorFind/$id"), true);
+    
+
+
+for($z=0; $z<count($aplicadores); $z++)
+{
+  if($aplicadores[$z]['number_collaborator'] == $colaborador['numero_empleado'])
+  {
+    $app = "true";
+    #echo $app;
+  }elseif($aplicadores[$z]['number_collaborator'] != $colaborador['numero_empleado']){
+    $app = "false";
+    #echo $app;
+  }
+}
+
+
+  if($app == "true")
+  {
+    ?>
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+ 
+     <script src="sweetalert2.min.js"></script>
+ <link rel="stylesheet" href="sweetalert2.min.css">
+ 
+ </head>
+ <body>
+     
+ 
+     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+     <script>Swal.fire({
+         position: 'center',
+         icon: 'error',
+   title: 'Ya te habias postulado para esta vacante.',
+   allowOutsideClick: false,
+        allosEscapeKey: false,
+        allosEnterKey: false,
+        stopKeydownPropagation: false,
+   showConfirmButton: true,
+   confirmButtonText: "Entendido",
+   confirmButtonColor: "#1F4566",
+}).then((result) => {
+  /* Read more about isConfirmed, isDenied below */
+  if (result.isConfirmed) {
+   
+    window.location="./showVacancies.php?id=<?php echo$id;?>" 
+  } 
+      });
+            
+       </script>
+ </body>
+ </html>
+    <?php
+  }else{
+
+    
 
 
     //Se registra en el colaborador la vacante seleccionada
@@ -134,7 +200,7 @@ if(empty($_GET['id']) || empty($_GET['idCollaborator']) || empty($_GET['idVacanc
    showConfirmButton: true,
    confirmButtonText: 'Close'
 }).then((result) => {
-window.location="vacantes.php"
+window.location="vacantes.php?id=<?php echo$id;?>"
 });
             
        </script>
@@ -150,6 +216,8 @@ window.location="vacantes.php"
       </script>
       <?php
     }
+  }
+
 }
 
 ?>

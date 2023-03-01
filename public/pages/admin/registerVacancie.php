@@ -38,7 +38,6 @@ $puesto = $_POST['puesto'];
 $description = $_POST['description'];
 $date_register = date('Y-m-d');
 $deadline = $_POST['deadline'];
-$area = $_POST['area'];
 $status = "true";
 
 
@@ -59,7 +58,6 @@ try
     'date_register' => $date_register,
     'deadline' => $deadline,
     'photo' => $img,
-    'area' => $area,
     'status' => $status
  );
   

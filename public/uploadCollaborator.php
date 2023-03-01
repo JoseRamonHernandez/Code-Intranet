@@ -13,14 +13,6 @@ set_error_handler("exception_error_handler");
 
 require __DIR__ . '../../vendor/autoload.php';
 
-// Use the Configuration class 
-use Cloudinary\Configuration\Configuration;
-
-// Configure an instance of your Cloudinary cloud
-Configuration::instance('cloudinary://231262176462779:cJBGwWjzZyhnA_vgWBJKo5b5gSA@dpeovabge?secure=true');
-
-// Use the UploadApi class for uploading assets
-use Cloudinary\Api\Upload\UploadApi;
 
 $empleado = $_POST['empleado'];
   $nombre = $_POST['nombre'];
@@ -56,33 +48,7 @@ $img = "logo_clerprem.png";
   $img = "logo_clerprem.png";
 }
 
-// Upload the image
 
-$upload = new UploadApi();
-
- json_encode(
-    $upload->upload('./subidas/'.$img, [
-        'public_id' => $img,
-        'use_filename' => TRUE,
-        'overwrite' => TRUE])
-);
-
-// Use the AdminApi class for managing assets
-use Cloudinary\Api\Admin\AdminApi;
-
-// Get the asset details
-$admin = new AdminApi();
-
-$info = json_encode($admin->asset($img), JSON_PRETTY_PRINT); //Almacena la información de la imagen en la variable
-
-
-//echo $info; //Imprime la información
-//echo ("<hr><br>");
-$obj =(json_decode($info));// Convierte la cadena $info a un objeto JSON
-//echo ("<hr><br>");
-//echo ("<hr><br>");
-$photo = $obj->{'secure_url'};// Imprime el campo solicitado
-//echo ("<hr><br>");
 
 
 
@@ -109,7 +75,7 @@ try
     'date_of_register' => $date_register,
     'phone_number' => $number_phone,
     'emergency_phone_number' => $emergency_phone,
-    'photo' => $photo,
+    'photo' => $img,
     'user_type' => $user_type,
     'status' => $status
  );

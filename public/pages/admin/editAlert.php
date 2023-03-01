@@ -58,9 +58,9 @@ if(isset($_GET['update'])==1)
     if($_GET['level'] == "Urgente")
   {
     $newLevel = "warning";
-  }elseif ($_GET['level'] == "Comentario") {
+  }elseif ($_GET['level'] == "Comunicado") {
     $newLevel = "info";
-  }elseif ($_GET['level'] == "Informativo") {
+  }elseif ($_GET['level'] == "Convocatoria") {
     $newLevel = "info2";
   }
 
@@ -226,9 +226,9 @@ if($datos['level'] == "warning")
         $level = "Urgente";
        }elseif($datos['level'] == "info")
        {
-        $level = "Comentario";
+        $level = "Comunicado";
        }elseif ($datos['level'] == "info2") {
-        $level = "Informativo";
+        $level = "Convocatoria";
        }
 
 ?>
@@ -263,8 +263,8 @@ if($datos['level'] == "warning")
       
         <option selected><?php echo $level;?></option>
         <option value="warning">Urgente</option>
-        <option value="info">Comentario</option>
-        <option value="info2">Informativo</option>
+        <option value="info">Comunicado</option>
+        <option value="info2">Convocatoria</option>
       </select>
     </div>
     </div>

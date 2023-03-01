@@ -237,8 +237,8 @@ if($result)
       
         <option selected>Choose...</option>
         <option value="warning">Urgente</option>
-        <option value="info">Comentario</option>
-        <option value="info2">Informativo</option>
+        <option value="info">Comunicado</option>
+        <option value="info2">Convocatoria</option>
       </select>
     </div>
     </div>
@@ -297,9 +297,9 @@ try{
         $level = "Urgente";
        }elseif($datos[$x]['level'] == "info")
        {
-        $level = "Comentario";
+        $level = "Comunicado";
        }elseif ($datos[$x]['level'] == "info2") {
-        $level = "Informativo";
+        $level = "Convocatoria";
        }
     
 

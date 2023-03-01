@@ -34,11 +34,12 @@ $img = "logo_clerprem.png";
 }
 
 $title = $_POST['title'];
+$puesto = $_POST['puesto'];
 $description = $_POST['description'];
 $date_register = date('Y-m-d');
 $deadline = $_POST['deadline'];
 $area = $_POST['area'];
-
+$status = "true";
 
 
 
@@ -53,11 +54,13 @@ try
  //el json simulamos una petición de un login
  $jsonData = array(
     'title' => $title,
+    'puesto' => $puesto,
     'description' => $description,
     'date_register' => $date_register,
     'deadline' => $deadline,
     'photo' => $img,
-    'area' => $area
+    'area' => $area,
+    'status' => $status
  );
   
  //creamos el json a partir de nuestro arreglo

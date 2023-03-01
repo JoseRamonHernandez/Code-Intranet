@@ -45,6 +45,7 @@ if(!empty($_GET['idVacancie']))
     {
         $newId = $_GET['idVacancie'];
         $title = $_GET['title'];
+        $puesto = $_GET['puesto'];
         $description = $_GET['description'];
         $deadline = $_GET['deadline'];
         $area = $_GET['area'];
@@ -58,6 +59,7 @@ $ch = curl_init($url);
 //el json simulamos una petición de un login
 $jsonData = array(
    'title' => $title,
+   'puesto' => $puesto,
    'description' => $description,
    'date_register' => $date_register,
    'deadline' => $deadline,
@@ -187,6 +189,12 @@ if($result)
               <label for="inputEmail4">Título</label>
               <input type="text" name="title" class="form-control text-center" id="inputEmail4" value="<?php echo$datos['title'];?>" required >
             </div>
+
+            <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputEmail4">Puesto</label>
+              <input type="text" name="puesto" class="form-control text-center" id="inputEmail4" value="<?php echo$datos['puesto'];?>" required >
+            </div>
            
         <div class="form-row">
             <div class="form-group col-md-6">
@@ -207,6 +215,7 @@ if($result)
                 <option value="costuras">Costuras</option>
                 <option value="ensamblado">Ensamblado</option>
                 <option value="espuma">Espuma</option>
+                <option value="almacen">Almacen</option>
               </select>
             </div>
            <h5 class="" style="color:blue;">Si se desea cambiar la imagen, se tendrá que eliminar el registro por completo.</h5>

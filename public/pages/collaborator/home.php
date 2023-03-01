@@ -109,7 +109,7 @@ $password = $datos['password'];
           <div class="col-md-4">
         
             <a href="./profile.html">
-            <img src="<?php echo $datos["photo"]?>" class="img-fluid" alt="Responsive image">
+            <img src="../../subidas/<?php echo $datos["photo"]?>" class="img-fluid" alt="Responsive image">
           </a>
 
           </div>

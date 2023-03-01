@@ -46,23 +46,24 @@ set_error_handler("exception_error_handler");
             try{
                 $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/collaboratorFind/$id"), true);
                //$numero_empleado = $datos['numero_emplado'];
+               $projects = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/projects"), true);
                
-                echo('
+                ?>
                 
 <!--This is code to Form-->
 <div class="container" style="padding:3%; background: #FBFAFA">
 <form method="GET" action="./editCollaboratorRegister.php" class="form" >
-    <h3>Formulario para la actualización del Colaborador: '.$datos['name'].'-'.$datos['lastname'].'</h3>
+    <h3>Formulario para la actualización del Colaborador: <?php echo$datos['name'];?> <?php echo$datos['lastname'];?></h3>
     <br>
     
   <div class="row">
     <div class="col">
         <a>Nombre:</a>
-      <input type="text" name="nombre" class="form-control" value="'.$datos['name'].'" required>
+      <input type="text" name="nombre" class="form-control" value="<?php echo$datos['name'];?>" required>
     </div>
     <div class="col">
     <a>Apellido:</a>
-      <input type="text" name="apellido" class="form-control" value="'.$datos['lastname'].'" required>
+      <input type="text" name="apellido" class="form-control" value="<?php echo$datos['lastname'];?>" required>
     </div>
 </div>
 <br>
@@ -70,38 +71,54 @@ set_error_handler("exception_error_handler");
 <div class="row">
     <div class="col">
     <a>Numero de empleado:</a>
-      <input type="text" name="empleado" class="form-control"value="'.$datos['numero_empleado'].'" readonly>
+      <input type="text" name="empleado" class="form-control"value="<?php echo$datos['numero_empleado'];?>" readonly>
     </div>
     <div class="col">
     <a>Fecha de Nacimiento: </a>
-      <input type="date" name="date_birthday" class="form-control" value="'.$datos['dateofbirthday'].'" required>
+      <input type="date" name="date_birthday" class="form-control" value="<?php echo$datos['dateofbirthday'];?>" required>
     </div>
   </div>
 <br>
 
   <div class="form-group">
     <label for="formGroupExampleInput">Correo Electrónico</label>
-    <input type="email" class="form-control" name="email" id="formGroupExampleInput" value="'.$datos['email'].'" required>
+    <input type="email" class="form-control" name="email" id="formGroupExampleInput" value="<?php echo$datos['email'];?>" required>
   </div>
  <br>
 
   <div class="row">
   <div class="form-group col-md-4">
-      <label for="inputState">Área: '.$datos['area'].'</label>
+      <label for="inputState">Área: </label>
       <select id="inputState" name="area" class="form-control" required>
-        <option selected  required>Choose...</option>
+        <option selected  required><?php echo$datos['area'];?></option>
         <option value="costuras">Costuras</option>
         <option value="ensamblado">Ensamblado</option>
         <option value="espuma">Espuma</option>
+        <option value="almacen">Almacen</option>
+      </select>
+    </div>
+    
+    <div class="form-group col-md-4">
+      <label for="inputState">Proyectos</label>
+      <select id="inputState" name="project" class="form-control" required>
+        <option selected  required><?php echo$datos['project'];?></option>
+        <?php
+
+for($x=0; $x<count($projects); $x++)
+{ 
+echo $projects[$x]['_id'];
+?>
+<option value="<?php echo $projects[$x]['name'];?>"><?php echo $projects[$x]['name'];?></option>
+<?php
+}
+
+?>
+        
       </select>
     </div>
     <div class="col">
-    <a>Proyecto:</a>
-      <input type="text" name="project" class="form-control" value="'.$datos['project'].'" required>
-    </div>
-    <div class="col">
     <a>Fecha de Ingreso: </a>
-      <input type="date" name="date_register" class="form-control" value="'.$datos['date_of_register'].'" required>
+      <input type="date" name="date_register" class="form-control" value="<?php echo$datos['date_of_register'];?>" required>
     </div>
   </div>
 <br>
@@ -109,18 +126,18 @@ set_error_handler("exception_error_handler");
   <div class="row">
     <div class="col">
     <a>Numero de teléfono:</a>
-      <input type="tel" name="number_phone" class="form-control" value="'.$datos['phone_number'].'"  pattern="\([0-9]{3}\) [0-9]{3}[ -][0-9]{4}" title="El valor valido para este campo debe ser como el ejemplo (247) 241 0314 RESPETENADO LOS PARENTESÍS y ESPACIOS" required>
+      <input type="tel" name="number_phone" class="form-control" value="<?php echo$datos['phone_number'];?>"  pattern="\([0-9]{3}\) [0-9]{3}[ -][0-9]{4}" title="El valor valido para este campo debe ser como el ejemplo (247) 241 0314 RESPETENADO LOS PARENTESÍS y ESPACIOS" required>
     </div>
     <div class="col">
     <a>Numero de teléfono de emergencia:</a>
-      <input type="tel" name="emergency_phone" class="form-control" value="'.$datos['emergency_phone_number'].'"  pattern="\([0-9]{3}\) [0-9]{3}[ -][0-9]{4}" title="El valor valido para este campo debe ser como el ejemplo (247) 241 0314 RESPETENADO LOS PARENTESÍS y ESPACIOS" required>
+      <input type="tel" name="emergency_phone" class="form-control" value="<?php echo$datos['emergency_phone_number'];?>"  pattern="\([0-9]{3}\) [0-9]{3}[ -][0-9]{4}" title="El valor valido para este campo debe ser como el ejemplo (247) 241 0314 RESPETENADO LOS PARENTESÍS y ESPACIOS" required>
     </div>
   </div>
   <br>
  
   <div class="row">
   <div class="form-group col-md-4">
-      <label for="inputState">Status: '.$datos['status'].'</label>
+      <label for="inputState">Status: <?php echo$datos['status']?></label>
       <select id="inputState" name="status" class="form-control" required>
         <option selected  required>Choose...</option>
         <option value="activo">Activo</option>
@@ -130,7 +147,8 @@ set_error_handler("exception_error_handler");
     </div>
 <br>
 
-<button type="submit" name="guardar" class="btn btn-outline-success">Guardar</button>');
+<button type="submit" name="guardar" class="btn btn-outline-success">Guardar</button>
+<?php
             
 } catch(Exception $e){
   ?>

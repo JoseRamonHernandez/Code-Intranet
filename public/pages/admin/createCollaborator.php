@@ -205,24 +205,47 @@ if(isset($_GET['guardar'])==1)
 <br>
 
   <div class="form-group">
-    <label for="formGroupExampleInput">Correo Electrónico</label>
+    <label for="formGroupExampleInput">Correo Electrónico:</label>
     <input type="email" class="form-control" name="email" id="formGroupExampleInput" placeholder="Correo Electrónico" required>
   </div>
  <br>
 
   <div class="row">
   <div class="form-group col-md-4">
-      <label for="inputState">Área</label>
+      <label for="inputState">Área:</label>
       <select id="inputState" name="area" class="form-control" required>
         <option selected  required>Choose...</option>
         <option value="costuras">Costuras</option>
         <option value="ensamblado">Ensamblado</option>
         <option value="espuma">Espuma</option>
+        <option value="almacen">Almacen</option>
       </select>
     </div>
-    <div class="col">
-    <a>Proyecto:</a>
-      <input type="text" name="project" class="form-control" placeholder="Proyecto" required>
+
+<!-- This is code to get all projects -->
+<?php
+
+  $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/projects"), true);
+
+?>
+
+    <div class="form-group col-md-4">
+      <label for="inputState">Proyectos</label>
+      <select id="inputState" name="project" class="form-control" required>
+        <option selected  required>Choose...</option>
+        <?php
+
+for($x=0; $x<count($datos); $x++)
+{ 
+echo $datos[$x]['_id'];
+?>
+<option value="<?php echo $datos[$x]['name'];?>"><?php echo $datos[$x]['name'];?></option>
+<?php
+}
+
+?>
+        
+      </select>
     </div>
     <div class="col">
     <a>Fecha de Ingreso:</a>
@@ -250,6 +273,8 @@ if(isset($_GET['guardar'])==1)
     </div>
 </div>
 <br>
+
+
 
 <button type="submit" name="guardar" class="btn btn-outline-success">Guardar</button>
 </form>

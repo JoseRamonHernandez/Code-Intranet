@@ -52,6 +52,7 @@ set_error_handler("exception_error_handler");
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="./showCollaborators.php?area=espuma">ESPUMA</a></li>
               <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="./showCollaborators.php?area=almacen">ALMACEN</a></li>
           </ul>
         </li>
       </ul>

@@ -91,9 +91,12 @@ if(!empty($_GET['numberCollaborator']))
             <li class="list-group-item">Correo Electrónico: '.$datos['email'].'</li>
             <li class="list-group-item">Numero de Empleado: '.$datos['numero_empleado'].'</li>
           </ul>
+          <div class=""card-body>
+          <h4>Status: '.$datos['status'].'</h4>
+          </div>
           <div class="card-body">
-            <a href="./editCollaborator.php?id='.$datos['_id'].'" class="card-link">EDITAR</a>
-            <a href="./deleteCollaboratorAnswer.php?id='.$datos['_id'].'"class="card-link">ELIMINAR</a>
+            <a href="./editCollaborator.php?id='.$datos['_id'].'" class="btn btn-warning">EDITAR</a>
+            <a href="./deleteCollaboratorAnswer.php?id='.$datos['_id'].'"class="btn btn-danger">ELIMINAR</a>
           </div>
         </div>
         </center>');

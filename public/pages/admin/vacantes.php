@@ -73,7 +73,10 @@ try{
     </a>
       <div class="card-body">
         <h5 class="card-title"><?php echo $datos[$x]['title'];?></h5>
+        <h5 class="card-title"><?php echo $datos[$x]['puesto'];?></h5>
+        <div class="card-footer">
         <p class="card-text"><?php echo $datos[$x]['description'];?></p>
+          </div>
       </div>
       <div class="card-footer">
       <small class="text-muted">Fecha de Publicación: <?php echo $datos[$x]['date_register'];?></small>

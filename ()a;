@@ -1,0 +1,425 @@
+[33mcommit a60134bfc42905802c310e1d79223ce9fd1838ec[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Wed Mar 1 18:59:57 2023 -0600
+
+    Twilio
+
+[33mcommit 04be2ab5db4024fdbc8fd720d83f6c6fc197e657[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Wed Mar 1 18:13:26 2023 -0600
+
+    funcion para establer la fecha de vencimiento sobre vacantes
+
+[33mcommit 4b61ac67ba477fcf72d611ad6340828c06cfdc2c[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Wed Mar 1 17:48:59 2023 -0600
+
+    cambios y adiciones para funcionamiento de mostrar, editar, elimiar, aplica y validar vacantes para ambos tipos de usuario
+
+[33mcommit a04ca93f0439e1db78d8f2ce1de946629b52339e[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Wed Mar 1 10:43:57 2023 -0600
+
+    new structure
+
+[33mcommit 379c65ad2857ddc609e89f555c6a1e384fd28832[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Wed Mar 1 10:42:34 2023 -0600
+
+    new input for 'puesto'
+
+[33mcommit ea3f6a74adee780d030732440b5b133eb34ce989[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Tue Feb 28 22:16:23 2023 -0600
+
+    changes into list levels
+
+[33mcommit e6d6e5d055279d2c008d66553431e47de83b6acf[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Tue Feb 28 22:10:15 2023 -0600
+
+    add action Access Denied
+
+[33mcommit 654559f0935f80188cfb707aba5bdfd7e77f3049[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Tue Feb 28 21:53:27 2023 -0600
+
+    remove CLOUDINARY
+
+[33mcommit 6ee2671cb167a2cea4b30006fb8f7bc1d5a99327[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Tue Feb 28 21:51:19 2023 -0600
+
+    new route for image
+
+[33mcommit eda28875eb5a771fbde3530355beab04537723ef[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Tue Feb 28 21:50:52 2023 -0600
+
+    new route for image
+
+[33mcommit 563428baa42b9db28d06c034e502b0aa3d21b7de[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Tue Feb 28 21:38:19 2023 -0600
+
+    add schema projects in all module to Collaboratos
+
+[33mcommit 6c7353e4574d66fa6205192f85a95a8522c77bc2[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Tue Feb 28 11:16:45 2023 -0600
+
+    Delete Project complete
+
+[33mcommit 8c22e5294c03a1163f687ab22fab300f8656dcf7[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Tue Feb 28 10:47:15 2023 -0600
+
+    other changes
+
+[33mcommit e873521fff2d38619a76c1935db3d3afa9cf7796[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Tue Feb 28 10:46:33 2023 -0600
+
+    edit project complete
+
+[33mcommit 7ea3a920c11dae4cdd4656344c66db718b22657a[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Tue Feb 28 10:17:53 2023 -0600
+
+    add icons to edit and delete projects
+
+[33mcommit 9c34acf92e8e61dad71671c6d55b4ccd9b11c2ad[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Tue Feb 28 10:00:52 2023 -0600
+
+    create news projects and show into same file
+
+[33mcommit 1a51be39fafead5e3f906c99537c2badc2e46ed0[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Tue Feb 28 09:59:30 2023 -0600
+
+    modified table
+
+[33mcommit ed971d8805fe8f27520b144e49c4fd120b3367f3[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Tue Feb 28 09:58:21 2023 -0600
+
+    upgrade into nav Projects
+
+[33mcommit 147e9972cbe3a3fe982b1ef253f1088ffc7bfe1e[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Tue Feb 28 09:57:30 2023 -0600
+
+    delete update events
+
+[33mcommit 9b815e347e5844deebabe36615b882a907a25038[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Fri Feb 24 09:21:32 2023 -0600
+
+    aplicar vacantes
+
+[33mcommit 4f58c90511590f2466cb1b0610ce3b708d2ef8da[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Fri Feb 24 08:34:21 2023 -0600
+
+    show vacancies for collaborators
+
+[33mcommit b5c56cddd841ac2cc6f2bee49315eeed5bf39957[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Fri Feb 24 02:35:07 2023 -0600
+
+    delete vacancies
+
+[33mcommit 65f63aa98fdcd0ca1941e9fc586f620e1343fcbe[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Fri Feb 24 02:16:32 2023 -0600
+
+    update vacancies
+
+[33mcommit 3cf868493df7f333d87079072833733bde63aec7[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Fri Feb 24 01:19:53 2023 -0600
+
+    create vacancie
+
+[33mcommit b08f25d1e444d077f1e2e5803fba615e424f7161[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Fri Feb 24 00:04:41 2023 -0600
+
+    show vacancies for administrators
+
+[33mcommit abfc6fde7940bdc979266090cc88687b992d115f[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Wed Feb 22 13:43:54 2023 -0600
+
+    get and show envents in index.php
+
+[33mcommit 55ed3071a820abdff97db7916581a0e4e97da1ab[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Wed Feb 22 13:37:43 2023 -0600
+
+    show events to collaborators
+
+[33mcommit ea2ec614aaf9fd1dc4caf29ca5d8ac368c2678d1[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Wed Feb 22 11:57:45 2023 -0600
+
+    adaptacion en deleteEvents y boton deshabilitado para updateEvents.php
+
+[33mcommit cadad67f617dd491b09593eaf528a37ee997bfcd[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Wed Feb 22 11:38:10 2023 -0600
+
+    new register to events and show all in events.php
+
+[33mcommit f3e65b06ece35d8062ae062f12413324fd6f8c7d[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Wed Feb 22 11:10:47 2023 -0600
+
+    changes in index
+
+[33mcommit 3ef6fc7e14ccbc8fdea2b3ff5495e1cd929c36a5[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Tue Feb 21 15:04:11 2023 -0600
+
+    show alerts into collaborators/home
+
+[33mcommit 1cdcb9473a2d674040bb066fd9c88c3741b166bf[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Tue Feb 21 14:38:57 2023 -0600
+
+    solucion al bug en editAlert cuando se autollenaba el campo nivel
+
+[33mcommit 2c6ef1f96d59d2214556b20d884afccf4577a4da[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Tue Feb 21 14:29:20 2023 -0600
+
+    nuevo crud con cambios correspondientes para Avisos
+
+[33mcommit a068dffddcd4fa5cf5d60bd1cbd68770e780237a[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Mon Feb 20 22:24:37 2023 -0600
+
+    changes for alerts (new update)
+
+[33mcommit 88c5e0e66d31b5084affd3ff63074782ccf8e8ed[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Thu Feb 16 22:08:32 2023 -0600
+
+    show events into collaborator/home.php
+
+[33mcommit 3634bebf486818eb56a722454891f92ff8ccd26b[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Thu Feb 16 21:37:35 2023 -0600
+
+    show events and 'política y privacidad' in index
+
+[33mcommit 9ac8abb6bb235c9e6e335d8b5bbedcab071aa6e3[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Thu Feb 16 16:22:12 2023 -0600
+
+    delete events
+
+[33mcommit 29d7ed1d64fc1d2790103803e68eb45ec736fbef[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Thu Feb 16 16:07:01 2023 -0600
+
+    update events
+
+[33mcommit ed4665eba1836c581830838046eb477aa05933c5[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Thu Feb 16 15:31:48 2023 -0600
+
+    Create && Read Events
+
+[33mcommit eed3e222f793c9a31bce7166aa3d561b5af973bd[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Tue Feb 14 13:50:49 2023 -0600
+
+    upload image to collaborator
+
+[33mcommit d6d4c0e65c6255319cb95edaa27c5cdeb4b1501d[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Tue Feb 14 13:04:25 2023 -0600
+
+    upload of image to administrators
+
+[33mcommit e1775c1a1c87db32a8ba8f818a272c8e95a5c88d[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Mon Feb 13 19:48:14 2023 -0600
+
+    upload image and return url
+
+[33mcommit fefad446e2bb1902b706ed196f3084f6c64b1a95[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Mon Feb 13 15:51:34 2023 -0600
+
+    show alerts into collaborators/home.php
+
+[33mcommit 5ec0f60eb9be40c686164e24ba360ba3f0487577[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Thu Feb 9 13:56:27 2023 -0600
+
+    eliminar avisos
+
+[33mcommit 2c0905782efc3837d4f503a9c022a27f61992880[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Thu Feb 9 13:16:04 2023 -0600
+
+    actualizar avisos
+
+[33mcommit 7ca2f6052eea3c3a4a204e30a6c7bdb74b3b87f4[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Thu Feb 9 11:25:05 2023 -0600
+
+    create and show alerts
+
+[33mcommit 7c65ace661644f4c6f8a92b2dc25d79850a1826b[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Tue Feb 7 20:12:26 2023 -0600
+
+    inicios de upload image
+
+[33mcommit dfab32f47a837d391dc7527a64f923b44b77e8e3[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Tue Feb 7 14:21:45 2023 -0600
+
+    cambio de contraseña
+
+[33mcommit c443a37446d67b4b5048a93ee600ff4d9df85838[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Thu Feb 2 22:24:30 2023 -0600
+
+    requisito de status
+
+[33mcommit 68926942e6f9f05c02f26807e7d693c41c57d714[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Thu Feb 2 22:15:00 2023 -0600
+
+    nuevo campo de status para el colaborador
+
+[33mcommit 5ded6773bb46ebb237e372805d508acc76fe746d[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Thu Feb 2 21:58:29 2023 -0600
+
+    function update to administrators
+
+[33mcommit e4ecfafa91bb21975025e2a71499e1e82b47ab73[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Thu Feb 2 21:12:48 2023 -0600
+
+    funcion delete to administrators
+
+[33mcommit 1b68c3f4486d4bc30b0f16c3dba0c5b6e6eecda3[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Thu Feb 2 15:42:57 2023 -0600
+
+    funcion de eliminar
+
+[33mcommit 6a9e5e6b6d0d40545887a7d8569a8e5a568647bd[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Thu Feb 2 15:05:19 2023 -0600
+
+    implementación de nuevo nav y bar en index
+
+[33mcommit 50590b7fc67de786d22a30686bb5235dbe75f793[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Thu Feb 2 13:43:22 2023 -0600
+
+    nuevas alertas
+
+[33mcommit b200590c84e3197fb639e0ee842317e2022e09d4[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Thu Feb 2 11:52:02 2023 -0600
+
+    pagina de error
+
+[33mcommit 2c48a65008ac83133b65921bcce930afe5e72e3c[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Tue Jan 31 14:29:49 2023 -0600
+
+    inicio de sección editar
+
+[33mcommit c90d2334420359d28951bc90d1ad5055ffa82c0a[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Tue Jan 31 13:03:36 2023 -0600
+
+    nuevos navs
+
+[33mcommit badb78139f8aa185ef63c9b317cf24240dae0c53[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Mon Jan 30 16:07:50 2023 -0600
+
+    diseño home en módulo Administrador e implementación de funcionalidad 'enviar msj vía whatsApp´
+
+[33mcommit 9ef101a7305fe059ad7732b0cce6c40a312af55a[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Thu Jan 26 22:54:50 2023 -0600
+
+    Se muestran todos los administradores y busqueda por numero de empleado
+
+[33mcommit f40123c90f9f867e2fe7c746191aba9f6f598a35[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Thu Jan 26 22:54:08 2023 -0600
+
+    bug solucionado al uso de formulario
+
+[33mcommit 01b14aee419bfa037fc9c6c77cf4262412c0c266[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Thu Jan 26 22:02:13 2023 -0600
+
+    Muestra de colaboradores por área e individual, completada
+
+[33mcommit a6052d655d475f6b0b3a8d853534bac1ae668290[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Thu Jan 26 16:11:30 2023 -0600
+
+    control de areas para su muestreo
+
+[33mcommit 220145156b7abf7f9bf5f08e511696f51e6122b2[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Wed Jan 25 14:52:37 2023 -0600
+
+    schema responsive && new navBar to showCollaborators
+
+[33mcommit e01cb9061dc24b400d7aa32226bbb1f2fb12edc3[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Tue Jan 24 13:24:10 2023 -0600
+
+    Formulario para registro de Administradores completed
+
+[33mcommit 68ca8ae4bca84f42d3a59afd627120e4e9cc7baa[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Tue Jan 24 13:00:16 2023 -0600
+
+    validación y funcionalidad de formulario de registro de colaboradores
+
+[33mcommit 413913314a5eeac8d0fe0f0aa3248cefc18220cb[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Mon Jan 23 22:23:47 2023 -0600
+
+    estructura relacional codigo login y formulario registro de colaboradores
+
+[33mcommit 4d1e7eb69781e2add4e1fd5df94e4d668d1cc613[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Thu Jan 19 22:07:05 2023 -0600
+
+    validacion login para colaboradores y muestreo de datos
+
+[33mcommit 28db7489b0a685076563bc3c0ddb1e01eb9493d1[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Wed Jan 18 22:34:43 2023 -0600
+
+    validacion login con rest api
+
+[33mcommit 87454fe9562ead0cfacf8eba72eee9c567e023ba[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Mon Jan 16 16:45:56 2023 -0600
+
+    creación de pagina inicio
+
+[33mcommit 3efa171e0beb9037cc6deadba79043c7d530d836[m
+Author: JoseRamonHernandez <joseramonhernandezmunoz20@gmail.com>
+Date:   Thu Jan 12 21:43:22 2023 -0600
+
+    inicio del proyecto

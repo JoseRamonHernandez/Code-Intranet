@@ -83,7 +83,7 @@
           <a class="nav-link active" aria-current="page" href="">Cursos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="./whatsApp_link.html">Example-WhatsApp</a>
+          <a class="nav-link" href="../whats.php">Example-WhatsApp</a>
         </li>
        
       </ul>

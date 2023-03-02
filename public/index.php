@@ -1,3 +1,11 @@
+<?php
+require_once "./pages/poo/clases.php";
+
+$vacancies = new vacancie;
+
+$vacancies -> status();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

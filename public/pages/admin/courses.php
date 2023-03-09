@@ -60,7 +60,7 @@ try{
                 <h5 class="card-title">Nombre de la categoria: <?php echo $categorias[$x]['name_of_categorie']; ?></h5>
                 <p class="card-text">Descripción <?php echo $categorias[$x]['description']; ?></p>
                 <a href="#" class="btn btn-primary">Acceder</a>
-                <a href="#" class="btn btn-warning">Editar</a>
+                <a href="editCategorie.php?idCategorie=<?php echo $categorias[$x]['_id'];?>" class="btn btn-warning">Editar</a>
             </div>
             </div>
 <br>
@@ -80,3 +80,5 @@ try{
 <br>
 </div>
 </div>
+</body>
+</html>

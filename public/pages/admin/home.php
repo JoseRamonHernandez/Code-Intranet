@@ -80,7 +80,7 @@
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="">Cursos</a>
+          <a class="nav-link active" aria-current="page" href="./courses.php">Cursos</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="../whats.php">Example-WhatsApp</a>

@@ -34,7 +34,7 @@ set_error_handler("exception_error_handler");
 </nav>
 
 <div class="container" style="padding-top:2%;">
-    <h2>Cursos Disponibles</h2>
+    <h2>Categorias Disponibles</h2>
 </div>
 
 <div class="container" style="padding-top:3%;">
@@ -59,7 +59,7 @@ try{
             <div class="card-body" style="background-color: <?php echo $categorias[$x]['background']; ?>; color: <?php echo $categorias[$x]['colorText']; ?>;">
                 <h5 class="card-title">Nombre de la categoria: <?php echo $categorias[$x]['name_of_categorie']; ?></h5>
                 <p class="card-text">Descripción <?php echo $categorias[$x]['description']; ?></p>
-                <a href="#" class="btn btn-primary">Acceder</a>
+                <a href="selectCategorie.php?idCategorie=<?php echo $categorias[$x]['_id'];?>&nameCategorie=<?php echo $categorias[$x]['name_of_categorie']; ?>" class="btn btn-primary">Acceder</a>
                 <a href="editCategorie.php?idCategorie=<?php echo $categorias[$x]['_id'];?>" class="btn btn-warning">Editar</a>
             </div>
             </div>

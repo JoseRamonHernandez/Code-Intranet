@@ -228,7 +228,7 @@ if($result)
         <tr>
       <th scope="row">'.$a.'</th>
       <td>'.$name.'</td>
-      <td><a href="" style="text-decoration: none;">Acceder</a></td>
+      <td><a href="selectCourses.php?nameCourse='.$name.'&idCourse='.$idCourse.'&idCategorie='.$idCategorie.'&nameCategorie='.$nameCategorie.'" style="text-decoration: none;">Acceder</a></td>
       <td><a href="deleteCategorie.php?idCategorie='.$idCategorie.'&nameCategorie='.$nameCategorie.'&idCourse='.$idCourse.'" style="text-decoration: none; color: red;">Eliminar Curso</a></td>
     </tr>
         ');

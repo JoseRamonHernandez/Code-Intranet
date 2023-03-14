@@ -6,7 +6,9 @@ function exception_error_handler($errno, $errstr, $errfile, $errline)
 
 set_error_handler("exception_error_handler");
 
+
 ?>
+
 
 <!DOCTYPE html>
 <html lang="es">
@@ -112,7 +114,7 @@ try{
   <img src="../../img/material/'.$img.'.png" class="card-img-top" alt="..."  width="100" height="200">
   <div class="card-body">
     <h5 class="card-title">'.$element['name'].'</h5>
-    <a href="#" class="btn btn-primary">Download</a>
+    <a href="downloadFileAdmin.php?nameFile='.$element['name'].'&nameCourse='.$nameCourse.'&idCourse='.$idCourse.'&idCategorie='.$idCategorie.'&nameCategorie='.$nameCategorie.'" class="btn btn-primary"> Download </a>
     <a href="deleteMaterialCourse.php?idMaterial='.$idMaterial.'&nameCourse='.$nameCourse.'&idCourse='.$idCourse.'&idCategorie='.$idCategorie.'&nameCategorie='.$nameCategorie.'" class="btn btn-danger">Delete</a>
   </div>
 </div>
@@ -138,6 +140,8 @@ try{
 }else{
     echo ("No se reciben parametros");
 }
+
+
 
 ?>
 

@@ -14,7 +14,7 @@ set_error_handler("exception_error_handler");
 require __DIR__ . '../../vendor/autoload.php';
 
 
-$empleado = $_POST['empleado'];
+  $empleado = $_POST['empleado'];
   $nombre = $_POST['nombre'];
   $apellido = $_POST['apellido'];
   $date_birthday = $_POST['date_birthday'];

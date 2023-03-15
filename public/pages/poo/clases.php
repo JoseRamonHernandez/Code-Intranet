@@ -154,6 +154,11 @@ class vacancie{
     {
         $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/Vacancies"), true);
 
+        if(!$datos)
+        {
+
+        }else{
+
         for($x=0; $x<count($datos); $x++)
         {
             $today = date('Y-m-d');
@@ -202,6 +207,7 @@ $result = curl_exec($ch);
         }
 
     }
+}
 
 };
 

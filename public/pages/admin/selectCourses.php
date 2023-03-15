@@ -49,7 +49,7 @@ if(!empty(isset($_GET['nameCourse'])) && !empty(isset($_GET['idCourse'])) && !em
     <ul class="dropdown-menu">
       <li><a class="dropdown-item" href="createMaterial.php?nameCourse=<?php echo$nameCourse; ?>&idCourse=<?php echo$idCourse; ?>&idCategorie=<?php echo$idCategorie; ?>&nameCategorie=<?php echo$nameCategorie; ?>">Registrar material para el curso</a></li>
       <li><hr class="dropdown-divider"></li>
-      <li><a class="dropdown-item" href="#">Cuestionario</a></li>
+      <li><a class="dropdown-item" href="test.php?nameCourse=<?php echo$nameCourse; ?>&idCourse=<?php echo$idCourse; ?>&idCategorie=<?php echo$idCategorie; ?>&nameCategorie=<?php echo$nameCategorie; ?>">Cuestionario</a></li>
     </ul>
   </li>
 </ul>

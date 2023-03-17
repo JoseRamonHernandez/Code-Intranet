@@ -75,6 +75,9 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
 //Ejecutamos la petición
 $result = curl_exec($ch);
 
+if($result)
+{
+
 
 
     $idQuestion = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/$idCategorie/questions/$idCourse"), true);
@@ -147,6 +150,15 @@ $result = curl_exec($ch);
 </div>
 
 <?php
+
+}else{
+    ?>
+    <script>
+        window.location="../err.html"
+    </script>
+    <?php
+}
+
 }catch(Exception $e){
     ?>
     <script>

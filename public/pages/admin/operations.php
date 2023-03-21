@@ -260,7 +260,7 @@ $projects = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl
       <th scope="row"><?php echo $a+1; ?></th>
       <td class="text-center"><?php echo $getOperations[$a]['name_of_operation']; ?></td>
       <td class="text-center"><?php echo $getOperations[$a]['project']; ?></td>
-      <td class="text-center"><a href="" style="text-decoration:none; color: ;" title="Acceder"><svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" fill="currentColor" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+      <td class="text-center"><a href="showCollaboratorsIntoOperation.php?idOperation=<?php echo $getOperations[$a]['_id']; ?>" style="text-decoration:none; color: ;" title="Acceder"><svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" fill="currentColor" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
   <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
 </svg></a></td>
       <td class="text-center"><a href="deleteOperation.php?idOperation=<?php echo $getOperations[$a]['_id']; ?>" style="text-decoration:none; color: #E62F11;" title="Eliminar"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">

@@ -83,8 +83,9 @@
           <a class="nav-link active" aria-current="page" href="./courses.php">Cursos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../whats.php">Example-WhatsApp</a>
+          <a class="nav-link active" aria-curret="page" href="./operations.php">Operaciones</a>
         </li>
+        
        
       </ul>
       <form class="d-flex" role="search" method="GET" action="../../login.php">

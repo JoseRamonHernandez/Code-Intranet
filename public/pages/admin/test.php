@@ -60,12 +60,14 @@ if(!empty(isset($_GET['nameCourse'])) && !empty(isset($_GET['idCourse'])) && !em
         $a=0;
         $count = 0;
 
+        
+
         foreach ($questions['questions'] as $question) {
             #echo $question['question_text'] . '<br>'; // Imprimir valor de "question_text"
             $count++;
           }
           #echo $count;
-
+        
     }catch(Exception $e)
     {
         echo("Error en la consulta");
@@ -102,6 +104,37 @@ if(!empty(isset($_GET['nameCourse'])) && !empty(isset($_GET['idCourse'])) && !em
 
 foreach ($questions['questions'] as $question) {
     #echo $question['question_text'] . '<br>'; // Imprimir valor de "question_text"
+
+    try{
+    if( is_null($question['options'][0]['option1']) || is_null($question['options'][0]['option2']) || is_null($question['options'][0]['option3']) || is_null($question['options'][0]['option4']) || is_null($question['answerOption']))
+    {
+      echo ("Tienes variables nulas");
+    }
+  }catch(Exception $e)
+  {
+    $idQuestion = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/$idCategorie/questions/$idCourse"), true);
+
+    $count = 0;
+
+    foreach ($idQuestion['questions'] as $question) {
+        #echo $question['question_text'] . '<br>'; // Imprimir valor de "question_text"
+        $count++;
+      }
+      $total = $count -1;
+
+      $idQuestionText = $idQuestion['questions'][$total]['_id'];
+
+      $deleteQuestion = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/$idCategorie/course/$idCourse/question/$idQuestionText"), true);
+
+      if($deleteQuestion)
+      {
+        ?>
+        <script>
+          window.locations="./test.php?idCourse=<?php echo $idCourse; ?>&idCategorie=<?php echo $idCategorie; ?>&nameCategorie=<?php echo $nameCategorie; ?>&nameCourse=<?php echo $nameCourse; ?>";
+        </script>
+        <?php
+      }
+  }
     $a++;
     echo('
     

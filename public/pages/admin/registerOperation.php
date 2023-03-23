@@ -291,7 +291,7 @@ if($result)
       <td><?php echo $operations[$x]['project2']; ?></td>
       <td><?php echo $operations[$x]['porcent']; ?></td>
       <td><a href="updatePorcent.php?idCollaborator=<?php echo $idCollaborator; ?>&id_operation=<?php echo $operations[$x]['id_operation']; ?>" style="text-decoration: none; color: #EDC60D;" title="EDITAR REGISTRO">ACTUALIZAR PORCENTAJE</a></td>
-      <td><a href="" style="text-decoration: none; color: #DD4B25;" title="ELIMINAR REGISTRO">ELIMINAR REGISTRO</a></td>
+      <td><a href="deleteREGISTERoperation.php?idCollaborator=<?php echo $idCollaborator; ?>&id_operation=<?php echo $operations[$x]['id_operation']; ?>&numberCollaborator=<?php echo $numberCollaborator; ?>" style="text-decoration: none; color: #DD4B25;" title="ELIMINAR REGISTRO">ELIMINAR REGISTRO</a></td>
     </tr>
       <?php
     }

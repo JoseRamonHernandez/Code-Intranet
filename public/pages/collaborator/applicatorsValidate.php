@@ -158,7 +158,7 @@ window.location="showVancancies.php?id=<?php echo$id;?>"
 }else{
     ?>
      <script>
-     window.location="./applicators.php??id=<?php echo$id;?>&idCollaborator=<?php echo$idCollaborator;?>&idVacancie=<?php echo$idVacancie;?>&name_vacancie=<?php echo$name_vacancie;?>"
+     window.location="./applicators.php?id=<?php echo$id;?>&idCollaborator=<?php echo$idCollaborator;?>&idVacancie=<?php echo$idVacancie;?>&name_vacancie=<?php echo$name_vacancie;?>"
    </script>
    <?php
 }

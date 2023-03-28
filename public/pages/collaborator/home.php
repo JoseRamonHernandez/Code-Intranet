@@ -90,7 +90,7 @@ $password = $datos['password'];
         
       </ul>
       <form class="d-flex" role="search" method="GET" action="../../login.php">
-        <button class="btn btn-outline-info" name="close" type="submit">Cerrar Sesión</button>
+        <button class="btn btn-outline-primary" name="close" type="submit">Cerrar Sesión</button>
       </form>
     </div>
   </div>
@@ -104,11 +104,11 @@ $password = $datos['password'];
 
 <center>
     <div class="container" style="padding: 15px; justify-content: ;">
-    <div class="card mb-3" style="max-width: 750px;">
+    <div class="card mb-3" style="max-width: 750px; border: 0;">
         <div class="row g-0">
           <div class="col-md-4">
         
-            <a href="./profile.html">
+            <a href="./profile.php?idCollaborator=<?php echo $datos['_id'];?>">
             <img src="../../subidas/<?php echo $datos["photo"]?>" class="img-fluid" alt="Responsive image">
           </a>
 

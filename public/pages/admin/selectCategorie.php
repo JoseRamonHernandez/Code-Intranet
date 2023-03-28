@@ -224,7 +224,22 @@ if($result)
         $idCourse = $courses[$x]['_id'];
         $name = $courses[$x]['name_of_course'];
 
-        echo('
+        /*
+       */
+
+        if($idCourse == "6414910558f2eb23fc70be0b")
+        {
+           echo('
+        <tr>
+      <th scope="row">'.$a.'</th>
+      <td>'.$name.'</td>
+      <td><a href="selectCourses.php?nameCourse='.$name.'&idCourse='.$idCourse.'&idCategorie='.$idCategorie.'&nameCategorie='.$nameCategorie.'" style="text-decoration: none;">Acceder</a></td>
+      <td><p></p></td>
+      </tr>
+        ');
+        }
+        else{
+           echo('
         <tr>
       <th scope="row">'.$a.'</th>
       <td>'.$name.'</td>
@@ -232,6 +247,7 @@ if($result)
       <td><a href="deleteCategorie.php?idCategorie='.$idCategorie.'&nameCategorie='.$nameCategorie.'&idCourse='.$idCourse.'" style="text-decoration: none; color: red;">Eliminar Curso</a></td>
     </tr>
         ');
+        }
 
     }
 

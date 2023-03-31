@@ -56,13 +56,6 @@ if(isset($_GET['ingresar'])==1)
     $usuario = $_GET['usuario'];
     $password = $_GET['password'];
 
-   /* echo ($usuario);
-    echo ("\n");
-    echo($password);
-    */
-   // $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/collaboratorNumberFind/$usuario/$password"), true);
-   // print_r ($datos);
-
    try
    { 
     $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/collaboratorNumberFind/$usuario/$password"), true);

@@ -88,6 +88,10 @@ $password = $datos['password'];
           <a class="nav-link" href="./events.php?id=<?php echo($datos['_id']);?>">Próximos eventos</a>
         </li>
         
+        <li class="nav-item">
+          <a class="nav-link active" href="./courses.php?id=<?php echo($datos['_id']);?>">Cursos</a>
+        </li>
+
       </ul>
       <form class="d-flex" role="search" method="GET" action="../../login.php">
         <button class="btn btn-outline-primary" name="close" type="submit">Cerrar Sesión</button>

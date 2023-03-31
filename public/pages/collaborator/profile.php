@@ -69,6 +69,11 @@ $datosUSer = json_decode(file_get_contents("https://REST-API.joseramonhernan.rep
 <div class="container" style="padding-top: 5%;">
 
 <img src="../../subidas/<?php echo $datosUSer['photo'];?>" alt="" height="15%" width="15%">
+
+<a   href="editProfile.php?idCollaborator=<?php echo $idCollaborator; ?>" class="float-right text-right" style="text-decoration; " >
+<button class="btn btn-outline-warning float-right text-right">EDITAR DATOS</button>
+</a>
+
 <hr>
 
 <div class="container text-bg-dark" style="padding:5% ">
@@ -79,7 +84,7 @@ $datosUSer = json_decode(file_get_contents("https://REST-API.joseramonhernan.rep
     <input type="text" readonly class="form-control-plaintext" id="validationCustom01" value="<?php echo $datosUSer['name'];?>" style="color:white;">
   </div>
   <div class="col-md-4">
-    <label for="validationCustom02" class="form-label">Appelido(s)</label>
+    <label for="validationCustom02" class="form-label">Apellido(s)</label>
     <input type="text" readonly class="form-control-plaintext" id="validationCustom02" value="<?php echo $datosUSer['lastname'];?>" style="color:white;">
   </div>
   <div class="col-md-4">

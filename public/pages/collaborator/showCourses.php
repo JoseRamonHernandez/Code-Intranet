@@ -66,6 +66,51 @@ else
       </div>
     </nav>
 
+<?php
+
+  $datosCategorie = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/findCategorie/$idCategorie"), true);
+  $nameCategorie = $datosCategorie['name_of_categorie'];
+  $background = $datosCategorie['background'];
+  $colorText = $datosCategorie['colorText'];
+?>
+
+    <div class="container" style="padding-top: 5%">
+
+<h3 class="text-center">Se muestra el listado de todas los cursos disponibles para la categría <?php echo $nameCategorie; ?>.</h3>
+
+<div class="row row-cols-1 row-cols-md-3 g-4" style="padding-top:4%;">
+
+<?php
+
+  $courses = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/findCourses/$idCategorie"), true);
+
+  for($x=0; $x<count($courses); $x++)
+  {
+
+  $idCourse = $courses[$x]['_id'];
+?>
+
+  <div class="col">
+    <div class="card h-100">
+      <div class="card-body"  style="background-color: <?php echo $background; ?>; color: <?php echo $colorText; ?>;">
+        <h5 class="card-title">Curso <?php echo $x+1; ?>:</h5>
+        <p class="card-text"><?php echo $courses[$x]['name_of_course']; ?></p>
+      </div>
+      <div class="card-footer">
+        <a href="materialCourses.php?idCollaborator=<?php echo $idCollaborator;?>&idCategorie=<?php echo $idCategorie;?>&idCourse=<?php echo $idCourse;?>" style="text-decoration: none">
+        <button class="btn btn-outline-success">Acceder</button>
+        </a>
+      </div>
+    </div>
+  </div>
+ 
+  <?php
+  }
+  ?>
+
+</div>
+
+</div>
 
 <?php
 }

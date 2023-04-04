@@ -85,8 +85,8 @@ else
 
         for($x=0; $x<count($categories); $x++)
         {
-            if($categories[$x]['_id'] == "640665b4f9977e40726ea4a5")
-            {
+           /* if($categories[$x]['_id'] == "640665b4f9977e40726ea4a5")
+            {*/
     ?>
 
   <div class="col">
@@ -106,7 +106,7 @@ else
   </div>
 
   <?php
-            }else
+           /* }else
             {
                 ?>
 
@@ -127,7 +127,7 @@ else
                 </div>
               
                 <?php
-            }
+            }*/
         }
     ?>
 

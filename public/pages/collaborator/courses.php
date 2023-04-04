@@ -114,8 +114,11 @@ else
 </div>
 
 <br>
-<p>--INSERTAR IMAGEN DE VISTA PREVIA A TODOS LOS CURSOS DE LA CATEGORIA WHITE RESALTANDO LA LIMITACIÓN DEL CURSO DE INDUCCIÓN--</p>
-<br>
+<center>
+<img class="card border-dark mb-3" src="./img/courses.png" title="cursos" alt="" height="75%" width="75%">
+</center>
+
+<br><br>
 
 <div class="card text-bg-warning mb-6" style="">
   <div class="card-body">
@@ -128,8 +131,11 @@ else
 </div>
 
 <br>
-<p>--INSERTAR IMAGEN DE VISTA PREVIA A TODOS LOS MATERIALES REGISTRADOS DE UN CURSO--</p>
-<br>
+<center>
+<img class="card border-dark mb-3" src="./img/materials.png" title="materiales" alt="" height="75%" width="75%">
+</center>
+
+<br><br>
 
 <div class="card text-bg-danger mb-6" style="">
   <div class="card-body">

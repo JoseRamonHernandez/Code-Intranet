@@ -135,7 +135,8 @@ else
 <img class="card border-dark mb-3" src="./img/materials.png" title="materiales" alt="" height="75%" width="75%">
 </center>
 
-<br><br>
+<br>
+<br>
 
 <div class="card text-bg-danger mb-6" style="">
   <div class="card-body">
@@ -149,7 +150,16 @@ else
 </div>
 
 <br>
-<p>--INSERTAR IMAGEN DE VISTA PREVIA SOBRE LAS PREGUNTAS DENTRO DEL CURSO--</p>
+<center>
+<img class="card border-dark mb-3" src="./img/test1.png" title="questionario" alt="" height="75%" width="75%">
+</center>
+
+<br>
+<center>
+<img class="card border-dark mb-3" src="./img/test2.png" title="questionario" alt="" height="75%" width="75%">
+</center>
+
+<br>
 <br>
 
 <div class="card text-bg-info mb-6" style="">

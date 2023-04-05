@@ -77,6 +77,7 @@ $questions = json_decode(file_get_contents("https://REST-API.joseramonhernan.rep
 
 $count = 0;
 
+$numberQuestion = 0;
 
 
 foreach ($questions['questions'] as $question) {
@@ -85,7 +86,7 @@ foreach ($questions['questions'] as $question) {
    
   }
 
-  echo $questions['questions'][1]['question_text'];//Esta es la clave
+ 
 ?>
 
 <div class="container" style="padding-top: 4%">
@@ -99,7 +100,7 @@ foreach ($questions['questions'] as $question) {
 
 <div class="container" style="padding: 5%">
 <center>
-<a href="" style="text-decoration: none">
+<a href="question.php?idCollaborator=<?php echo $idCollaborator; ?>&idCategorie=<?php echo $idCategorie; ?>&idCourse=<?php echo $idCourse; ?>&count=<?php echo $count; ?>&numberQuestion=<?php echo $numberQuestion; ?>" style="text-decoration: none">
 <button class="btn btn-success btn-lg">Iniciar Cuestionario</button>
 </a>
 </center>

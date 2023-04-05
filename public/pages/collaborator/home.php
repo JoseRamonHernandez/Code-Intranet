@@ -49,11 +49,17 @@ $password = $datos['password'];
 
     <title>Home</title>
 </head>
+
+<style>
+      body {
+        background-image: url('../../subidas/fondo2.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+      }
+    </style>
+
 <body>
-    
-
-
-
 
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">

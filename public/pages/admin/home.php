@@ -14,45 +14,18 @@
 
     <link href="./style.css" rel="stylesheet" type="text/css" />
 
+    <style>
+      body {
+        background-image: url('../../subidas/fondo1.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+      }
+    </style>
+
 </head>
 <body>
 
-<!--
-<div class="">
-<nav class="navbar sticky-top navbar-light" style="background-color: #e3f2fd;">
-<ul class="nav nav-pills" style="padding: 10px;">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Acciones</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="./showCollaborators.php">Funciones para Colaborador</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="./showAdministrators.php">Funciones para Administrador</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Avisos</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Eventos </a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="">Cursos</a>
-          </li>
-        <li class="nav-item">
-          <a class="nav-link" href="./whatsApp_link.html">Example-WhatsApp</a>
-        </li></ul>
-        <form class="form-inline" action="../../login.php">
-          
-          <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Cerrar sesión</button>
-         
-        </form>
-        
-      
-</nav>
-</div>
-<div class="container">
-
-</div>
-
--->
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" ></a>

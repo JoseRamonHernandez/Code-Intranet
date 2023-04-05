@@ -19,6 +19,14 @@ $vacancies -> status();
     <title>Intranet</title>
 </head>
 
+   <style>
+      body {
+        background-image: url('subidas/fondo2.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+      }
+    </style>
 
 
 
@@ -31,7 +39,7 @@ $vacancies -> status();
           </a>
     <form class="d-flex" role="search" action="./login.php">
       
-      <button class="btn btn-outline-primary" type="submit">Iniciar Sesión</button>
+      <button class="btn btn-primary" type="submit">Iniciar Sesión</button>
     </form>
   </div>
 </nav>

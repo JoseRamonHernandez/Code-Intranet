@@ -20,7 +20,19 @@ else
     $idCategorie = $_GET['idCategorie'];
     $idCourse = $_GET['idCourse'];
 
-   
+    $registredCourses = "false";
+
+    $coursesCompleted = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/$idCollaborator/showCoursesCompleted"), true);
+
+    for ($x=0; $x<count($coursesCompleted); $x++)
+        {
+            if($idCourse == $coursesCompleted[$x]['id_course'])
+            {
+                $registredCourses = "true";
+            }
+
+        }
+
 
     ?>
     <!DOCTYPE html>
@@ -44,11 +56,41 @@ else
     </head>
     <body>
         
+    <?php
+
+        if($registredCourses == "true")
+        {
+          ?>
+             <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" >CURSO - Materiales</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item dropdown">
+            <p></p>
+            
+          <h5 title="Ya existe un registro para este curso">Realizar Cuestionario</h5>
+            
+            </li>
     
-    
-    
-    
-          <nav class="navbar navbar-expand-lg bg-body-tertiary">
+          </ul>
+          <form class="d-flex" role="search" method="GET" action="showCourses.php">
+            <input type="hidden" name="idCollaborator" value="<?php echo $idCollaborator; ?>">
+            <input type="hidden" name="idCategorie" value="<?php echo $idCategorie; ?>">
+            <button class="btn btn-outline-primary" name="close" type="submit">Regresar</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+          <?php
+        }
+        else
+        {
+          ?>
+             <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
         <a class="navbar-brand" >CURSO - Materiales</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -72,6 +114,14 @@ else
         </div>
       </div>
     </nav>
+          <?php
+        }
+
+    ?>
+    
+         
+
+   
 
     <div class="container" style="padding-top: 5%">
 
@@ -128,6 +178,7 @@ foreach ($material as $element) {
 ?>
 </div>
 </div>
+
 <?php
 }
 ?>

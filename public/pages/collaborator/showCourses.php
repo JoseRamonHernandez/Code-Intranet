@@ -18,8 +18,94 @@ else
 
     $idCollaborator = $_GET['idCollaborator'];
     $idCategorie = $_GET['idCategorie'];
-    
 
+    $countCourseCompleted = 0;
+    $countCourse = 0;
+
+    $coursesCompleted = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/$idCollaborator/showCoursesCompleted"), true);
+
+    for ($x=0; $x<count($coursesCompleted); $x++)
+        {
+           $countCourseCompleted++;
+
+        }
+
+       
+   
+    $courses = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/findCourses/$idCategorie"), true);
+    for($x=0; $x<count($courses); $x++)
+    {
+        $countCourse++;
+    }
+   
+    //FALTA VALIDACION SOBRE OPERACIONES REGISTRADAS ::::::::
+
+    /*if($countCourseCompleted == $countCourse)
+    {
+
+     $categoriesCompleted = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/$idCollaborator/showCategoriesCompleted"), true);
+
+      if(empty($categoriesCompleted))
+      {
+
+      $url = "https://REST-API.joseramonhernan.repl.co/$idCollaborator/categoriesCompleted";
+
+      $ch = curl_init($url);
+      
+      $jsonData = array(
+          'id_categorie' => $idCategorie
+      );
+      
+      $jsonDataEncoded = json_encode($jsonData);
+      
+      curl_setopt($ch, CURLOPT_POST, 1);
+      
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+      
+      curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonDataEncoded);
+      
+      curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+      
+      $result = curl_exec($ch);
+
+    }else
+    {
+      $condicionCategorie = "false";
+
+      for($a=0; $a<count($categoriesCompleted); $a++)
+      {
+        if($idCategorie == $categoriesCompleted[$a]['id_categorie'])
+        {
+          $condicionCategorie = "true";
+        }
+      }
+
+      if($condicionCategorie == "false")
+      {
+        $url = "https://REST-API.joseramonhernan.repl.co/$idCollaborator/categoriesCompleted";
+
+        $ch = curl_init($url);
+        
+        $jsonData = array(
+            'id_categorie' => $idCategorie
+        );
+        
+        $jsonDataEncoded = json_encode($jsonData);
+        
+        curl_setopt($ch, CURLOPT_POST, 1);
+        
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonDataEncoded);
+        
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+        
+        $result = curl_exec($ch);
+      }
+    }
+     
+
+    }*/
     ?>
     <!DOCTYPE html>
     <html lang="en">
@@ -72,6 +158,104 @@ else
   $nameCategorie = $datosCategorie['name_of_categorie'];
   $background = $datosCategorie['background'];
   $colorText = $datosCategorie['colorText'];
+
+  if($idCategorie == "640665b4f9977e40726ea4a5")
+  {
+    $coursesCompleted = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/$idCollaborator/showCoursesCompleted"), true);
+    if(empty($coursesCompleted))
+    {
+      ?>
+
+    <div class="container" style="padding-top: 5%">
+
+<h3 class="text-center">Se muestra el listado de todas los cursos disponibles para la categría <?php echo $nameCategorie; ?>.</h3>
+
+<div class="row row-cols-1 row-cols-md-3 g-4" style="padding-top:4%;">
+
+<?php
+      $courses = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/findCourses/$idCategorie"), true);
+      for($x=0; $x<count($courses); $x++)
+  {
+
+  $idCourse = $courses[$x]['_id'];
+  if($idCourse == "6414910558f2eb23fc70be0b")
+  {
+    ?>
+     <div class="col">
+    <div class="card h-100">
+      <div class="card-body"  style="background-color: <?php echo $background; ?>; color: <?php echo $colorText; ?>;">
+        <h5 class="card-title">Curso <?php echo $x+1; ?>:</h5>
+        <p class="card-text"><?php echo $courses[$x]['name_of_course']; ?></p>
+      </div>
+      <div class="card-footer">
+        <a href="materialCourses.php?idCollaborator=<?php echo $idCollaborator;?>&idCategorie=<?php echo $idCategorie;?>&idCourse=<?php echo $idCourse;?>" style="text-decoration: none">
+        <button class="btn btn-outline-success">Acceder</button>
+        </a>
+      </div>
+    </div>
+  </div>
+    <?php
+  }
+  else
+  {
+    ?>
+     <div class="col">
+    <div class="card h-100">
+      <div class="card-body"  style="background-color: <?php echo $background; ?>; color: <?php echo $colorText; ?>;">
+        <h5 class="card-title">Curso <?php echo $x+1; ?>:</h5>
+        <p class="card-text"><?php echo $courses[$x]['name_of_course']; ?></p>
+      </div>
+      <div class="card-footer">
+        <button class="btn btn-success">Acceder</button>
+        
+      </div>
+    </div>
+  </div>
+    <?php
+  }
+?>
+
+ 
+  <?php
+  }
+    }
+    else
+    {
+      ?>
+
+    <div class="container" style="padding-top: 5%">
+
+<h3 class="text-center">Se muestra el listado de todas los cursos disponibles para la categría <?php echo $nameCategorie; ?>.</h3>
+
+<div class="row row-cols-1 row-cols-md-3 g-4" style="padding-top:4%;">
+
+<?php
+      $courses = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/findCourses/$idCategorie"), true);
+      for($x=0; $x<count($courses); $x++)
+  {
+
+  $idCourse = $courses[$x]['_id'];
+  ?>
+  <div class="col">
+ <div class="card h-100">
+   <div class="card-body"  style="background-color: <?php echo $background; ?>; color: <?php echo $colorText; ?>;">
+     <h5 class="card-title">Curso <?php echo $x+1; ?>:</h5>
+     <p class="card-text"><?php echo $courses[$x]['name_of_course']; ?></p>
+   </div>
+   <div class="card-footer">
+     <a href="materialCourses.php?idCollaborator=<?php echo $idCollaborator;?>&idCategorie=<?php echo $idCategorie;?>&idCourse=<?php echo $idCourse;?>" style="text-decoration: none">
+     <button class="btn btn-outline-success">Acceder</button>
+     </a>
+   </div>
+ </div>
+</div>
+ <?php
+
+  }
+    }
+  }
+  else{
+  
 ?>
 
     <div class="container" style="padding-top: 5%">
@@ -113,5 +297,6 @@ else
 </div>
 
 <?php
+  }
 }
 ?>

@@ -60,9 +60,11 @@ else
     if($numberQuestion+1 == $count)
     {
         //CODIGO DE NAVEGACION PARA COMPROBAR LOS PUNTOS CON EL TOTAL DE PREGUNTAS Y VALIDAR RESULTADOS
-        echo("CODIGO DE NAVEGACION PARA COMPROBAR LOS PUNTOS CON EL TOTAL DE PREGUNTAS Y VALIDAR RESULTADOS");
-        echo("<hr>");
-        echo $points;
+      ?>
+            <script>
+                window.location="saveData.php?idCollaborator=<?php echo $idCollaborator; ?>&idCategorie=<?php echo $idCategorie; ?>&idCourse=<?php echo $idCourse; ?>&count=<?php echo $count; ?>&points=<?php echo $points; ?>"
+            </script>
+      <?php
     }
     else
     {

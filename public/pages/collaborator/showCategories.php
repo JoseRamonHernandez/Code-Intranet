@@ -67,8 +67,12 @@ else
 
     <?php
 
+
     $categories = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/Categories"), true);
 
+    $categoriesApplied = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/$idCollaborator/showCategoriesCompleted"), true);
+
+   
     ?>
 
     <div class="container" style="padding-top: 5%">
@@ -83,10 +87,261 @@ else
 
     <?php 
 
+    if(empty($categoriesApplied))
+    {
+      for($x=0; $x<count($categories); $x++)
+      {
+        if($categories[$x]['_id'] == '640665b4f9977e40726ea4a5')
+        {
+          ?>
+
+          <div class="col">
+            <div class="card" style="background-color:<?php echo $categories[$x]['background']; ?>; color: <?php echo $categories[$x]['colorText']; ?>;">
+            <div class="card-header">Categoría número <?php echo $categories[$x]['level']; ?></div>
+              <div class="card-body">
+                <h5 class="card-title">Nombre: <?php echo $categories[$x]['name_of_categorie']; ?></h5>
+                <p class="card-text">Descripción: <?php echo $categories[$x]['description']; ?></p>
+              </div>
+              <div class="container">
+              <a href="showCourses.php?idCollaborator=<?php echo $idCollaborator; ?>&idCategorie=<?php echo $categories[$x]['_id']; ?>" stlye="text-decoration: none;">
+              <button class="btn btn-dark btn-lg" type="submit">Acceder</button>
+              </a>
+              </div>
+              <br>
+            </div>
+          </div>
+        
+          <?php
+        }
+        else
+        {
+          ?>
+
+          <div class="col">
+            <div class="card" style="background-color:<?php echo $categories[$x]['background']; ?>; color: <?php echo $categories[$x]['colorText']; ?>;">
+            <div class="card-header">Categoría número <?php echo $categories[$x]['level']; ?></div>
+              <div class="card-body">
+                <h5 class="card-title">Nombre: <?php echo $categories[$x]['name_of_categorie']; ?></h5>
+                <p class="card-text">Descripción: <?php echo $categories[$x]['description']; ?></p>
+              </div>
+              <div class="container">
+              <button class="btn btn-dark btn-lg" type="submit" title="NO TIENE ACCESO">Acceder</button>
+              </div>
+              <br>
+            </div>
+          </div>
+        
+          <?php
+        }
+      }
+    }
+    else
+    {
+      $z = 0;
+
+      for($x=0; $x<count($categoriesApplied); $x++)
+      {
+        $z++;
+      }
+
+      if($z == 1)
+      {
         for($x=0; $x<count($categories); $x++)
         {
-           /* if($categories[$x]['_id'] == "640665b4f9977e40726ea4a5")
-            {*/
+          if($categories[$x]['_id'] == "640665b4f9977e40726ea4a5" || $categories[$x]['_id'] == "640665c2f9977e40726ea4a7")
+          {
+            ?>
+
+          <div class="col">
+            <div class="card" style="background-color:<?php echo $categories[$x]['background']; ?>; color: <?php echo $categories[$x]['colorText']; ?>;">
+            <div class="card-header">Categoría número <?php echo $categories[$x]['level']; ?></div>
+              <div class="card-body">
+                <h5 class="card-title">Nombre: <?php echo $categories[$x]['name_of_categorie']; ?></h5>
+                <p class="card-text">Descripción: <?php echo $categories[$x]['description']; ?></p>
+              </div>
+              <div class="container">
+              <a href="showCourses.php?idCollaborator=<?php echo $idCollaborator; ?>&idCategorie=<?php echo $categories[$x]['_id']; ?>" stlye="text-decoration: none;">
+              <button class="btn btn-dark btn-lg" type="submit">Acceder</button>
+              </a>
+              </div>
+              <br>
+            </div>
+          </div>
+        
+          <?php
+          }
+          else
+          {
+            ?>
+
+          <div class="col">
+            <div class="card" style="background-color:<?php echo $categories[$x]['background']; ?>; color: <?php echo $categories[$x]['colorText']; ?>;">
+            <div class="card-header">Categoría número <?php echo $categories[$x]['level']; ?></div>
+              <div class="card-body">
+                <h5 class="card-title">Nombre: <?php echo $categories[$x]['name_of_categorie']; ?></h5>
+                <p class="card-text">Descripción: <?php echo $categories[$x]['description']; ?></p>
+              </div>
+              <div class="container">
+              <button class="btn btn-dark btn-lg" type="submit" title="NO TIENE ACCESO">Acceder</button>
+              </div>
+              <br>
+            </div>
+          </div>
+        
+          <?php
+          }
+        }
+      }
+      elseif($z == 2)
+      {
+        for($x=0; $x<count($categories); $x++)
+        {
+          if($categories[$x]['_id'] == "640665b4f9977e40726ea4a5" || $categories[$x]['_id'] == "640665c2f9977e40726ea4a7" || $categories[$x]['_id'] == "64095094a60796eacfda586b")
+          {
+            ?>
+
+          <div class="col">
+            <div class="card" style="background-color:<?php echo $categories[$x]['background']; ?>; color: <?php echo $categories[$x]['colorText']; ?>;">
+            <div class="card-header">Categoría número <?php echo $categories[$x]['level']; ?></div>
+              <div class="card-body">
+                <h5 class="card-title">Nombre: <?php echo $categories[$x]['name_of_categorie']; ?></h5>
+                <p class="card-text">Descripción: <?php echo $categories[$x]['description']; ?></p>
+              </div>
+              <div class="container">
+              <a href="showCourses.php?idCollaborator=<?php echo $idCollaborator; ?>&idCategorie=<?php echo $categories[$x]['_id']; ?>" stlye="text-decoration: none;">
+              <button class="btn btn-dark btn-lg" type="submit">Acceder</button>
+              </a>
+              </div>
+              <br>
+            </div>
+          </div>
+        
+          <?php
+          }
+          else
+          {
+            ?>
+
+          <div class="col">
+            <div class="card" style="background-color:<?php echo $categories[$x]['background']; ?>; color: <?php echo $categories[$x]['colorText']; ?>;">
+            <div class="card-header">Categoría número <?php echo $categories[$x]['level']; ?></div>
+              <div class="card-body">
+                <h5 class="card-title">Nombre: <?php echo $categories[$x]['name_of_categorie']; ?></h5>
+                <p class="card-text">Descripción: <?php echo $categories[$x]['description']; ?></p>
+              </div>
+              <div class="container">
+              <button class="btn btn-dark btn-lg" type="submit" title="NO TIENE ACCESO">Acceder</button>
+              </div>
+              <br>
+            </div>
+          </div>
+        
+          <?php
+          }
+        }
+      }
+      elseif($z == 3)
+      {
+        for($x=0; $x<count($categories); $x++)
+        {
+          if($categories[$x]['_id'] == "640665b4f9977e40726ea4a5" || $categories[$x]['_id'] == "640665c2f9977e40726ea4a7" || $categories[$x]['_id'] == "64095094a60796eacfda586b" || $categories[$x]['_id'] == "642b6c2b25ccc6070fe08e6d")
+          {
+            ?>
+
+          <div class="col">
+            <div class="card" style="background-color:<?php echo $categories[$x]['background']; ?>; color: <?php echo $categories[$x]['colorText']; ?>;">
+            <div class="card-header">Categoría número <?php echo $categories[$x]['level']; ?></div>
+              <div class="card-body">
+                <h5 class="card-title">Nombre: <?php echo $categories[$x]['name_of_categorie']; ?></h5>
+                <p class="card-text">Descripción: <?php echo $categories[$x]['description']; ?></p>
+              </div>
+              <div class="container">
+              <a href="showCourses.php?idCollaborator=<?php echo $idCollaborator; ?>&idCategorie=<?php echo $categories[$x]['_id']; ?>" stlye="text-decoration: none;">
+              <button class="btn btn-dark btn-lg" type="submit">Acceder</button>
+              </a>
+              </div>
+              <br>
+            </div>
+          </div>
+        
+          <?php
+          }
+          else
+          {
+            ?>
+
+          <div class="col">
+            <div class="card" style="background-color:<?php echo $categories[$x]['background']; ?>; color: <?php echo $categories[$x]['colorText']; ?>;">
+            <div class="card-header">Categoría número <?php echo $categories[$x]['level']; ?></div>
+              <div class="card-body">
+                <h5 class="card-title">Nombre: <?php echo $categories[$x]['name_of_categorie']; ?></h5>
+                <p class="card-text">Descripción: <?php echo $categories[$x]['description']; ?></p>
+              </div>
+              <div class="container">
+              <button class="btn btn-dark btn-lg" type="submit" title="NO TIENE ACCESO">Acceder</button>
+              </div>
+              <br>
+            </div>
+          </div>
+        
+          <?php
+          }
+        }
+      }
+      elseif($z == 4)
+      {
+        for($x=0; $x<count($categories); $x++)
+        {
+          if($categories[$x]['_id'] == "640665b4f9977e40726ea4a5" || $categories[$x]['_id'] == "640665c2f9977e40726ea4a7" || $categories[$x]['_id'] == "64095094a60796eacfda586b" || $categories[$x]['_id'] == "642b6c2b25ccc6070fe08e6d" || $categories[$x]['_id'] == "642b6c3825ccc6070fe08e6f")
+          {
+            ?>
+
+          <div class="col">
+            <div class="card" style="background-color:<?php echo $categories[$x]['background']; ?>; color: <?php echo $categories[$x]['colorText']; ?>;">
+            <div class="card-header">Categoría número <?php echo $categories[$x]['level']; ?></div>
+              <div class="card-body">
+                <h5 class="card-title">Nombre: <?php echo $categories[$x]['name_of_categorie']; ?></h5>
+                <p class="card-text">Descripción: <?php echo $categories[$x]['description']; ?></p>
+              </div>
+              <div class="container">
+              <a href="showCourses.php?idCollaborator=<?php echo $idCollaborator; ?>&idCategorie=<?php echo $categories[$x]['_id']; ?>" stlye="text-decoration: none;">
+              <button class="btn btn-dark btn-lg" type="submit">Acceder</button>
+              </a>
+              </div>
+              <br>
+            </div>
+          </div>
+        
+          <?php
+          }
+          else
+          {
+            ?>
+
+          <div class="col">
+            <div class="card" style="background-color:<?php echo $categories[$x]['background']; ?>; color: <?php echo $categories[$x]['colorText']; ?>;">
+            <div class="card-header">Categoría número <?php echo $categories[$x]['level']; ?></div>
+              <div class="card-body">
+                <h5 class="card-title">Nombre: <?php echo $categories[$x]['name_of_categorie']; ?></h5>
+                <p class="card-text">Descripción: <?php echo $categories[$x]['description']; ?></p>
+              </div>
+              <div class="container">
+              <button class="btn btn-dark btn-lg" type="submit" title="NO TIENE ACCESO">Acceder</button>
+              </div>
+              <br>
+            </div>
+          </div>
+        
+          <?php
+          }
+        }
+      }
+
+    }
+
+      /*  for($x=0; $x<count($categories); $x++)
+        {
+           
     ?>
 
   <div class="col">
@@ -106,29 +361,9 @@ else
   </div>
 
   <?php
-           /* }else
-            {
-                ?>
-
-                <div class="col">
-                  <div class="card" style="background-color:<?php echo $categories[$x]['background']; ?>; color: <?php echo $categories[$x]['colorText']; ?>;">
-                  <div class="card-header">Categoría número <?php echo $categories[$x]['level']; ?></div>
-                    <div class="card-body">
-                      <h5 class="card-title">Nombre: <?php echo $categories[$x]['name_of_categorie']; ?></h5>
-                      <p class="card-text">Descripción: <?php echo $categories[$x]['description']; ?></p>
-                    </div>
-                    <div class="container">
-                    <button disabled class="btn btn-dark btn-lg">Acceder</button>
-                    
-                    </div>
-                    <br>
-
-                  </div>
-                </div>
-              
-                <?php
-            }*/
-        }
+           
+          
+        }*/
     ?>
 
 </div>

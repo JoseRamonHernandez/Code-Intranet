@@ -1,5 +1,18 @@
 <?php
 
+function exception_error_handler($errno, $errstr, $errfile, $errline)
+{
+    throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
+}
+
+set_error_handler("exception_error_handler");
+
+?>
+
+<?php
+
+try{
+
 if(empty($_GET['idCollaborator']) && empty($_GET['idCategorie']) && empty($_GET['idCourse']) && empty($_GET['count']) && empty($_GET['numberQuestion']))
 {
     echo("No se reciben parametros;");
@@ -126,3 +139,10 @@ else
 
 <?php
 }
+
+}catch(Exception $e)
+{
+    echo ("No hay preguntas registradas");
+}
+
+?>

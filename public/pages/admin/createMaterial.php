@@ -44,6 +44,15 @@ if(!empty(isset($_GET['nameCourse'])) && !empty(isset($_GET['idCourse'])) && !em
 
         $extends = $_POST['extends'];
 
+        $urlVideo = $_POST['url'];
+
+        if(empty($_FILES['document']['name']))
+    {
+        $document = $_POST['nameVideo'];
+    }
+    else
+    {
+        
         $target_path = "../documents/"; 
         $target_path = $target_path . basename( $_FILES['document']['name']); 
         if(move_uploaded_file($_FILES['document']['tmp_name'], $target_path)) 
@@ -52,7 +61,7 @@ if(!empty(isset($_GET['nameCourse'])) && !empty(isset($_GET['idCourse'])) && !em
         }else{
             echo("Error al capturar Documento");
         }
-
+    }
         
 try
 { 
@@ -63,7 +72,8 @@ $ch = curl_init($url);
 
 $jsonData = array(
   'name' => $document,
-  'documentType' => $extends
+  'documentType' => $extends,
+  'url' => $urlVideo
 );
 
 $jsonDataEncoded = json_encode($jsonData);
@@ -200,12 +210,30 @@ $result = curl_exec($ch);
         POWER POINT
         </label>
         </div>
+        <div class="form-check">
+        <input class="form-check-input" type="radio" name="extends" id="exampleRadios3" value="VIDEO">
+        <label class="form-check-label" for="exampleRadios3">
+        VIDEO
+        </label>
+        </div>
 
         <hr>
 
+        <div class="container">
+        <label for="exampleFormControlInput1" class="form-label">Ingresa el nombre del video <h6 style="color: red;">(SOLO PARA VIDEOS)</h6></label>
+        <input type="text" class="form-control" name="nameVideo" id="exampleFormControlInput1" placeholder="INGRESA EL NOMBRE PARA EL VIDEO">  
+        </div>
+
+        <div class="container">
+        <label for="exampleFormControlInput1" class="form-label">Ingresa el URL del video</h6></label>
+        <input type="text" class="form-control" name="url" id="exampleFormControlInput1" placeholder="INGRESA URL DEL VIDEO">  
+        </div>
+        
+        <br>
+
         <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Selecciona el documento a capturar</label>
-        <input type="file" class="form-control" name="document" id="exampleFormControlInput1" required>
+        <label for="exampleFormControlInput1" class="form-label">Selecciona el documento a capturar <h6 style="color: red;">(SOLO PARA DOCUMENTOS)</h6></label>
+        <input type="file" class="form-control" name="document" id="exampleFormControlInput1">
         </div>
 
         <hr>

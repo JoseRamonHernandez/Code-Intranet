@@ -105,9 +105,14 @@ try{
             {
                 $img = "powerpoint";
                # echo $img;
+            }elseif($element['documentType'] == "VIDEO")
+            {
+                $img = "video";
+               # echo $img;
             }
             
-
+            if($img != "video")
+            {
             echo ('
             <div class="col">
 <div class="card" style=" width: 15rem;">
@@ -120,6 +125,21 @@ try{
 </div>
 </div>
             ');
+            }else
+            {
+              echo ('
+              <div class="col">
+  <div class="card" style=" width: 15rem;">
+    <img src="../../img/material/'.$img.'.png" class="card-img-top" alt="..."  width="100" height="200">
+    <div class="card-body">
+      <h5 class="card-title">'.$element['name'].'</h5>
+      <a class="btn btn-primary" target="_blank" href="'.$element['url'].'"> Ver </a>
+      <a href="deleteMaterialCourse.php?idMaterial='.$idMaterial.'&nameCourse='.$nameCourse.'&idCourse='.$idCourse.'&idCategorie='.$idCategorie.'&nameCategorie='.$nameCategorie.'" class="btn btn-danger">Delete</a>
+    </div>
+  </div>
+  </div>
+              ');
+            }
         }
 
     }catch(Exception $e)

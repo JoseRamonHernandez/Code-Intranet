@@ -159,9 +159,14 @@ foreach ($material as $element) {
     {
         $img = "powerpoint";
        # echo $img;
+    }elseif($element['documentType'] == "VIDEO")
+    {
+        $img = "video";
+       # echo $img;
     }
     
-
+    if($img != "video")
+    {
     echo ('
     <div class="col">
 <div class="card" style=" width: 15rem;">
@@ -173,6 +178,20 @@ foreach ($material as $element) {
 </div>
 </div>
     ');
+    }else
+    {
+      echo ('
+              <div class="col">
+  <div class="card" style=" width: 15rem;">
+    <img src="../../img/material/'.$img.'.png" class="card-img-top" alt="..."  width="100" height="200">
+    <div class="card-body">
+      <h5 class="card-title">'.$element['name'].'</h5>
+      <a class="btn btn-primary" target="_blank" href="'.$element['url'].'"> Ver </a>
+    </div>
+  </div>
+  </div>
+              ');
+    }
 }
 
 ?>

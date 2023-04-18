@@ -53,7 +53,7 @@ if(isset($_GET['save'])==1)
 
     try{
         //url de la petición
-$url = 'https://REST-API.joseramonhernan.repl.co/createProject';
+$url = 'http://localhost:3000/createProject';
 //inicializamos el objeto CUrl
 $ch = curl_init($url);
   
@@ -257,7 +257,7 @@ if($result)
 
     try{
 
-        $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/projects"), true);
+        $datos = json_decode(file_get_contents("http://localhost:3000/projects"), true);
    // echo ("acceso concedido");
  
    ?>

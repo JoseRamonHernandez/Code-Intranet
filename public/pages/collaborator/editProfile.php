@@ -35,7 +35,7 @@ if(empty($_GET['idCollaborator']))
         try
         { 
         //url de la petición
-        $url = "https://REST-API.joseramonhernan.repl.co/collaboratorUpdate/$id";
+        $url = "http://localhost:3000/collaboratorUpdate/$id";
         
         
         
@@ -204,7 +204,7 @@ if(empty($_GET['idCollaborator']))
 
 <?php
 
-    $user = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/collaboratorFind/$idCollaborator"), true);
+    $user = json_decode(file_get_contents("http://localhost:3000/collaboratorFind/$idCollaborator"), true);
 
 ?>
 

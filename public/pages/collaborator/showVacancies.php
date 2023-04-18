@@ -66,9 +66,9 @@ else{
 <?php
 try{
   
-    $vacancies = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/Vacancies"), true);
-    $user = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/collaboratorFind/$id"), true);
-    $vacancies_applied = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/showApplied/$id"), true);
+    $vacancies = json_decode(file_get_contents("http://localhost:3000/Vacancies"), true);
+    $user = json_decode(file_get_contents("http://localhost:3000/collaboratorFind/$id"), true);
+    $vacancies_applied = json_decode(file_get_contents("http://localhost:3000/showApplied/$id"), true);
 
     $idCollaborator = $user['_id'];
 ?>

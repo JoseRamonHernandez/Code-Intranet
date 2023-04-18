@@ -42,7 +42,7 @@ if(!empty(isset($_GET['question_text'])) && !empty(isset($_GET['nameCourse'])) &
     try
 { 
 //url de la petición
-$url = "https://REST-API.joseramonhernan.repl.co/$idCategorie/insertQuestions/$idCourse";
+$url = "http://localhost:3000/$idCategorie/insertQuestions/$idCourse";
 
 //inicializamos el objeto CUrl
 $ch = curl_init($url);
@@ -80,7 +80,7 @@ if($result)
 
 
 
-    $idQuestion = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/$idCategorie/questions/$idCourse"), true);
+    $idQuestion = json_decode(file_get_contents("http://localhost:3000/$idCategorie/questions/$idCourse"), true);
 
     $count = 0;
 

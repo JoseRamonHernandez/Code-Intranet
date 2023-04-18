@@ -69,7 +69,7 @@ if(isset($_GET['update'])==1)
 try
  { 
 //url de la petición
-$url = "https://REST-API.joseramonhernan.repl.co/updateAlert/$newId";
+$url = "http://localhost:3000/updateAlert/$newId";
 //inicializamos el objeto CUrl
 $ch = curl_init($url);
   
@@ -217,7 +217,7 @@ if($result)
 }
 
 try{
-$datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/findAlert/$id"), true);
+$datos = json_decode(file_get_contents("http://localhost:3000/findAlert/$id"), true);
 $title = $datos['title'];
 $status = $datos['status'];
 

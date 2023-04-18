@@ -44,7 +44,7 @@ set_error_handler("exception_error_handler");
 
 try{
 
-    $categorias = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/Categories"), true);
+    $categorias = json_decode(file_get_contents("http://localhost:3000/Categories"), true);
 
     if(empty($categorias)){
         echo("<h1>Sin Resultados</h1>");

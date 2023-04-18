@@ -50,7 +50,7 @@ if(!empty(isset($_GET['idCategorie'])))
         try{
 
             //url de la petición
-$url = "https://REST-API.joseramonhernan.repl.co/updateCategorie/$id";
+$url = "http://localhost:3000/updateCategorie/$id";
 //inicializamos el objeto CUrl
 $ch = curl_init($url);
   
@@ -176,7 +176,7 @@ if($result)
     try
     {
 
-        $categorie = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/findCategorie/$idCategorie"), true);
+        $categorie = json_decode(file_get_contents("http://localhost:3000/findCategorie/$idCategorie"), true);
 
         $id = $categorie['_id'];
         $name = $categorie['name_of_categorie'];

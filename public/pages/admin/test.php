@@ -56,7 +56,7 @@ if(!empty(isset($_GET['nameCourse'])) && !empty(isset($_GET['idCourse'])) && !em
 <?php
 
     try{
-        $questions = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/$idCategorie/questions/$idCourse"), true);
+        $questions = json_decode(file_get_contents("http://localhost:3000/$idCategorie/questions/$idCourse"), true);
         $a=0;
         $count = 0;
 
@@ -112,7 +112,7 @@ foreach ($questions['questions'] as $question) {
     }
   }catch(Exception $e)
   {
-    $idQuestion = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/$idCategorie/questions/$idCourse"), true);
+    $idQuestion = json_decode(file_get_contents("http://localhost:3000/$idCategorie/questions/$idCourse"), true);
 
     $count = 0;
 
@@ -124,7 +124,7 @@ foreach ($questions['questions'] as $question) {
 
       $idQuestionText = $idQuestion['questions'][$total]['_id'];
 
-      $deleteQuestion = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/$idCategorie/course/$idCourse/question/$idQuestionText"), true);
+      $deleteQuestion = json_decode(file_get_contents("http://localhost:3000/$idCategorie/course/$idCourse/question/$idQuestionText"), true);
 
       if($deleteQuestion)
       {

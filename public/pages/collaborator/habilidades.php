@@ -61,9 +61,9 @@ if(empty($_GET['idCollaborator']))
 
 <?php
 
-$datosUSer = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/collaboratorFind/$idCollaborator"), true);
+$datosUSer = json_decode(file_get_contents("http://localhost:3000/collaboratorFind/$idCollaborator"), true);
 
-$datosUSerOperations = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/showAllOperationRegisterINTOCollaborator/$idCollaborator"), true);
+$datosUSerOperations = json_decode(file_get_contents("http://localhost:3000/showAllOperationRegisterINTOCollaborator/$idCollaborator"), true);
 
 
 
@@ -94,7 +94,7 @@ for($a=0; $a<count($datosUSerOperations); $a++)
 
   $idOperation = $datosUSerOperations[$a]['id_operation'];
 
-  $datosOperation = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/findOperation/$idOperation"), true);
+  $datosOperation = json_decode(file_get_contents("http://localhost:3000/findOperation/$idOperation"), true);
   ?>
 
   <tr class="table-warning">

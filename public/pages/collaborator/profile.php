@@ -61,7 +61,7 @@ if(empty($_GET['idCollaborator']))
 
 <?php
 
-$datosUSer = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/collaboratorFind/$idCollaborator"), true);
+$datosUSer = json_decode(file_get_contents("http://localhost:3000/collaboratorFind/$idCollaborator"), true);
 
 ?>
 

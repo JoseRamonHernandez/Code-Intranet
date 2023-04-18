@@ -87,7 +87,7 @@ set_error_handler("exception_error_handler");
           $area = $_GET['area'];
         //  echo $area;
         try {
-        $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/collaboratorArea/$area"), true);
+        $datos = json_decode(file_get_contents("http://localhost:3000/collaboratorArea/$area"), true);
           /*print_r ($datos);*/
          echo ('<h2>Se muestran todos los Colaboradores del area '.$area.'</h2>'); 
          

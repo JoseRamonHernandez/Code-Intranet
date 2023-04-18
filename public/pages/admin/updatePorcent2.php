@@ -40,7 +40,7 @@ if(!empty(isset($_GET['id_operation'])) && !empty(isset($_GET['numberCollaborato
         try
         { 
         //url de la petición
-        $url = "https://REST-API.joseramonhernan.repl.co/$id_operation/updatePorcentOPERATION/$numberCollaborator";
+        $url = "http://localhost:3000/$id_operation/updatePorcentOPERATION/$numberCollaborator";
         
         
         

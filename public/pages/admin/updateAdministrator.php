@@ -43,7 +43,7 @@ set_error_handler("exception_error_handler");
    // echo $id;
     echo ("<br>");
             try{
-                $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/collaboratorFind/$id"), true);
+                $datos = json_decode(file_get_contents("http://localhost:3000/collaboratorFind/$id"), true);
                //$numero_empleado = $datos['numero_emplado'];
                echo('
                

@@ -58,7 +58,7 @@ if(isset($_GET['ingresar'])==1)
 
    try
    { 
-    $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/collaboratorNumberFind/$usuario/$password"), true);
+    $datos = json_decode(file_get_contents("http://localhost:3000/collaboratorNumberFind/$usuario/$password"), true);
    // echo ("acceso concedido");
  
     $id = $datos["_id"];

@@ -72,7 +72,7 @@ if(empty($_GET['id']))
 
 try{
 
-    $vacancies = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/showApplied/$id"), true);
+    $vacancies = json_decode(file_get_contents("http://localhost:3000/showApplied/$id"), true);
     for($x=0; $x<count($vacancies); $x++)
     {
         

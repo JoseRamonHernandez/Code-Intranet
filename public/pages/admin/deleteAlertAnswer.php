@@ -13,7 +13,7 @@ if(!empty($_GET['id']))
     $id = $_GET['id'];
 
 try{
-    $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/deleteAlert/$id"), true);
+    $datos = json_decode(file_get_contents("http://localhost:3000/deleteAlert/$id"), true);
         
         if($datos){
             ?>

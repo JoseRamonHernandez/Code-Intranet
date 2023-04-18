@@ -39,7 +39,7 @@ set_error_handler("exception_error_handler");
 
     try
 { 
-    $deleteQuestion = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/$idCategorie/course/$idCourse/question/$idQuestion"), true);
+    $deleteQuestion = json_decode(file_get_contents("http://localhost:3000/$idCategorie/course/$idCourse/question/$idQuestion"), true);
 
     if($deleteQuestion)
     {

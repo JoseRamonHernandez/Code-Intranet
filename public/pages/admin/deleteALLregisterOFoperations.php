@@ -42,8 +42,8 @@ if(!empty($_GET['idCollaborator']) && !empty($_GET['id_operation']) && !empty($_
     echo("<br>");
     echo $numberCollaborator;*/
     
-        $delete = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/$id_operation/deleteRegisterCollaboratorINTOoperation/$numberCollaborator"), true);
-            $delete2 = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/$idCollaborator/DeleteOperationsINTOcollaborator/$id_operation"), true);
+        $delete = json_decode(file_get_contents("http://localhost:3000/$id_operation/deleteRegisterCollaboratorINTOoperation/$numberCollaborator"), true);
+            $delete2 = json_decode(file_get_contents("http://localhost:3000/$idCollaborator/DeleteOperationsINTOcollaborator/$id_operation"), true);
 
             ?>
             <!DOCTYPE html>

@@ -49,7 +49,7 @@ $img = "logo_clerprem.png";
 
 try
   { 
- $url = 'https://REST-API.joseramonhernan.repl.co/collaboratorRegister';
+ $url = 'http://localhost:3000/collaboratorRegister';
  
  $ch = curl_init($url);
   

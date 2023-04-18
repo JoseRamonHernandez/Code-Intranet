@@ -28,7 +28,7 @@ else
     {
         $registredCourses = "false";
 
-        $coursesCompleted = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/$idCollaborator/showCoursesCompleted"), true);
+        $coursesCompleted = json_decode(file_get_contents("http://localhost:3000/$idCollaborator/showCoursesCompleted"), true);
 
         for ($x=0; $x<count($coursesCompleted); $x++)
         {
@@ -48,7 +48,7 @@ else
         if($resultado >= 80)
         {
                
-                $url = "https://REST-API.joseramonhernan.repl.co/$idCollaborator/coursesCompleted";
+                $url = "http://localhost:3000/$idCollaborator/coursesCompleted";
 
                 $ch = curl_init($url);
                 

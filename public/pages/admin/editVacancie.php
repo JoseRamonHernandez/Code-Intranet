@@ -51,7 +51,7 @@ if(!empty($_GET['idVacancie']))
         $date_register = $_GET['date_register'];
        
             //url de la petición
-$url = "https://REST-API.joseramonhernan.repl.co/updateVacancies/$newId";
+$url = "http://localhost:3000/updateVacancies/$newId";
 //inicializamos el objeto CUrl
 $ch = curl_init($url);
   
@@ -172,7 +172,7 @@ if($result)
     }}
     
     try{
-        $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/findVacancie/$vacancie"), true);
+        $datos = json_decode(file_get_contents("http://localhost:3000/findVacancie/$vacancie"), true);
 
         if($datos)
         {

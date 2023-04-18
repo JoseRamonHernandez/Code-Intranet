@@ -20,8 +20,8 @@ if(empty($_GET['id']) || empty($_GET['idCollaborator']) || empty($_GET['idVacanc
     $name_vacancie = $_GET['name_vacancie'];
     $fecha_actual = date('Y-m-d');
 
-  $aplicadores = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/findVacancies/$idVacancie"), true);
-  $colaborador = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/collaboratorFind/$id"), true);
+  $aplicadores = json_decode(file_get_contents("http://localhost:3000/findVacancies/$idVacancie"), true);
+  $colaborador = json_decode(file_get_contents("http://localhost:3000/collaboratorFind/$id"), true);
     
 if(empty($aplicadores) || empty($colaborador))
 {
@@ -29,7 +29,7 @@ if(empty($aplicadores) || empty($colaborador))
      //Se registra en el colaborador la vacante seleccionada
    try{
     //url de la petición
-$url = "https://REST-API.joseramonhernan.repl.co/vacaniesApplied/$idCollaborator";
+$url = "http://localhost:3000/vacaniesApplied/$idCollaborator";
 
 //inicializamos el objeto CUrl
 $ch = curl_init($url);

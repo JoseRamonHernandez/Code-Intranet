@@ -68,9 +68,9 @@ else
     <?php
 
 
-    $categories = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/Categories"), true);
+    $categories = json_decode(file_get_contents("http://localhost:3000/Categories"), true);
 
-    $categoriesApplied = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/$idCollaborator/showCategoriesCompleted"), true);
+    $categoriesApplied = json_decode(file_get_contents("http://localhost:3000/$idCollaborator/showCategoriesCompleted"), true);
 
    
     ?>

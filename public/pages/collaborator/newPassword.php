@@ -21,7 +21,7 @@ else{
   $password = $_GET['a'];
   $id = $_GET['b'];
 
- try{ $url = "https://REST-API.joseramonhernan.repl.co/collaboratorUpdate/$id";
+ try{ $url = "http://localhost:3000/collaboratorUpdate/$id";
    
     //inicializamos el objeto CUrl
     $ch = curl_init($url);

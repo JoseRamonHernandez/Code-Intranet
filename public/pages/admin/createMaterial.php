@@ -66,7 +66,7 @@ if(!empty(isset($_GET['nameCourse'])) && !empty(isset($_GET['idCourse'])) && !em
 try
 { 
 //url de la petición
-$url = "https://REST-API.joseramonhernan.repl.co/$idCategorie/insertMaterial/$idCourse";
+$url = "http://localhost:3000/$idCategorie/insertMaterial/$idCourse";
 
 $ch = curl_init($url);
 

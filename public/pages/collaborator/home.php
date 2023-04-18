@@ -24,7 +24,7 @@ else{
 
  
 
-$datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/collaboratorFind/$id"), true);
+$datos = json_decode(file_get_contents("http://localhost:3000/collaboratorFind/$id"), true);
 //print_r ($datos);
 $password = $datos['password'];
 
@@ -181,7 +181,7 @@ $password = $datos['password'];
 try{
   
  
-  $alerts = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/alerts"), true);
+  $alerts = json_decode(file_get_contents("http://localhost:3000/alerts"), true);
  // echo ("acceso concedido");
 
   for($x=0; $x<count($alerts); $x++)

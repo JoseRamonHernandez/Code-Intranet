@@ -48,7 +48,7 @@ if(!empty(isset($_GET['numberCollaborator'])) && !empty(isset($_GET['operationID
 try
 { 
 //url de la petición
-$url = "https://REST-API.joseramonhernan.repl.co/registerOperation/$idCollaborator";
+$url = "http://localhost:3000/registerOperation/$idCollaborator";
 
 //URL PARA INSERTAR EN EL COLABORADOR
 //https://REST-API.joseramonhernan.repl.co/registerOperation/IDCOLLABORATOR

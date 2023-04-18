@@ -13,7 +13,7 @@ if(!empty($_GET['idCategorie'])&&!empty($_GET['nameCategorie'])&&!empty($_GET['i
     $idCourse = $_GET['idCourse'];
 
    try{
-        $course = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/$idCategorie/curso/$idCourse"));
+        $course = json_decode(file_get_contents("http://localhost:3000/$idCategorie/curso/$idCourse"));
          
         $idCourse2 = $course->curso->_id;
         #echo $id;

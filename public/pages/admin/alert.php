@@ -69,7 +69,7 @@ if(isset($_POST['save'])==1)
  try
  { 
 //url de la petición
-$url = 'https://REST-API.joseramonhernan.repl.co/createAlert';
+$url = 'http://localhost:3000/createAlert';
 //inicializamos el objeto CUrl
 $ch = curl_init($url);
   
@@ -282,7 +282,7 @@ if($result)
 <?php
 try{
         
-    $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/alerts"), true);
+    $datos = json_decode(file_get_contents("http://localhost:3000/alerts"), true);
    // echo ("acceso concedido");
  ?>
 <div class="card-deck">

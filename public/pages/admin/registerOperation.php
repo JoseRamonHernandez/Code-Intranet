@@ -35,7 +35,7 @@ if(!empty($_GET['numberCollaborator']))
 
           $numberCollaborator = $_GET['numberCollaborator'];
 
-          $operations = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/operations"), true);
+          $operations = json_decode(file_get_contents("http://localhost:3000/operations"), true);
         
 
             if(isset($_GET['saveCollaborator'])==1)
@@ -45,7 +45,7 @@ if(!empty($_GET['numberCollaborator']))
                 $porcent = $_GET['porcent'];
                 $idCollaborator = $_GET['idCollaborator'];
 
-                $operacion = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/findOperation/$operationID"), true);
+                $operacion = json_decode(file_get_contents("http://localhost:3000/findOperation/$operationID"), true);
                 $project = $operacion['project'];
 
                 if($porcent == 0)
@@ -69,7 +69,7 @@ if(!empty($_GET['numberCollaborator']))
 try
 { 
 //url de la petición
-$url = "https://REST-API.joseramonhernan.repl.co/insertCollaborator/operation/$operationID";
+$url = "http://localhost:3000/insertCollaborator/operation/$operationID";
 
 //URL PARA INSERTAR EN EL COLABORADOR
 //https://REST-API.joseramonhernan.repl.co/registerOperation/IDCOLLABORATOR
@@ -214,7 +214,7 @@ if($result)
 
     <?php
 
-    $collaborator = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/collaborator/$numberCollaborator"), true);
+    $collaborator = json_decode(file_get_contents("http://localhost:3000/collaborator/$numberCollaborator"), true);
     $idCollaborator = $collaborator['_id'];
 
     ?>
@@ -263,7 +263,7 @@ if($result)
         -->
 
         <?php
-        $operations = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/showAllOperationRegisterINTOCollaborator/$idCollaborator"), true); 
+        $operations = json_decode(file_get_contents("http://localhost:3000/showAllOperationRegisterINTOCollaborator/$idCollaborator"), true); 
         ?>
         <div class="" style="padding: 5%;">
         <table class="table">
@@ -281,7 +281,7 @@ if($result)
     {
       $idOPERATION = $operations[$x]['id_operation'];
         
-        $textOperation = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/findOperation/$idOPERATION"), true);
+        $textOperation = json_decode(file_get_contents("http://localhost:3000/findOperation/$idOPERATION"), true);
         $nameOPERATION = $textOperation['name_of_operation'];
         
       ?>

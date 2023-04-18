@@ -34,10 +34,10 @@ if(isset($_GET['guardar'])==1)
     try
     { 
    //url de la petición
-   $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/collaborator/$empleado"), true);
+   $datos = json_decode(file_get_contents("http://localhost:3000/collaborator/$empleado"), true);
    $id = $datos['_id'];
   // echo $id;          
-   $url = "https://REST-API.joseramonhernan.repl.co/collaboratorUpdate/$id";
+   $url = "http://localhost:3000/collaboratorUpdate/$id";
    
    //inicializamos el objeto CUrl
    $ch = curl_init($url);

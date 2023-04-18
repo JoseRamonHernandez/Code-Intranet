@@ -18,7 +18,7 @@ else
     /*Code para el formulario*/
 
     //Code para conseguir los datos de las preguntas dentro del curso
-    $questions = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/$idCategorie/questions/$idCourse"), true);
+    $questions = json_decode(file_get_contents("http://localhost:3000/$idCategorie/questions/$idCourse"), true);
     
     //Code para conseguir el id de la pregunta en curso
     $idQuestion = $questions['questions'][$numberQuestion]['_id'];//Esta es la clave

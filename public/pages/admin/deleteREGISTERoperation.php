@@ -39,7 +39,7 @@ if(!empty($_GET['idCollaborator']) && !empty($_GET['id_operation']) && !empty($_
             //echo $numberCollaborator;
 
             
-                $datosOperation = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/findOperation/$id_operation"), true);
+                $datosOperation = json_decode(file_get_contents("http://localhost:3000/findOperation/$id_operation"), true);
                 $nombre = $datosOperation['name_of_operation'];
                 $projecto = $datosOperation['project'];
 

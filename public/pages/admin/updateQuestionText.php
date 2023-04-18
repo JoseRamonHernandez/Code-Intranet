@@ -50,7 +50,7 @@ if(!empty(isset($_GET['idOptions'])) && !empty(isset($_GET['question_text'])) &&
     try
     { 
    //url de la petición
-   $url = "https://REST-API.joseramonhernan.repl.co/$idCategorie/course/$idCourse/question/$idQuestion/insertQuestion";
+   $url = "http://localhost:3000/$idCategorie/course/$idCourse/question/$idQuestion/insertQuestion";
    //inicializamos el objeto CUrl
    $ch = curl_init($url);
      

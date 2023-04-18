@@ -22,7 +22,7 @@ else
 
     $registredCourses = "false";
 
-    $coursesCompleted = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/$idCollaborator/showCoursesCompleted"), true);
+    $coursesCompleted = json_decode(file_get_contents("http://localhost:3000/$idCollaborator/showCoursesCompleted"), true);
 
     for ($x=0; $x<count($coursesCompleted); $x++)
         {
@@ -131,7 +131,7 @@ else
 <div class="row row-cols-1 row-cols-md-3 g-4">
 <?php
 
-$curso = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/$idCategorie/curso/$idCourse"), true);
+$curso = json_decode(file_get_contents("http://localhost:3000/$idCategorie/curso/$idCourse"), true);
 
         
 

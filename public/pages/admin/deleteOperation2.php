@@ -36,16 +36,16 @@ if(!empty($_GET['idOperation']))
 
         try
         {
-        $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/getCollaborators/operation/$idOperation"), true);
+        $datos = json_decode(file_get_contents("http://localhost:3000/getCollaborators/operation/$idOperation"), true);
         
             for($x=0; $x<count($datos); $x++)
             {
                 $numeroEmpleado = $datos[$x]['no_collaborator'];
 
-                $datosCollaborator = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/collaborator/$no_collaborator"), true);
+                $datosCollaborator = json_decode(file_get_contents("http://localhost:3000/collaborator/$no_collaborator"), true);
                 $idCollaborator = $datosCollaborator['_id'];
 
-                $deleteRegisterINTOcollaborator = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/$idCollaborator/DeleteOperationsINTOcollaborator/$idOperation"), true);
+                $deleteRegisterINTOcollaborator = json_decode(file_get_contents("http://localhost:3000/$idCollaborator/DeleteOperationsINTOcollaborator/$idOperation"), true);
             }
 
         }catch(Exception $e)

@@ -22,8 +22,8 @@ if(empty($_GET['id']) || empty($_GET['idVacancie']))
     //Se registra en lavacante el colaborador aplicado
     try{
 
-        $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/findVacancie/$idVacancie"), true);
-        $user = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/collaboratorFind/$id"), true);
+        $datos = json_decode(file_get_contents("http://localhost:3000/findVacancie/$idVacancie"), true);
+        $user = json_decode(file_get_contents("http://localhost:3000/collaboratorFind/$id"), true);
 
         $title = $datos['title'];
         $deadline = $datos['deadline'];
@@ -54,7 +54,7 @@ if(empty($_GET['id']) || empty($_GET['idVacancie']))
 
 
        //url de la petición
- $url = "https://REST-API.joseramonhernan.repl.co/registerApplicators/$idVacancie";
+ $url = "http://localhost:3000/$idVacancie";
  
  //inicializamos el objeto CUrl
  $ch = curl_init($url);

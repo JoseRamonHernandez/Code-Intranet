@@ -76,7 +76,7 @@ if(isset($_GET['save'])==1)
 
     try{
 
-        $url = "https://REST-API.joseramonhernan.repl.co/insertCourse/$idCategorie2";
+        $url = "http://localhost:3000/insertCourse/$idCategorie2";
 //inicializamos el objeto CUrl
 $ch = curl_init($url);
   
@@ -216,7 +216,7 @@ if($result)
 <?php
 
     try{
-    $courses = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/findCourses/$idCategorie"), true);
+    $courses = json_decode(file_get_contents("http://localhost:3000/findCourses/$idCategorie"), true);
 
     for($x=0; $x<count($courses); $x++)
     {

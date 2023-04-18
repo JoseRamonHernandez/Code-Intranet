@@ -18,7 +18,7 @@ if(!empty(isset($_GET['nameCourse'])) && !empty(isset($_GET['idMaterial']))  && 
 
 
 try{
-    $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/$idCategorie/$idCourse/material/$idMaterial"), true);
+    $datos = json_decode(file_get_contents("http://localhost:3000/$idCategorie/$idCourse/material/$idMaterial"), true);
         
         if($datos){
             ?>

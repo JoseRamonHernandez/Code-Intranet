@@ -14,19 +14,19 @@ if(!empty($_GET['idOperation']))
 
 
 try{
-    $datosOperation = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/getCollaborators/operation/$idOperation"), true);
+    $datosOperation = json_decode(file_get_contents("http://localhost:3000/getCollaborators/operation/$idOperation"), true);
         
     for($x=0; $x<count($datosOperation); $x++)
     {
         $numeroEmpleado = $datosOperation[$x]['no_collaborator'];
 
-        $datosCollaborator = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/collaborator/$numeroEmpleado"), true);
+        $datosCollaborator = json_decode(file_get_contents("http://localhost:3000/collaborator/$numeroEmpleado"), true);
         $idCollaborator = $datosCollaborator['_id'];
 
-        $deleteRegisterINTOcollaborator = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/$idCollaborator/DeleteOperationsINTOcollaborator/$idOperation"), true);
+        $deleteRegisterINTOcollaborator = json_decode(file_get_contents("http://localhost:3000/$idCollaborator/DeleteOperationsINTOcollaborator/$idOperation"), true);
     }
 
-    $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/deleteOperation/$idOperation"), true);
+    $datos = json_decode(file_get_contents("http://localhost:3000/deleteOperation/$idOperation"), true);
         
         if($datos){
             ?>

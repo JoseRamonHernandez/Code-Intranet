@@ -66,7 +66,7 @@ if(isset($_POST['save'])==1)
     try
     { 
    //url de la petición
-   $url = 'https://REST-API.joseramonhernan.repl.co/createEvent';
+   $url = 'http://localhost:3000/createEvent';
    //inicializamos el objeto CUrl
    $ch = curl_init($url);
      
@@ -262,7 +262,7 @@ if(isset($_POST['save'])==1)
 <?php
 try{
         
-    $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/events"), true);
+    $datos = json_decode(file_get_contents("http://localhost:3000/events"), true);
    // echo ("acceso concedido");
  
     for($x=0; $x<count($datos); $x++)

@@ -47,7 +47,7 @@ else
     echo $answerOption;
     */
 
-    $questions = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/$idCategorie/questions/$idCourse"), true);
+    $questions = json_decode(file_get_contents("http://localhost:3000/$idCategorie/questions/$idCourse"), true);
     
     //Code para obtener la Respuesta Correcta
     $correctAnswer = $questions['questions'][$numberQuestion]['answerOption'];

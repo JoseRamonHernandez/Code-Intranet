@@ -51,7 +51,7 @@ if(isset($_GET['update'])==1)
    try
  { 
 //url de la petición
-$url = "https://REST-API.joseramonhernan.repl.co/updateEvent/$newID";
+$url = "http://localhost:3000/updateEvent/$newID";
 //inicializamos el objeto CUrl
 $ch = curl_init($url);
   
@@ -210,7 +210,7 @@ if(!empty($_GET['id']))
 $id = $_GET['id'];
 
 try{
-    $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/findEvent/$id"), true);
+    $datos = json_decode(file_get_contents("http://localhost:3000/findEvent/$id"), true);
 //echo $id;
 $newId= $datos['_id'];
 $title = $datos['title'];

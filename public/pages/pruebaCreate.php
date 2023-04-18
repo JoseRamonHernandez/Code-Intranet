@@ -111,7 +111,7 @@ $user_type = "collaborator";
 
 
 //url de la petición
-$url = 'https://REST-API.joseramonhernan.repl.co/collaboratorRegister';
+$url = 'http://localhost:3000/collaboratorRegister';
 
 //inicializamos el objeto CUrl
 $ch = curl_init($url);

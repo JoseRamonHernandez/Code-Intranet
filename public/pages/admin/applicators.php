@@ -46,7 +46,7 @@ if(!empty($_GET['idVacancie']))
     $idVacancie = $_GET['idVacancie'];
     
 try{
-        $url = "https://REST-API.joseramonhernan.repl.co/findVacancies/$idVacancie";
+        $url = "http://localhost:3000/findVacancies/$idVacancie";
         if($url)
         {
 $response = file_get_contents($url);

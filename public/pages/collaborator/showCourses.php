@@ -22,7 +22,7 @@ else
     $countCourseCompleted = 0;
     $countCourse = 0;
 
-    $coursesCompleted = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/$idCollaborator/showCoursesCompleted"), true);
+    $coursesCompleted = json_decode(file_get_contents("http://localhost:3000/$idCollaborator/showCoursesCompleted"), true);
 
     for ($x=0; $x<count($coursesCompleted); $x++)
         {
@@ -32,7 +32,7 @@ else
 
        
    
-    $courses = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/findCourses/$idCategorie"), true);
+    $courses = json_decode(file_get_contents("http://localhost:3000/findCourses/$idCategorie"), true);
     for($x=0; $x<count($courses); $x++)
     {
         $countCourse++;
@@ -154,14 +154,14 @@ else
 
 <?php
 
-  $datosCategorie = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/findCategorie/$idCategorie"), true);
+  $datosCategorie = json_decode(file_get_contents("http://localhost:3000/findCategorie/$idCategorie"), true);
   $nameCategorie = $datosCategorie['name_of_categorie'];
   $background = $datosCategorie['background'];
   $colorText = $datosCategorie['colorText'];
 
   if($idCategorie == "640665b4f9977e40726ea4a5")
   {
-    $coursesCompleted = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/$idCollaborator/showCoursesCompleted"), true);
+    $coursesCompleted = json_decode(file_get_contents("http://localhost:3000/$idCollaborator/showCoursesCompleted"), true);
     if(empty($coursesCompleted))
     {
       ?>
@@ -173,7 +173,7 @@ else
 <div class="row row-cols-1 row-cols-md-3 g-4" style="padding-top:4%;">
 
 <?php
-      $courses = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/findCourses/$idCategorie"), true);
+      $courses = json_decode(file_get_contents("http://localhost:3000/findCourses/$idCategorie"), true);
       for($x=0; $x<count($courses); $x++)
   {
 
@@ -230,7 +230,7 @@ else
 <div class="row row-cols-1 row-cols-md-3 g-4" style="padding-top:4%;">
 
 <?php
-      $courses = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/findCourses/$idCategorie"), true);
+      $courses = json_decode(file_get_contents("http://localhost:3000/findCourses/$idCategorie"), true);
       for($x=0; $x<count($courses); $x++)
   {
 
@@ -266,7 +266,7 @@ else
 
 <?php
 
-  $courses = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/findCourses/$idCategorie"), true);
+  $courses = json_decode(file_get_contents("http://localhost:3000/findCourses/$idCategorie"), true);
 
   for($x=0; $x<count($courses); $x++)
   {

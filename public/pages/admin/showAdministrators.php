@@ -59,7 +59,7 @@ set_error_handler("exception_error_handler");
     {
         $numberAdministrator = $_GET['numberAdministrator'];
         try{
-            $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/collaborator/$numberAdministrator"), true);
+            $datos = json_decode(file_get_contents("http://localhost:3000/collaborator/$numberAdministrator"), true);
 
             if(empty($datos))
             {
@@ -102,7 +102,7 @@ set_error_handler("exception_error_handler");
            }
     } else{
         
-         $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/collaboratorType/administrator"), true);
+         $datos = json_decode(file_get_contents("http://localhost:3000/collaboratorType/administrator"), true);
         // echo ("acceso concedido");
       ?>
       <div class="row row-cols-1 row-cols-md-3 g-4">

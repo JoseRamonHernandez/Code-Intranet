@@ -52,7 +52,7 @@ if(isset($_GET['guardar'])==1)
   try
   { 
  //url de la petición
- $url = 'https://REST-API.joseramonhernan.repl.co/collaboratorRegister';
+ $url = 'http://localhost:3000/collaboratorRegister';
  
  //inicializamos el objeto CUrl
  $ch = curl_init($url);
@@ -225,7 +225,7 @@ if(isset($_GET['guardar'])==1)
 <!-- This is code to get all projects -->
 <?php
 
-  $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/projects"), true);
+  $datos = json_decode(file_get_contents("http://localhost:3000/projects"), true);
 
 ?>
 

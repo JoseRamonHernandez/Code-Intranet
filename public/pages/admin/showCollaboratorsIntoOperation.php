@@ -48,9 +48,9 @@ else
 {
     $idOperation = $_GET['idOperation'];
 
-    $datosOperation = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/findOperation/$idOperation"), true);
+    $datosOperation = json_decode(file_get_contents("http://localhost:3000/findOperation/$idOperation"), true);
 
-   $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/getCollaborators/operation/$idOperation"), true);
+   $datos = json_decode(file_get_contents("http://localhost:3000/getCollaborators/operation/$idOperation"), true);
 if(!$datos)
 {
     echo ("<h2>Sin Resultados</h2>");
@@ -88,7 +88,7 @@ else
     for($x=0; $x<count($datos); $x++)
     {
      $numeroCollaborator = $datos[$x]['no_collaborator'];
-     $collaboratorsInfo = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/collaborator/$numeroCollaborator"), true);
+     $collaboratorsInfo = json_decode(file_get_contents("http://localhost:3000/collaborator/$numeroCollaborator"), true);
         ?>
       <tr>
       <th class="table-success" scope="row"><?php echo $collaboratorsInfo['numero_empleado']; ?></th>

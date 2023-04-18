@@ -11,7 +11,7 @@ if(!empty($_GET['id']))
     $id = $_GET['id'];
 
     try{
-        $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/collaboratorFind/$id"), true);
+        $datos = json_decode(file_get_contents("http://localhost:3000/collaboratorFind/$id"), true);
           $name = $datos['name'];
         //  echo $name;
           $lastname = $datos['lastname'];

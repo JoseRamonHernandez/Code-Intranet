@@ -35,7 +35,7 @@ if(!empty($_GET['idOperation']))
 
         try
         {
-            $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/findOperation/$idOperation"), true);
+            $datos = json_decode(file_get_contents("http://localhost:3000/findOperation/$idOperation"), true);
             $name = $datos['name_of_operation'];
             $project = $datos['project'];
             ?>

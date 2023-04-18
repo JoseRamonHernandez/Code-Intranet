@@ -49,7 +49,7 @@ set_error_handler("exception_error_handler");
 <?php
 
 try{
-    $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/Vacancies"), true);
+    $datos = json_decode(file_get_contents("http://localhost:3000/Vacancies"), true);
 
     if($datos)
     {

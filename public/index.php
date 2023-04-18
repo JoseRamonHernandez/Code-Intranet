@@ -85,12 +85,12 @@ if(isset($_GET['politicas'])==1)
 </div>
 </div>
 
-<div class="container" style="padding-top:">
+<div class="container" >
 <h2 style=" display: flex;
     align-items: center;
     justify-content: center;
     flex-direction:row;">Los Cumpleañeros de este mes</h2>
-<div id="carouselExample" class="carousel slide" style=" ">
+<div id="carouselExample" class="carousel slide">
   <div class="carousel-inner">
     <div class="carousel-item active" style="top:10px; padding:20%">
       <img src="./img/profile2.jpg" class="d-block w-100" alt="..." >
@@ -124,7 +124,7 @@ if(isset($_GET['politicas'])==1)
 
 
 
-<div class="container" style="padding: ">
+<div class="container">
 <div class="row row-cols-1 row-cols-md-3 g-4" style="justify-content: space-between;">
 
 
@@ -195,7 +195,7 @@ if(isset($_GET['politicas'])==1)
 
 }else{
         try{   
-          $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/events"), true);
+          $datos = json_decode(file_get_contents("http://localhost:3000/events"), true);
           $x=0;
           $count=count($datos);
 ?>

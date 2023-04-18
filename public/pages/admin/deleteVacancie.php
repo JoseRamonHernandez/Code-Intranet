@@ -33,7 +33,7 @@ if(!empty($_GET['idVacancie'])){
     $idVacancie = $_GET['idVacancie'];
 
     try{
-        $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/findVacancie/$idVacancie"), true);
+        $datos = json_decode(file_get_contents("http://localhost:3000/findVacancie/$idVacancie"), true);
         $title = $datos['title'];
         $description = $datos['description'];
         $id = $datos['_id'];

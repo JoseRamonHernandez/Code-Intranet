@@ -21,7 +21,7 @@ if(isset($_GET['save'])==1)
 try
 { 
 //url de la petición
-$url = 'https://REST-API.joseramonhernan.repl.co/newOperation';
+$url = 'http://localhost:3000/newOperation';
 
 //inicializamos el objeto CUrl
 $ch = curl_init($url);
@@ -190,7 +190,7 @@ window.location="operations.php"
 
 <?php
 
-$projects = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/projects"), true);
+$projects = json_decode(file_get_contents("http://localhost:3000/projects"), true);
 
 
 ?>
@@ -251,7 +251,7 @@ $projects = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl
 
     try{
 
-        $getOperations = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/operations"), true);
+        $getOperations = json_decode(file_get_contents("http://localhost:3000/operations"), true);
 
 
         for($a=0; $a<count($getOperations); $a++)

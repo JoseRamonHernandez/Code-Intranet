@@ -45,7 +45,7 @@ $status = "true";
 try
   { 
  //url de la petición
- $url = 'https://REST-API.joseramonhernan.repl.co/createVacancies';
+ $url = 'http://localhost:3000/createVacancies';
  
  //inicializamos el objeto CUrl
  $ch = curl_init($url);

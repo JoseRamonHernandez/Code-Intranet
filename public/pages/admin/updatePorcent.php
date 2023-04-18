@@ -35,14 +35,14 @@ if(!empty(isset($_GET['idCollaborator'])) && !empty(isset($_GET['id_operation'])
         $idCollaborator = $_GET['idCollaborator'];
         $id_operation = $_GET['id_operation'];
 
-        $datosCollaborator = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/collaboratorFind/$idCollaborator"), true);
+        $datosCollaborator = json_decode(file_get_contents("http://localhost:3000/collaboratorFind/$idCollaborator"), true);
         $numberCollaborator = $datosCollaborator['numero_empleado'];
 
-        $datosOperation = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/findOperation/$id_operation"), true);
+        $datosOperation = json_decode(file_get_contents("http://localhost:3000/findOperation/$id_operation"), true);
         $nameOperation = $datosOperation['name_of_operation'];
         $project = $datosOperation['project'];
 
-        $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/$idCollaborator/getOPERATIONintoCollaborator/$id_operation"), true);
+        $datos = json_decode(file_get_contents("http://localhost:3000/$idCollaborator/getOPERATIONintoCollaborator/$id_operation"), true);
         $porcent = $datos['porcent'];
 
 
@@ -75,7 +75,7 @@ if(!empty(isset($_GET['idCollaborator'])) && !empty(isset($_GET['id_operation'])
                 try
 { 
 //url de la petición
-$url = "https://REST-API.joseramonhernan.repl.co/$idCollaborator/operations/$id_operation";
+$url = "http://localhost:3000/$idCollaborator/operations/$id_operation";
 
 
 

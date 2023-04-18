@@ -62,12 +62,12 @@ if(!empty(isset($_GET['idQuestion'])) && !empty(isset($_GET['nameCourse'])) && !
 
 try{
 
-    $obj = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/$idCategorie/curso/$idCourse/question/$idQuestion"));
+    $obj = json_decode(file_get_contents("http://localhost:3000/$idCategorie/curso/$idCourse/question/$idQuestion"));
 
     $questionText = $obj->question->question_text;
     #echo $questionText;
 
-    $options = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/$idCategorie/curso/$idCourse/getOptions/$idQuestion"), true);
+    $options = json_decode(file_get_contents("http://localhost:3000/$idCategorie/curso/$idCourse/getOptions/$idQuestion"), true);
 
     $option1 = $options['options'][0]['option1'];
     $option2 = $options['options'][0]['option2'];

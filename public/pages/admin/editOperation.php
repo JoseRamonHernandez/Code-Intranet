@@ -56,7 +56,7 @@ else
         $text = $_GET['text'];
 
         //url de la petición
-$url = "https://REST-API.joseramonhernan.repl.co/updateOperation/$idOperation";
+$url = "http://localhost:3000/updateOperation/$idOperation";
 
 //inicializamos el objeto CUrl
 $ch = curl_init($url);
@@ -162,7 +162,7 @@ window.location="operations.php"
 
 }
 
-   $datosOperation = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/getOperation/$idOperation"), true);
+   $datosOperation = json_decode(file_get_contents("http://localhost:3000/getOperation/$idOperation"), true);
 
    ?>
 

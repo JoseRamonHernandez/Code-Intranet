@@ -53,7 +53,7 @@ set_error_handler("exception_error_handler");
 
     try{
         //url de la petición
-$url = "https://REST-API.joseramonhernan.repl.co/updateProject/$newID";
+$url = "http://localhost:3000/updateProject/$newID";
 //inicializamos el objeto CUrl
 $ch = curl_init($url);
   
@@ -215,7 +215,7 @@ if($result)
 
         try
         {
-            $datos = json_decode(file_get_contents("https://REST-API.joseramonhernan.repl.co/findProject/$id"), true);
+            $datos = json_decode(file_get_contents("http://localhost:3000/findProject/$id"), true);
 
             ?>
 

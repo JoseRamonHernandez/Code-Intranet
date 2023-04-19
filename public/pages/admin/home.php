@@ -58,10 +58,11 @@
         <li class="nav-item">
           <a class="nav-link active" aria-curret="page" href="./operations.php">Operaciones</a>
         </li>
+        <!--
         <li class="nav-item">
           <a class="nav-link active" aria-curret="page" href="./downloadMatriz.php">Descargar matriz de hábilidades</a>
         </li>
-        
+    -->
        
       </ul>
       <form class="d-flex" role="search" method="GET" action="../../login.php">

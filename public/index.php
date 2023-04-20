@@ -81,40 +81,83 @@ if(isset($_GET['politicas'])==1)
 <div clas="" style="margin:0;">
 <div class="intranet" style="padding: 3%;">
 <h3>Lo que harás.</h3>
-<p>Esta aplicación web, es un sistema en el cual se tendrá el control total del personal, manejando su información compartida como correo electrónico, numero de teléfono, etc... y en el cuál podrán realizar cursos, visualizar CLER´S, Nóminas, Vacantes, Contratos y mucho más.</p>
+<p>Esta aplicación web en su versión 1.0, es un sistema en el cuál se tendrá el control total del personal, manejando su información compartida como correo electrónico, numero de teléfono, etc... y en el cuál podrán realizar cursos, visualizar CLER´S, Vacantes, Contratos y mucho más.</p>
 </div>
 </div>
+
 
 <div class="container" >
 <h2 style=" display: flex;
     align-items: center;
     justify-content: center;
     flex-direction:row;">Los Cumpleañeros de este mes</h2>
-<div id="carouselExample" class="carousel slide">
+
+<div id="carouselExampleFade" class="carousel slide carousel-fade">
+
   <div class="carousel-inner">
-    <div class="carousel-item active" style="top:10px; padding:20%">
-      <img src="./img/profile2.jpg" class="d-block w-100" alt="..." >
-      <h3 style="color:black">Persona 1</h3>
+    <div class="carousel-item active">
+      <center>
+      <img src="./img/logo_clerprem.png" class="d-block w-50" alt="...">
+      </center>
     </div>
-    <div class="carousel-item" style="padding:20%;">
-      <img src="./img/profile.jpg" class="d-block w-100" alt="...">
-      <h3 style="color:black">Persona 2</h3>
-    </div>
-    <div class="carousel-item" style="padding:20%;">
-      <img src="./img/profile2.jpg" class="d-block w-100" alt="...">
-      <h3 style="color:black">Persona 3</h3>
-    </div>
-    <div class="carousel-item" style="padding:20%;">
-      <img src="./img/logo.png" class="d-block w-100" alt="...">
-      <h3 style="color:black">Persona 4</h3>
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true" style="background-color:black"></span>
+
+    <?php
+
+//Obtener la informacion de todos los colaboradores para comprobar su mes de nacimiento con la fecha actual para 
+//mostrarlos en los siguientes apartados.
+
+$mes_actual = date('m');
+
+  $collaborators = json_decode(file_get_contents("http://localhost:3000/collaborators"), true);
+
+  for($x=0; $x<count($collaborators); $x++)
+  {
+    $userType = $collaborators[$x]['user_type'];
+    $nameCollaborator = $collaborators[$x]['name'];
+    $lastNameCollaborator = $collaborators[$x]['lastname'];
+    $photoCollaborator = $collaborators[$x]['photo'];
+
+   /* echo $collaborators[$x]['_id'];
+    echo ("<hr>"); */
+
+
+    if($userType == 'collaborator')
+    {
+      $cumpleaños = $collaborators[$x]['dateofbirthday'];
+      $digito1 = $cumpleaños[5];
+      $digito2 = $cumpleaños[6];
+
+      $digito3 = ($digito1."".$digito2);
+
+      if($digito3 == $mes_actual)
+      {
+        
+        echo('
+        <div class="carousel-item">
+        <center>
+          <img src="./subidas/'.$photoCollaborator.'" class="d-block w-50" alt="...">
+          <h3 style="color:black">'.$nameCollaborator.' '.$lastNameCollaborator.'</h3>
+          </center>
+        </div>
+        ');
+      }
+      
+    }
+
+  }
+
+  
+
+?>
+
+  
+</div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
   </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true" style="background-color:black"></span>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </button>
 </div>

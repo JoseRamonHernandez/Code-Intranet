@@ -70,15 +70,15 @@ set_error_handler("exception_error_handler");
         {
           ?>
           <br>
-          <center>
-          <div class="container">
+          
+          <div class="container" style="padding:3%;">
           <ul style="">
           <li>
             <h4>Aquí se mostrarán a todos los usuarios registrados por área o a través de la busqueda por numero de empleado.</h4>
           </li>
         </ul>
         </div>
-        </center>
+        
         <br>
           <?php
         }
@@ -94,6 +94,7 @@ set_error_handler("exception_error_handler");
 
          
          ?>
+         <div class="container">
          <div class="table-responsive">
          <table class="table">
 <thead>
@@ -145,7 +146,7 @@ echo('
 </tbody>
 </table>
       </div>
-      
+      </div>
       
   </body>
 </html>

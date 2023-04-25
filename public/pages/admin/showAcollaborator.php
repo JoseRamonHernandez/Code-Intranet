@@ -108,6 +108,8 @@ if(!empty($_GET['numberCollaborator']))
           <div class="card-body">
             <a href="./editCollaborator.php?id='.$datos['_id'].'" class="btn btn-warning">EDITAR</a>
             <a href="./deleteCollaboratorAnswer.php?id='.$datos['_id'].'"class="btn btn-danger">ELIMINAR</a>
+            <hr>
+            <a href="./showCursos.php?id='.$datos['_id'].'"class="btn btn-outline-primary">CURSOS</a>
           </div>
         </div>
         </center>');

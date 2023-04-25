@@ -53,6 +53,7 @@ else
                 $ch = curl_init($url);
                 
                 $jsonData = array(
+                    'idCategorie' => $idCategorie,
                     'id_course' => $idCourse,
                     'calf' => $resultado
                 );

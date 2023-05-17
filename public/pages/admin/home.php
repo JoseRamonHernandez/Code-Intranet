@@ -58,6 +58,9 @@
         <li class="nav-item">
           <a class="nav-link active" aria-curret="page" href="./operations.php">Operaciones</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-curret="page" href="./aplicatorsPage.php">Solicitudes de ACCESO</a>
+        </li>
         <!--
         <li class="nav-item">
           <a class="nav-link active" aria-curret="page" href="./downloadMatriz.php">Descargar matriz de hábilidades</a>

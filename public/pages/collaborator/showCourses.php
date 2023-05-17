@@ -144,7 +144,7 @@ else
             </li>
     
           </ul>
-          <form class="d-flex" role="search" method="GET" action="showCategories.php">
+          <form class="d-flex" role="search" method="GET" action="ifCategorie.php">
             <input type="hidden" name="idCollaborator" value="<?php echo $idCollaborator; ?>">
             <button class="btn btn-outline-primary" name="close" type="submit">Regresar</button>
           </form>

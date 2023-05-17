@@ -37,7 +37,7 @@ if(!empty($_GET['numberCollaborator']))
 
           ?>
 
-  <nav class="navbar bg-body-tertiary fixed-top">
+  <nav class="navbar bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" >Colaboradores</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -112,7 +112,7 @@ if(!empty($_GET['numberCollaborator']))
             <a href="./editCollaborator.php?id='.$datos['_id'].'" class="btn btn-warning">EDITAR</a>
             <a href="./deleteCollaboratorAnswer.php?id='.$datos['_id'].'"class="btn btn-danger">ELIMINAR</a>
             <hr>
-            <a href="./showCursos.php?id='.$datos['_id'].'"class="btn btn-outline-primary">CURSOS</a>
+            <a  href="./showCursos.php?id='.$datos['_id'].'"class="btn btn-outline-primary">CURSOS</a>
           </div>
         </div>
         </center>');
@@ -130,5 +130,7 @@ if(!empty($_GET['numberCollaborator']))
 
 ?>
 <br>
+
+
 </body>
 </html>

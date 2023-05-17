@@ -19,6 +19,7 @@ else
     $idCollaborator = $_GET['id'];
     
     ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,10 +40,6 @@ else
     <title>Cursos</title>
 </head>
 <body>
-    
-
-
-
 
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
@@ -185,7 +182,7 @@ else
 
 <center>
 <div class="d-grid gap-4">
-<a href="showCategories.php?idCollaborator=<?php echo $idCollaborator; ?>" style="text-decoration: none; color: white;">
+<a href="ifCategorie.php?idCollaborator=<?php echo $idCollaborator; ?>" style="text-decoration: none; color: white;">
   <button class="btn btn-primary" type="submit">IR A LAS CATEGORÍAS</button>
   </a>
 </div>

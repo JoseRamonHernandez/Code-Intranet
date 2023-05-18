@@ -50,6 +50,8 @@
             <li><a class="dropdown-item" href="./vacantes.php">Vacantes </a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="./createProject.php">Proyectos </a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="./clersHome.php">Cler´s </a></li>
           </ul>
         </li>
         <li class="nav-item">

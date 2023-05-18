@@ -65,6 +65,8 @@ for($x=0; $x<count($courses); $x++)
     $califCourse = $courses[$x]['calf'];
 
     $datosCategorie = json_decode(file_get_contents("http://localhost:3000/findCourses/$idCategorie"), true);
+    if($datosCategorie || empty($datosCategorie))
+    {
     for($a=0; $a<count($datosCategorie); $a++)
     {
         if($idCourse == $datosCategorie[$a]['_id'])
@@ -83,6 +85,11 @@ for($x=0; $x<count($courses); $x++)
     <th scope="row">'.$nameCourse'</th>
     <td>'.$califCourse'</td>
     </tr>');
+
+  }else
+  {
+    echo("Sin resultados");
+  }
 }
 
 ?>

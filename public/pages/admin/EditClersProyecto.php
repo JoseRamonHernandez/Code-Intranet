@@ -15,7 +15,7 @@
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand"><h4 style="color:blue">CLER´S - PROYECTO</h4></a>
+    <a class="navbar-brand"><h4 style="color:blue">EDITAR CLER´S - PROYECTO</h4></a>
     <p></p>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -42,7 +42,7 @@ $datos = json_decode(file_get_contents("http://localhost:3000/projects"), true);
 <h5>Selecciona un proyecto</h5>
     <div class="card border-dark mb-3">
         <div class="container" style="padding-top: 2%">
-        <form class="form-control" action="registerClersProject.php" method="GET">
+        <form class="form-control" action="editPointsClersProject.php" method="GET">
         <div class="input-group mb-3">
         <select class="form-select card border-secondary mb-3" name="project" id="inputGroupSelect01" required>
             <option selected>Choose...</option>
@@ -62,10 +62,10 @@ echo $datos[$x]['_id'];
         Cler´s
         <div class="form-floating mb-3">
         <input type="number" name="clers" class="form-control card border-secondary mb-3" id="floatingInput" placeholder="" required>
-        <label for="floatingInput">Ingresa los Cler´s que se sumarán</label>
+        <label for="floatingInput">Ingresa los Cler´s que se restarán a todos los colaboradores dentro del proyecto seleccionado</label>
         </div>
         <div class="col mb-3">
-            <button class="btn btn-outline-success" name="saveData">Registrar</button>
+            <button class="btn btn-outline-warning" name="saveData">Actualizar</button>
         </div>
         </div>
         </form>

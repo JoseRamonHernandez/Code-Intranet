@@ -8,14 +8,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 
-    <title>CLER´S</title>
+    <title>Cursos</title>
 </head>
 <body >
 
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand"><h4 style="color:blue">CLER´S - PROYECTO</h4></a>
+    <a class="navbar-brand"><h4 style="color:blue">MOSTRAR CLER´S - ÁREA</h4></a>
     <p></p>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -34,38 +34,29 @@
 </nav>
 
 <?php
-// Traer todas los proyectos registradas para mostrarlas
-$datos = json_decode(file_get_contents("http://localhost:3000/projects"), true);
+// Traer todas las areas registradas para mostrarlas
 ?>
 
 <div class="container" style="padding-top:5%">
-<h5>Selecciona un proyecto</h5>
+<h5>Selecciona un área</h5>
     <div class="card border-dark mb-3">
         <div class="container" style="padding-top: 2%">
-        <form class="form-control" action="registerClersProject.php" method="GET">
+        <form class="form-control" action="showTableClersArea.php" method="GET">
         <div class="input-group mb-3">
-        <select class="form-select card border-secondary mb-3" name="project" id="inputGroupSelect01" required>
-            <option selected>Choose...</option>
-            <?php
+        <select class="form-select card border-secondary mb-3" name="area" id="inputGroupSelect01" required>
+        <option selected  required>Choose...</option>
+        <option value="costuras">Costuras</option>
+        <option value="ensamblado">Ensamblado</option>
+        <option value="espuma">Espuma</option>
+        <option value="almacen">Almacen</option>
+        <option value="giostra">Giostra</option>
+        <option value="liberado">Liberado</option>
+        <option value="calidad">Calidad de Proceso</option>
 
-for($x=0; $x<count($datos); $x++)
-{ 
-echo $datos[$x]['_id'];
-?>
-<option value="<?php echo $datos[$x]['name'];?>"><?php echo $datos[$x]['name'];?></option>
-<?php
-}
-
-?>
         </select>
         </div>
-        Cler´s
-        <div class="form-floating mb-3">
-        <input type="number" name="clers" class="form-control card border-secondary mb-3" id="floatingInput" placeholder="" required>
-        <label for="floatingInput">Ingresa los Cler´s que se sumarán</label>
-        </div>
         <div class="col mb-3">
-            <button class="btn btn-outline-success" name="saveData">Registrar</button>
+            <button class="btn btn-outline-dark" name="saveData">Buscar</button>
         </div>
         </div>
         </form>

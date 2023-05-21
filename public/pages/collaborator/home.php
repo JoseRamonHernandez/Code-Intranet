@@ -80,11 +80,7 @@ $password = $datos['password'];
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="alerts.php?id=<?php echo($datos['_id']);?>">Avisos</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Recibos de Nómina</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">CLER´S</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Resultados de Indicadores</a></li>
+            <li><a class="dropdown-item" href="showClers.php?idCollaborator=<?php echo $id; ?>">CLER´S</a></li>
           </ul>
         </li>
         <li class="nav-item">
@@ -105,6 +101,40 @@ $password = $datos['password'];
     </div>
   </div>
 </nav>
+
+<?php
+ /* Codigo para saber a que área pertenece el usuario */
+ $categoriesApplied = json_decode(file_get_contents("http://localhost:3000/$id/showCategoriesCompleted"), true);
+$z=0;
+ if(empty($categoriesApplied))
+ {
+   $z=1;
+   $categorie = "WHITE";
+ }else{
+   for($a=0; $a<count($categoriesApplied); $a++)
+   {
+     $z++;
+   }
+ }
+
+if($z==1)
+{
+ $categorie = "WHITE";
+}elseif($z==2)
+{
+ $categorie = "BLUE";
+}elseif($z==3)
+{
+ $categorie = "RED";
+}elseif($z==4)
+{
+ $categorie = "GREEN";
+}elseif($z==5)
+{
+ $categorie = "BLACK";
+}
+
+?>
 
 
       <center>
@@ -133,6 +163,7 @@ $password = $datos['password'];
               <li>Fecha de nacimiento: <?php echo $datos["dateofbirthday"]?></li>
             </ul>
               <p class="card-text"><small class="text-muted">Área: <?php echo $datos["area"]?></small></p>
+              <p class="card-text"><small class="text-muted">Categoría: <?php echo $categorie;?></small></p>
             </div>
           </div>
         </div>

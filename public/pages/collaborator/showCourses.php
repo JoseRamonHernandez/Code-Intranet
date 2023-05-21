@@ -168,7 +168,7 @@ else
 
     <div class="container" style="padding-top: 5%">
 
-<h3 class="text-center">Se muestra el listado de todas los cursos disponibles para la categría <?php echo $nameCategorie; ?>.</h3>
+<h3 class="text-center">Se muestra el listado de todas los cursos disponibles para la categoría <?php echo $nameCategorie; ?>.</h3>
 
 <div class="row row-cols-1 row-cols-md-3 g-4" style="padding-top:4%;">
 

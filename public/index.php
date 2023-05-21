@@ -92,7 +92,7 @@ if(isset($_GET['politicas'])==1)
     justify-content: center;
     flex-direction:row;">Los Cumpleañeros de este mes</h2>
 
-<div id="carouselExampleFade" class="carousel slide carousel-fade">
+<div id="carouselExampleFade" class="carousel slide carousel-fade" >
 
   <div class="carousel-inner">
     <div class="carousel-item active">
@@ -152,11 +152,12 @@ $mes_actual = date('m');
 
   
 </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev" style="color: black; background-color: black;">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
   </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next" style="color: black; background-color: black;">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </button>
@@ -167,7 +168,7 @@ $mes_actual = date('m');
 
 
 
-<div class="container">
+<div class="container" style="padding-top: 5%;">
 <div class="row row-cols-1 row-cols-md-3 g-4" style="justify-content: space-between;">
 
 

@@ -115,9 +115,8 @@ readfile($img);
     }
 
    }else{
-    ?>
-    <script> window.location="../err.html"; </script>
-    <?php
+    echo("<h3>Sin registros.</h3>");
+
    }
 } catch(Exception $e){
 echo("<h3>Sin registros.</h3>");

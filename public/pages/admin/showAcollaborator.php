@@ -88,12 +88,50 @@ if(!empty($_GET['numberCollaborator']))
 
 
 <?php
-
+ 
 
 
           try{
           $datos = json_decode(file_get_contents("http://localhost:3000/collaborator/$numberCollaborator"), true);
-         
+          $idCollaborator = $datos['_id'];
+          $z=0;
+          $clers = $datos['clers'];
+          $countClers = intval($clers);
+         /* Codigo para saber a que área pertenece el usuario */
+        $categoriesApplied = json_decode(file_get_contents("http://localhost:3000/$idCollaborator/showCategoriesCompleted"), true);
+
+        if(empty($categoriesApplied))
+        {
+          $z=1;
+          $categorie = "WHITE";
+        }else{
+          for($a=0; $a<count($categoriesApplied); $a++)
+          {
+            $z++;
+          }
+        }
+
+       if($z==1)
+       {
+        $convertion = $countClers * 1;
+        $categorie = "WHITE";
+       }elseif($z==2)
+       {
+        $convertion = $countClers * 1.15;
+        $categorie = "BLUE";
+       }elseif($z==3)
+       {
+        $convertion = $countClers * 1.30;
+        $categorie = "RED";
+       }elseif($z==4)
+       {
+        $convertion = $countClers * 1.40;
+        $categorie = "GREEN";
+       }elseif($z==5)
+       {
+        $convertion = $countClers * 1.50;
+        $categorie = "BLACK";
+       }
           echo('
 <center>
           <div class="card" style="width: 18rem;">
@@ -110,7 +148,11 @@ if(!empty($_GET['numberCollaborator']))
             <li class="list-group-item">Fecha de Cumpleaños: '.$datos['dateofbirthday'].'</li>
             <li class="list-group-item">Correo Electrónico: '.$datos['email'].'</li>
             <li class="list-group-item">Numero de Empleado: '.$datos['numero_empleado'].'</li>
+            <li class="list-group-item">Categoría: '.$categorie.'</li>
           </ul>
+          <p>Cler´s: '.$datos['clers'].'</p>
+          <p>Conversión: $'.$convertion.'</p>
+          <hr>
           <div class=""card-body>
           <h4>Status: '.$datos['status'].'</h4>
           </div>

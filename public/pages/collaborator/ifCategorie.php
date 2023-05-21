@@ -260,7 +260,7 @@ if(empty($categoriesApplied))
                 <p class="card-text">Descripción: <?php echo $categories[$x]['description']; ?></p>
               </div>
               <div class="container">
-              <a href="showCourses.php?idCollaborator=<?php echo $idCollaborator; ?>&idCategorie=<?php echo $categories[$x]['_id']; ?>" stlye="text-decoration: none;">
+              <a href="aplicateCategorie.php?idCollaborator=<?php echo $idCollaborator; ?>&idCategorie=<?php echo $categories[$x]['_id']; ?>" stlye="text-decoration: none;">
               <button class="btn btn-dark btn-lg" type="submit">Solicitar Acceso</button>
               </a>
               </div>
@@ -369,7 +369,7 @@ if(empty($categoriesApplied))
                   <p class="card-text">Descripción: <?php echo $categories[$x]['description']; ?></p>
                 </div>
                 <div class="container">
-                <a href="showCourses.php?idCollaborator=<?php echo $idCollaborator; ?>&idCategorie=<?php echo $categories[$x]['_id']; ?>" stlye="text-decoration: none;">
+                <a href="aplicateCategorie.php?idCollaborator=<?php echo $idCollaborator; ?>&idCategorie=<?php echo $categories[$x]['_id']; ?>" stlye="text-decoration: none;">
                 <button class="btn btn-dark btn-lg" type="submit">Solicitar Acceso</button>
                 </a>
                 </div>
@@ -499,7 +499,7 @@ if(empty($categoriesApplied))
                   <p class="card-text">Descripción: <?php echo $categories[$x]['description']; ?></p>
                 </div>
                 <div class="container">
-                <a href="showCourses.php?idCollaborator=<?php echo $idCollaborator; ?>&idCategorie=<?php echo $categories[$x]['_id']; ?>" stlye="text-decoration: none;">
+                <a href="aplicateCategorie.php?idCollaborator=<?php echo $idCollaborator; ?>&idCategorie=<?php echo $categories[$x]['_id']; ?>" stlye="text-decoration: none;">
                 <button class="btn btn-dark btn-lg" type="submit">Solicitar Acceso</button>
                 </a>
                 </div>

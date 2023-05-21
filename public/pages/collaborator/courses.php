@@ -166,7 +166,7 @@ else
     <p class="card-text" style="margin: 10px; padding: 5px;">Es para tu conocimiento el saber que el tener acceso a la categoría que continua no esta sujeta unicamente a contestar todos los cursos de la categoría anterior, también debes cumplir con otro criterio que es el de las OPERACIONES con las que cuentas, mismas que se mencionan en el apartado de la pagina de tu inicio en "DESARROLLO DE HÁBILIDADES". </p>
     <p class="card-text" style="margin: 10px; padding: 5px;">Esta ultima condición no es la misma para todas las áreas ya que puede llegar a ser diferente el numero de operaciones requeridas, tanto para el usuario, como para la categoría.</p>
     <ul style="margin: 10px; padding: 5px;">
-     <li class="card-text">(Da click para conocer este apartado "OPCIONAL").</li>
+     <li class="card-text">(Está decisión la toma personal "Administrativo").</li>
     </ul>
   </div>
 </div>

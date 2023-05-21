@@ -33,8 +33,8 @@ else
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="position-sticky" id="navbarSupportedContent">
-      <form class="d-flex" role="search" method="GET" action="./showAcollaborator.php">
-        <input type="hidden" value="<?php echo $numberCollaborator; ?>" name="numberCollaborator">
+      <form class="d-flex" role="search" method="GET" action="./courses.php">
+        <input type="hidden" value="<?php echo $idCollaborator; ?>" name="id">
         <button class="btn btn-outline-primary" type="submit">Regresar</button>
       </form>
     </div>

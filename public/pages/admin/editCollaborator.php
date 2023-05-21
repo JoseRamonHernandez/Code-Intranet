@@ -95,6 +95,9 @@ set_error_handler("exception_error_handler");
         <option value="ensamblado">Ensamblado</option>
         <option value="espuma">Espuma</option>
         <option value="almacen">Almacen</option>
+        <option value="giostra">Giostra</option>
+        <option value="liberado">Liberado</option>
+        <option value="calidad">Calidad de proceso</option>
       </select>
     </div>
     
@@ -137,9 +140,9 @@ echo $projects[$x]['_id'];
  
   <div class="row">
   <div class="form-group col-md-4">
-      <label for="inputState">Status: <?php echo$datos['status']?></label>
+      <label for="inputState">Status: </label>
       <select id="inputState" name="status" class="form-control" required>
-        <option selected  required>Choose...</option>
+        <option selected  required><?php echo$datos['status']?></option>
         <option value="activo">Activo</option>
         <option value="baja">Baja</option>
       </select>

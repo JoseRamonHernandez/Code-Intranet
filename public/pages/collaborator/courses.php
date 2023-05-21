@@ -50,6 +50,7 @@ else
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       <li class="nav-item dropdown">
+      <a class="btn btn-success btn-lg" href="showCoursesCompleted.php?idCollaborator=<?php echo $idCollaborator; ?>">Cursos completados</a>
         </li>
 
       </ul>

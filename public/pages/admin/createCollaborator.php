@@ -219,6 +219,9 @@ if(isset($_GET['guardar'])==1)
         <option value="ensamblado">Ensamblado</option>
         <option value="espuma">Espuma</option>
         <option value="almacen">Almacen</option>
+        <option value="giostra">Giostra</option>
+        <option value="liberado">Liberado</option>
+        <option value="calidad">Calidad de proceso</option>
       </select>
     </div>
 
@@ -270,6 +273,7 @@ echo $datos[$x]['_id'];
   <div class="col">
     <a>Fotografía:</a>
     <input name="archivo-a-subir" type="file"/>
+    <label for="" style="font-size:18px; color: red;">(El peso de la imagen debe ser menor a 100mb para que el programa la reconozca, en caso contrario se añadirá el logo de la empresa).</label>
     </div>
 </div>
 <br>

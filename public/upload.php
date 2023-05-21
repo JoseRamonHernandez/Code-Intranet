@@ -24,6 +24,7 @@ $empleado = $_POST['empleado'];
   $area = $_POST['area'];
 
   $user_type = "administrator";
+  $project = "null";
  
 if(!empty($_FILES['archivo-a-subir']['name']))
 {
@@ -61,7 +62,8 @@ try
     'password' => $password,
     'area' => $area,
     'photo' => $img,
-    'user_type' => $user_type
+    'user_type' => $user_type,
+    'project' => $project
  );
   
  $jsonDataEncoded = json_encode($jsonData);

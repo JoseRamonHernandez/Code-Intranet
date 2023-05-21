@@ -42,9 +42,9 @@ $datos = json_decode(file_get_contents("http://localhost:3000/projects"), true);
 <h5>Selecciona un proyecto</h5>
     <div class="card border-dark mb-3">
         <div class="container" style="padding-top: 2%">
-        <form class="form-control" action="">
+        <form class="form-control" action="registerClersProject.php" method="GET">
         <div class="input-group mb-3">
-        <select class="form-select card border-secondary mb-3" id="inputGroupSelect01" required>
+        <select class="form-select card border-secondary mb-3" name="project" id="inputGroupSelect01" required>
             <option selected>Choose...</option>
             <?php
 
@@ -65,10 +65,11 @@ echo $datos[$x]['_id'];
         <label for="floatingInput">Ingresa los Cler´s que se sumarán</label>
         </div>
         <div class="col mb-3">
-            <button class="btn btn-outline-success">Registrar</button>
+            <button class="btn btn-outline-success" name="saveData">Registrar</button>
         </div>
         </div>
         </form>
+        <br>
     </div>
 </div>
 

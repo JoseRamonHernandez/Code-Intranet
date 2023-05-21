@@ -113,7 +113,7 @@ set_error_handler("exception_error_handler");
             ?>
             <div class="col">
               <div class="card h-100">
-                <img src="<?php echo($datos[$x]['photo']);?>" class="card-img-top" alt="...">
+                <img src="../../subidas/<?php echo($datos[$x]['photo']);?>" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title"><?php echo($datos[$x]['name']);?> <?php echo($datos[$x]['lastname']);?></h5>
                   <h6 class="card-text"><?php echo($datos[$x]['numero_empleado']);?></h6>

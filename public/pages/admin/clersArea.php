@@ -41,7 +41,7 @@
 <h5>Selecciona un área</h5>
     <div class="card border-dark mb-3">
         <div class="container" style="padding-top: 2%">
-        <form class="form-control" action="">
+        <form class="form-control" action="registerClersArea.php" method="GET">
         <div class="input-group mb-3">
         <select class="form-select card border-secondary mb-3" name="area" id="inputGroupSelect01" required>
         <option selected  required>Choose...</option>
@@ -49,6 +49,10 @@
         <option value="ensamblado">Ensamblado</option>
         <option value="espuma">Espuma</option>
         <option value="almacen">Almacen</option>
+        <option value="giostra">Giostra</option>
+        <option value="liberado">Liberado</option>
+        <option value="calidad">Calidad de Proceso</option>
+
         </select>
         </div>
         Cler´s
@@ -57,10 +61,11 @@
         <label for="floatingInput">Ingresa los Cler´s que se sumarán</label>
         </div>
         <div class="col mb-3">
-            <button class="btn btn-outline-success">Registrar</button>
+            <button class="btn btn-outline-success" name="saveData">Registrar</button>
         </div>
         </div>
         </form>
+        <br>
     </div>
 </div>
 

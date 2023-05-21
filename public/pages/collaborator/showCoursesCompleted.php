@@ -1,11 +1,12 @@
 <?php
 
-if(empty($_GET['id']))
+if(empty($_GET['idCollaborator']))
 {
-    echo ("No se reciben parámetros");
-}else
+    echo ("Sin parámetros");
+}
+else
 {
-    $idCollaborator = $_GET['id'];
+    $idCollaborator = $_GET['idCollaborator'];
 
     $datosCollaborator = json_decode(file_get_contents("http://localhost:3000/collaboratorFind/$idCollaborator"), true);
     $numberCollaborator = $datosCollaborator['numero_empleado'];
@@ -41,11 +42,11 @@ if(empty($_GET['id']))
 </nav>
 
 <div class="container">
-    <h2 style="color: blue;">Se muestra todos los cursos en los que el usuario <?php echo $datosCollaborator['name']; echo " "; echo $datosCollaborator['lastname'];?> ha tomado y los ha pasado.</h2>
-    <hr>
+    <h4 style="color: black;">Listado de Cursos aprobados.</h4>
+    <br>
 
     <div class="table-responsive">
-         <table class="table">
+         <table class="table table-dark">
 <thead>
   <tr>
     <th scope="col" class="text-center">Categoría</th>
@@ -107,6 +108,10 @@ for($x=0; $x<count($courses); $x++)
       </div>
 </div>
 <?php
+
+
+?>
+    <?php
 }
 
 ?>

@@ -63,6 +63,12 @@ if(!empty($_GET['numberCollaborator']))
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="./showCollaborators.php?area=espuma">ESPUMA</a></li>
               <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="./showCollaborators.php?area=giostra">GIOSTRA</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="./showCollaborators.php?area=liberado">LIBERADO</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="./showCollaborators.php?area=calidad">CALIDAD DE PROCESO</a></li>
+              
           </ul>
           <li class="nav-item ">
           <a class="nav-link" href="./registerOperation.php?numberCollaborator=<?php echo $numberCollaborator; ?>">Registrar Operación</a>

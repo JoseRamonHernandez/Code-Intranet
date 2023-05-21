@@ -54,7 +54,7 @@ if(empty($_GET['id']) || empty($_GET['idVacancie']))
 
 
        //url de la petición
- $url = "http://localhost:3000/$idVacancie";
+ $url = "http://localhost:3000/registerApplicators/$idVacancie";
  
  //inicializamos el objeto CUrl
  $ch = curl_init($url);
